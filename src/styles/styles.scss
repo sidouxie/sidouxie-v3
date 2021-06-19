@@ -1,0 +1,56 @@
+@import 'options';
+
+@font-face {
+  font-family: 'futurab';
+  src: local('futurab'), url(../fonts/futurab.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'futuram';
+  src: local('futuram'), url(../fonts/futuram.ttf) format('truetype');
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    sans-serif;
+  background-color: $color-600;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'futurab';
+}
+
+.title {
+  @include title;
+}
+
+.subtitle {
+  @include subtitle;
+}
+
+.text {
+  @include text;
+}
+
+header {
+  width: 100%;
+  height: 8vh;
+  position: relative;
+  display: block;
+}
+
+nav {
+  width: -webkit-fill-available;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}

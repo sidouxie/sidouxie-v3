@@ -1,0 +1,41 @@
+/* colors schema */
+
+$color-primary: #0742f2;
+$color-secondary: #f2a30f;
+$color-300: #1c1c1c;
+$color-400: #6c6c6c;
+$color-500: #8c8c8c;
+$color-600: #f8f8f8;
+
+/* STYLE TITLE */
+
+@mixin title {
+  font-family: 'futurab';
+  font-size: 3rem;
+  font-weight: 600;
+  color: $color-300;
+  margin: 2.5rem 0;
+  letter-spacing: -2.5px;
+}
+
+@mixin subtitle {
+  font-family: 'futuram';
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: $color-400;
+  margin: 0.5rem 0;
+}
+
+@mixin text {
+  font-size: 1rem;
+  font-weight: 400;
+  color: $color-500;
+  line-height: 1.45;
+  margin: 0.2rem 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
