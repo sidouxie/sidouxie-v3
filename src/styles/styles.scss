@@ -53,4 +53,22 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
+  z-index: 10;
+}
+
+.menu-mobile {
+  display: none;
+  z-index: 8;
+
+  &.active {
+    position: fixed;
+    opacity: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #c2c2c2;
+  }
 }
