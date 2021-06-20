@@ -1,24 +1,38 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { ReactComponent as SidouxieLogo } from '../assets/SidouxieLogo.svg'
 import { ReactComponent as IconUp } from '../assets/iconUp.svg'
 import { ReactComponent as IconDown } from '../assets/iconDown.svg'
+import { ReactComponent as Behance } from '../assets/behance.svg'
+import { ReactComponent as Instagram } from '../assets/instagram.svg'
+import { ReactComponent as Github } from '../assets/github.svg'
 import { gsap } from 'gsap'
 
 function Menu({ isopen, handleClick }) {
-  let menuRef = useRef(null)
-
   useEffect(() => {
-    gsap.from([menuRef.current], 0.8, {
-      opacity: 0,
-      x: '50%',
-    })
+    if (isopen) {
+      gsap.from('header .menu-mobile.active', 0.8, {
+        opacity: 0,
+        y: '-100%',
+      })
 
-    gsap.to([menuRef.current], 0.8, {
-      ease: 'power3.out',
-      opacity: 1,
-      x: 0,
-    })
+      gsap.to('header .menu-mobile.active', 0.8, {
+        ease: 'power3.out',
+        opacity: 1,
+        y: 0,
+      })
+    } else {
+      gsap.from('header .menu-mobile', 0.8, {
+        opacity: 1,
+        y: 0,
+      })
+
+      gsap.to('header .menu-mobile', 0.8, {
+        ease: 'power3.out',
+        opacity: 0,
+        y: '-100%',
+      })
+    }
   }, [isopen])
 
   return (
@@ -47,11 +61,52 @@ function Menu({ isopen, handleClick }) {
           />
         )}
       </nav>
-      <div ref={menuRef} className={`menu-mobile ${isopen && 'active'}`}>
-        <h2>This Is Menu MtherFucker</h2>
-        <Link to="/work">WORK</Link>
-        <Link to="/about">ABOUT</Link>
-        <Link to="/contact">CONTACT</Link>
+      <div className={`menu-mobile ${isopen && 'active'}`}>
+        <div className="wrapper-mobile">
+          <div className="ligne-top"></div>
+          <div className="ligne-bot"></div>
+          <div className="sec-links">
+            <Link to="/work">WORK</Link>
+            <Link to="/about">ABOUT</Link>
+            <Link to="/contact">CONTACT</Link>
+          </div>
+          <div className="sec-icons">
+            <a
+              rel="noreferrer"
+              target="_blank"
+              href="https://behance.net/sidouxie"
+            >
+              <Behance
+                fill={'fefefe'}
+                width={'32px'}
+                style={{ cursor: 'pointer', opacity: '.5' }}
+              />
+            </a>
+            <a
+              rel="noreferrer"
+              target="_blank"
+              href="https://instagram.com/sid_ouxi"
+            >
+              <Instagram
+                fill={'fefefe'}
+                width={'32px'}
+                style={{ cursor: 'pointer', opacity: '.5' }}
+              />
+            </a>
+
+            <a
+              rel="noreferrer"
+              target="_blank"
+              href="https://github.com/sidouxie"
+            >
+              <Github
+                fill={'fefefe'}
+                width={'32px'}
+                style={{ cursor: 'pointer', opacity: '.5' }}
+              />
+            </a>
+          </div>
+        </div>
       </div>
     </header>
   )
