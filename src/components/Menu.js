@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ReactComponent as SidouxieLogo } from '../assets/SidouxieLogo.svg'
 import { ReactComponent as IconUp } from '../assets/iconUp.svg'
@@ -9,6 +9,22 @@ import { ReactComponent as Github } from '../assets/github.svg'
 import { gsap } from 'gsap'
 
 function Menu({ isopen, handleClick }) {
+  const [isHover, setIsHover] = useState(false)
+  const [isInsta, setIsInsta] = useState(false)
+  const [isGit, setIsGit] = useState(false)
+
+  const handlebehance = () => {
+    setIsHover(!isHover)
+  }
+
+  const handleInsta = () => {
+    setIsInsta(!isInsta)
+  }
+
+  const handleGit = () => {
+    setIsGit(!isGit)
+  }
+
   useEffect(() => {
     if (isopen) {
       gsap.from('header .menu-mobile.active', 0.8, {
@@ -27,7 +43,10 @@ function Menu({ isopen, handleClick }) {
         y: 0,
       })
 
-      gsap.to('header .menu-mobile', 0.8, {
+      gsap.to('header .menu-mobile', 1.4, {
+        stagger: {
+          amount: 0.6,
+        },
         ease: 'power3.out',
         opacity: 0,
         y: '-100%',
@@ -79,7 +98,10 @@ function Menu({ isopen, handleClick }) {
               <Behance
                 fill={'fefefe'}
                 width={'32px'}
-                style={{ cursor: 'pointer', opacity: '.5' }}
+                style={{ cursor: 'pointer' }}
+                opacity={isHover ? 1 : 0.5}
+                onMouseEnter={() => handlebehance(isHover)}
+                onMouseLeave={() => handlebehance(!isHover)}
               />
             </a>
             <a
@@ -90,7 +112,10 @@ function Menu({ isopen, handleClick }) {
               <Instagram
                 fill={'fefefe'}
                 width={'32px'}
-                style={{ cursor: 'pointer', opacity: '.5' }}
+                style={{ cursor: 'pointer' }}
+                opacity={isInsta ? 1 : 0.5}
+                onMouseEnter={() => handleInsta(isInsta)}
+                onMouseLeave={() => handleInsta(!isInsta)}
               />
             </a>
 
@@ -102,7 +127,10 @@ function Menu({ isopen, handleClick }) {
               <Github
                 fill={'fefefe'}
                 width={'32px'}
-                style={{ cursor: 'pointer', opacity: '.5' }}
+                style={{ cursor: 'pointer' }}
+                opacity={isGit ? 1 : 0.5}
+                onMouseEnter={() => handleGit(isGit)}
+                onMouseLeave={() => handleGit(!isGit)}
               />
             </a>
           </div>

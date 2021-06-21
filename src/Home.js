@@ -1,8 +1,14 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Layout from './components/Layout'
 import { gsap } from 'gsap'
 
 function Home() {
+  const [isHover, setIsHover] = useState(false)
+
+  const handleIsHover = () => {
+    return setIsHover(!isHover)
+  }
+
   useEffect(() => {
     gsap.from('.title', 1, {
       delay: 1,
@@ -31,99 +37,42 @@ function Home() {
         <div className="App">
           <div className="container" data-scroll>
             <div className="wrapper">
-              <h1 className="title">Darky-plumbing</h1>
-              <div className="subtitle">Objectif du client</div>
-              <p className="text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
-                quis, velit iusto voluptatem porro placeat modi facere fuga
-                architecto sunt sint culpa aperiam soluta voluptatum vero minus
-                odio, sed iure. Libero repudiandae perspiciatis dicta. Nihil
-                sint aspernatur natus aut quas iure itaque aliquid, totam
-                nostrum qui aliquam eius voluptate laboriosam quidem, nulla
-                distinctio? Non, consectetur recusandae praesentium amet
-                corporis eligendi?
-              </p>
+              <div className="hero-banner">
+                <div className="sec-title">
+                  <h2>Hello !</h2>
+                  <div className="hand-slap">
+                    <img src="./images/wave.png" alt="hand say hello" />
+                  </div>
+                </div>
 
-              <p className="text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
-                quis, velit iusto voluptatem porro placeat modi facere fuga
-                architecto sunt sint culpa aperiam soluta voluptatum vero minus
-                odio, sed iure. Libero repudiandae perspiciatis dicta. Nihil
-                sint aspernatur natus aut quas iure itaque aliquid, totam
-                nostrum qui aliquam eius voluptate laboriosam quidem, nulla
-                distinctio? Non, consectetur recusandae praesentium amet
-                corporis eligendi?
-              </p>
+                <div className="sec-text">
+                  <p>
+                    Je suis <strong>Sid Ahmed Baroutchi</strong>, un ingénieure
+                    en développement web front-end axée sur la conception et sur
+                    la création de belles interfaces et expériences.
+                  </p>
 
-              <p className="text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
-                quis, velit iusto voluptatem porro placeat modi facere fuga
-                architecto sunt sint culpa aperiam soluta voluptatum vero minus
-                odio, sed iure. Libero repudiandae perspiciatis dicta. Nihil
-                sint aspernatur natus aut quas iure itaque aliquid, totam
-                nostrum qui aliquam eius voluptate laboriosam quidem, nulla
-                distinctio? Non, consectetur recusandae praesentium amet
-                corporis eligendi?
-              </p>
-
-              <p className="text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
-                quis, velit iusto voluptatem porro placeat modi facere fuga
-                architecto sunt sint culpa aperiam soluta voluptatum vero minus
-                odio, sed iure. Libero repudiandae perspiciatis dicta. Nihil
-                sint aspernatur natus aut quas iure itaque aliquid, totam
-                nostrum qui aliquam eius voluptate laboriosam quidem, nulla
-                distinctio? Non, consectetur recusandae praesentium amet
-                corporis eligendi?
-              </p>
-            </div>
-
-            <div className="wrapper">
-              <h1 className="title">Droppy.ml</h1>
-              <div className="subtitle">Objectif du client</div>
-              <p className="text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
-                quis, velit iusto voluptatem porro placeat modi facere fuga
-                architecto sunt sint culpa aperiam soluta voluptatum vero minus
-                odio, sed iure. Libero repudiandae perspiciatis dicta. Nihil
-                sint aspernatur natus aut quas iure itaque aliquid, totam
-                nostrum qui aliquam eius voluptate laboriosam quidem, nulla
-                distinctio? Non, consectetur recusandae praesentium amet
-                corporis eligendi?
-              </p>
-
-              <p className="text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
-                quis, velit iusto voluptatem porro placeat modi facere fuga
-                architecto sunt sint culpa aperiam soluta voluptatum vero minus
-                odio, sed iure. Libero repudiandae perspiciatis dicta. Nihil
-                sint aspernatur natus aut quas iure itaque aliquid, totam
-                nostrum qui aliquam eius voluptate laboriosam quidem, nulla
-                distinctio? Non, consectetur recusandae praesentium amet
-                corporis eligendi?
-              </p>
-
-              <p className="text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
-                quis, velit iusto voluptatem porro placeat modi facere fuga
-                architecto sunt sint culpa aperiam soluta voluptatum vero minus
-                odio, sed iure. Libero repudiandae perspiciatis dicta. Nihil
-                sint aspernatur natus aut quas iure itaque aliquid, totam
-                nostrum qui aliquam eius voluptate laboriosam quidem, nulla
-                distinctio? Non, consectetur recusandae praesentium amet
-                corporis eligendi?
-              </p>
-
-              <p className="text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
-                quis, velit iusto voluptatem porro placeat modi facere fuga
-                architecto sunt sint culpa aperiam soluta voluptatum vero minus
-                odio, sed iure. Libero repudiandae perspiciatis dicta. Nihil
-                sint aspernatur natus aut quas iure itaque aliquid, totam
-                nostrum qui aliquam eius voluptate laboriosam quidem, nulla
-                distinctio? Non, consectetur recusandae praesentium amet
-                corporis eligendi?
-              </p>
+                  <div className="sec-btn">
+                    <h3>me contacter : </h3>
+                    <div
+                      className="btn-action"
+                      onMouseEnter={() => handleIsHover(!isHover)}
+                      onMouseLeave={() => handleIsHover(!isHover)}
+                    >
+                      <a
+                        href="mailto:sid_ouxie@hotmail.com"
+                        rel="noopener noreferrer"
+                        title="e-mail"
+                      >
+                        sid_ouxie@hotmail.com
+                      </a>
+                      <div
+                        className={`ligne-blue ${isHover ? 'active' : ''}`}
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
