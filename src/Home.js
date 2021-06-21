@@ -35,7 +35,7 @@ function Home() {
     <>
       <Layout>
         <div className="App">
-          <div className="container" data-scroll>
+          <div className="container">
             <div className="wrapper">
               <div className="hero-banner">
                 <div className="sec-title">
