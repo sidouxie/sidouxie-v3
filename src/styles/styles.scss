@@ -1,14 +1,5 @@
 @import 'options';
 
-@font-face {
-  font-family: 'futurab';
-  src: local('futurab'), url(../fonts/futurab.ttf) format('truetype');
-}
-@font-face {
-  font-family: 'futuram';
-  src: local('futuram'), url(../fonts/futuram.ttf) format('truetype');
-}
-
 body {
   visibility: hidden;
   width: 100%;
@@ -25,7 +16,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'futurab';
+  font-family: 'Poppins', sans-serif;
 }
 
 .title {
@@ -116,9 +107,9 @@ nav {
       align-items: center;
 
       a {
-        font-family: 'futuram';
+        font-family: 'Poppins', sans-serif;
         font-size: 2.2rem;
-        font-weight: 900;
+        font-weight: 700;
         list-style: none;
         text-decoration: none;
         color: $color-300;

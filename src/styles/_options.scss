@@ -10,18 +10,18 @@ $color-600: #f8f8f8;
 /* STYLE TITLE */
 
 @mixin title {
-  font-family: 'futurab';
+  font-family: 'Poppins', sans-serif;
   font-size: 3rem;
-  font-weight: 600;
+  font-weight: 700;
   color: $color-300;
   margin: 2.5rem 0;
   letter-spacing: -2.5px;
 }
 
 @mixin subtitle {
-  font-family: 'futuram';
+  font-family: 'Poppins', sans-serif;
   font-size: 1.2rem;
-  font-weight: 600;
+  font-weight: 500;
   color: $color-400;
   margin: 0.5rem 0;
 }
