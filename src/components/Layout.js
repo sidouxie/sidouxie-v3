@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Menu from './Menu'
 
 function Layout(props) {
-  const [isopen, setIsopen] = useState(null)
+  const [isopen, setIsopen] = useState(false)
   const handleClick = () => {
     setIsopen(!isopen)
   }

@@ -38,11 +38,6 @@ function Menu({ isopen, handleClick }) {
         y: 0,
       })
     } else {
-      gsap.from('header .menu-mobile', 0.8, {
-        opacity: 1,
-        y: 0,
-      })
-
       gsap.to('header .menu-mobile', 1.4, {
         stagger: {
           amount: 0.6,

@@ -7,30 +7,62 @@ function Work() {
     {
       id: '1',
       title: 'Darky-plumbing',
-      desc: ' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum inventore aliquam placeat aliquid voluptates dolore in repellat exercitationem ipsa possimus facere fugiat itaque error, laudantium rerum ut, fuga vero sequi. Corrupti ipsa aliquid consequuntur! Ipsam eaque molestiae ratione. Nobis voluptas reprehenderit, accusamus assumenda doloremque aut commodi praesentium voluptatem eligendi cum natus totam sint vel. Mollitia ipsum quae quas iure animi!',
-      color: '#c6c6c6',
+      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis assumenda eligendi impedit facilis eveniet odit nemo quaerat natus! Aliquid, eveniet consectetur quidem animi temporibus expedita vel possimus assumenda ad fuga.',
+      color: '#015d82',
+      colorTitle: "#fefefe",
+      colorText: "#f6f6f6",
+      imgPath: './captures/darky-capture.jpg'
     },
     {
       id: '2',
       title: 'Droppy',
-      desc: ' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum inventore aliquam placeat aliquid voluptates dolore in repellat exercitationem ipsa possimus facere fugiat itaque error, laudantium rerum ut, fuga vero sequi. Corrupti ipsa aliquid consequuntur! Ipsam eaque molestiae ratione. Nobis voluptas reprehenderit, accusamus assumenda doloremque aut commodi praesentium voluptatem eligendi cum natus totam sint vel. Mollitia ipsum quae quas iure animi!',
-      color: '#c4c4c4',
+      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis assumenda eligendi impedit facilis eveniet odit nemo quaerat natus! Aliquid, eveniet consectetur quidem animi temporibus expedita vel possimus assumenda ad fuga.',
+      color: '#0033cc',
+      colorTitle: "#fefefe",
+      colorText: "#f6f6f6",
+      imgPath: './captures/droppy-capture.jpg'
     },
     {
       id: '3',
-      title: 'Walid Khaladi',
-      desc: ' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum inventore aliquam placeat aliquid voluptates dolore in repellat exercitationem ipsa possimus facere fugiat itaque error, laudantium rerum ut, fuga vero sequi. Corrupti ipsa aliquid consequuntur! Ipsam eaque molestiae ratione. Nobis voluptas reprehenderit, accusamus assumenda doloremque aut commodi praesentium voluptatem eligendi cum natus totam sint vel. Mollitia ipsum quae quas iure animi!',
-      color: '#c2c2c2',
+      title: 'Walid Khaladi v2',
+      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis assumenda eligendi impedit facilis eveniet odit nemo quaerat natus! Aliquid, eveniet consectetur quidem animi temporibus expedita vel possimus assumenda ad fuga.',
+
+      color: '#1c1c1c',
+      colorTitle: "#fefefe",
+      colorText: "#f6f6f6",
+      imgPath: './captures/willab-capture.jpg'
     },
     {
       id: '4',
       title: 'N-Seddi',
-      desc: ' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum inventore aliquam placeat aliquid voluptates dolore in repellat exercitationem ipsa possimus facere fugiat itaque error, laudantium rerum ut, fuga vero sequi. Corrupti ipsa aliquid consequuntur! Ipsam eaque molestiae ratione. Nobis voluptas reprehenderit, accusamus assumenda doloremque aut commodi praesentium voluptatem eligendi cum natus totam sint vel. Mollitia ipsum quae quas iure animi!',
-      color: '#c1c1c1',
+      desc: ' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum inventore aliquam placeat aliquid voluptates dolore in repellat exercitationem ipsa possimus facere fugiat itaque error, laudantium rerum ut, fuga vero sequi.',
+      color: '#009898',
+      colorTitle: "#fefefe",
+      colorText: "#f6f6f6",
+      imgPath: './captures/nseddi-capture.jpg'
+    },
+    {
+      id: '5',
+      title: 'Walid Khaladi v1',
+      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis assumenda eligendi impedit facilis eveniet odit nemo quaerat natus! Aliquid, eveniet consectetur quidem animi temporibus expedita vel possimus assumenda ad fuga.',
+      color: '#74bac2',
+      colorTitle: "#fefefe",
+      colorText: "#f6f6f6",
+      imgPath: './captures/walid-capture.jpg'
+    },
+    {
+      id: '6',
+      title: 'Sidouxie v2',
+      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis assumenda eligendi impedit facilis eveniet odit nemo quaerat natus! Aliquid, eveniet consectetur quidem animi temporibus expedita vel possimus assumenda ad fuga.',
+      color: '#11e783',
+      colorTitle: "#fefefe",
+      colorText: "#f6f6f6",
+      imgPath: './captures/sidouxie-capture.jpg'
     },
   ]
 
   return (
+    
     <>
       <Layout>
         <div className="container">
@@ -42,7 +74,7 @@ function Work() {
               <div className="ligne"></div>
               <div className="card-wrap">
                 {data.map((card) => (
-                  <CardWrapper data={card} key={data.id} />
+                  <CardWrapper data={card} key={card.id} />
                 ))}
               </div>
             </main>
