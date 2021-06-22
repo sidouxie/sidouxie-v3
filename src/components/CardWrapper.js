@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react'
+import {Link} from 'react-router-dom'
 import { gsap } from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 
@@ -14,7 +15,34 @@ function CardWrapper({ data }) {
   let textRef = useRef([])
   textRef.current = []
 
+  let cardRef = useRef([])
+  cardRef.current = []
+
   useEffect(() => {
+
+    cardRef.current.forEach((el, index) => {
+      gsap.fromTo(el, { visibility: 'hidden',autoAlpha: 0, scale: 1.5, x:60 }, {
+        duration: 0.6,
+        delay: 0.2,
+        visibility: 'visible',
+        x:0,
+        scale: 1,
+        autoAlpha: 1,
+        ease: 'power3.out',
+        stagger: {
+          amount: 0.8
+        },
+        scrollTrigger: {
+          id: `visiblity card ${index + 1}`,
+            trigger: el,
+            start: 'top top+=400',
+            markers: false,
+            
+        }
+      })
+    })
+
+
     bgRef.current.forEach((el, index) => {
       gsap.fromTo(
         el,
@@ -28,8 +56,8 @@ function CardWrapper({ data }) {
           scrollTrigger: {
             id: `card ${index + 1}`,
             trigger: el,
-            start: 'top top+=150',
-            end: 'top center',
+            start: 'top top+=250',
+            end: '+=250',
             markers: false,
             toggleActions: 'play none none reverse',
           },
@@ -50,7 +78,7 @@ function CardWrapper({ data }) {
           scrollTrigger: {
             id: `title card ${index + 1}`,
             trigger: el,
-            start: 'top top+=150',
+            start: 'top top+=200',
             end: '+=200',
             markers: false,
             toggleActions: 'play none none reverse',
@@ -99,14 +127,22 @@ function CardWrapper({ data }) {
     }
   }
 
+  const addCardRef = (el) => {
+    if (el && !cardRef.current.includes(el)) {
+      cardRef.current.push(el)
+    }
+  }
+
   return (
     <div
+      ref={addCardRef}
       className="card-index"
       style={{ backgroundImage: `url(${data.imgPath})` }}
     >
+      <Link to={`/work/${data.slug}`}>
       <div className="sec-head">
-        <h3 ref={addToRefsTitle}>{data.title}</h3>
-        <p ref={addTextRef}>{data.desc}</p>
+        <h3 style={{color: data.colorTitle}} ref={addToRefsTitle}>{data.title}</h3>
+        <p style={{color: data.colorText}} ref={addTextRef}>{data.desc}</p>
       </div>
       <div
         id={data.title}
@@ -114,6 +150,7 @@ function CardWrapper({ data }) {
         className="sec-bg"
         style={{ backgroundColor: data.color }}
       ></div>
+      </Link>
     </div>
   )
 }

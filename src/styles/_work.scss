@@ -4,6 +4,8 @@
   width: 100%;
   min-height: 100vh;
   transition: all 0.6s ease-in;
+  margin: 7rem 0;
+
 
   .ligne {
     width: 100%;
@@ -17,6 +19,7 @@
     grid-template-columns: 1fr 1fr;
     grid-gap: 2rem;
     transition: all 0.6s ease-in;
+    margin: 3rem 0;
 
     @media (max-width: 1050px) {
       grid-template-columns: 1fr;
@@ -26,6 +29,7 @@
     .card-index {
       width: 500px;
       height: 300px;
+      opacity: 0;
       display: inline-block;
       position: relative;
       background-position: center;
