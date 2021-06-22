@@ -47,9 +47,9 @@ function Home() {
 
                 <div className="sec-text">
                   <p>
-                    Je suis <strong>Sid Ahmed Baroutchi</strong>, un ingénieure
-                    en développement web front-end axée sur la conception et sur
-                    la création de belles interfaces et expériences.
+                    Je suis <strong>Sid Ahmed Baroutchi</strong>, un ingénieur
+                    en développement web front-end axée sur la conception et la
+                    création de belles interfaces et expériences utilisateur.
                   </p>
 
                   <div className="sec-btn">

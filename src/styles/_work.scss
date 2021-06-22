@@ -29,8 +29,8 @@
       display: inline-block;
       position: relative;
       background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+      background-repeat: no-repeat;
+      background-size: cover;
       transition: all 0.6s ease-in;
 
       @media (max-width: 1050px) {
@@ -49,9 +49,11 @@
         z-index: 2;
 
         h3 {
-          font-size: 1.6rem;
+          font-size: 2rem;
           font-weight: 600;
           color: $color-300;
+          opacity: 0;
+          padding: 1rem 0;
         }
 
         p {
@@ -60,6 +62,7 @@
           line-height: 1.45;
           padding: 1rem 2rem;
           color: $color-400;
+          opacity: 0;
         }
       }
       .sec-bg {
@@ -68,8 +71,9 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: -10%;
+        height: 0%;
         z-index: -1;
+        opacity: 0;
       }
     }
   }

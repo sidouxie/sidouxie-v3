@@ -305,3 +305,13 @@ nav {
     }
   }
 }
+
+footer {
+  width: 100%;
+  min-height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $color-300;
+  color: $color-600;
+}

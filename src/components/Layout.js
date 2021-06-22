@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Footer from './Footer'
 import Menu from './Menu'
 
 function Layout(props) {
@@ -11,6 +12,7 @@ function Layout(props) {
     <>
       <Menu isopen={isopen} handleClick={handleClick} />
       {props.children}
+      <Footer />
     </>
   )
 }
