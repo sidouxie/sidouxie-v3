@@ -6,8 +6,8 @@ import Home from './Home'
 import Work from './Work'
 import About from './About'
 import Contact from './Contact'
+import Notfound from './Notfound'
 import WorkPage from './components/WorkPage'
-
 
 const data = [
   {
@@ -19,6 +19,9 @@ const data = [
     colorTitle: '#002729',
     colorText: '#62f9ff',
     imgPath: './captures/darky-capture.jpg',
+    domain: '.ml',
+    link: 'https://darky-plumbing.netlify.app',
+    github: 'https://github.com/sidouxie/Zayn-Plombier',
   },
   {
     id: '2',
@@ -29,6 +32,9 @@ const data = [
     colorTitle: '#001b6a',
     colorText: '#628bfd',
     imgPath: './captures/droppy-capture.jpg',
+    domain: '.ml',
+    link: 'https://droppy.netlify.app',
+    github: 'https://github.com/sidouxie/droppy',
   },
   {
     id: '3',
@@ -39,6 +45,9 @@ const data = [
     colorTitle: '#A8A8A8',
     colorText: '#8a8f8b',
     imgPath: './captures/willab-capture.jpg',
+    domain: '.ml',
+    link: 'https://willab.netlify.app',
+    github: 'https://github.com/sidouxie/willab',
   },
   {
     id: '4',
@@ -49,6 +58,9 @@ const data = [
     colorTitle: '#002729',
     colorText: '#62f9ff',
     imgPath: './captures/nseddi-capture.jpg',
+    domain: '.ml',
+    link: 'https://n-seddi.netlify.app',
+    github: 'https://github.com/sidouxie/n-seddi',
   },
   {
     id: '5',
@@ -59,16 +71,22 @@ const data = [
     colorTitle: '#284042',
     colorText: '#B3F7FF',
     imgPath: './captures/walid-capture.jpg',
+    domain: '.ml',
+    link: 'https://walidkhaladi.netlify.app',
+    github: 'https://github.com/sidouxie/walidkhaladi',
   },
   {
     id: '6',
-    slug: 'sidouxie-v1',
+    slug: 'sidouxie-v2',
     title: 'Sidouxie v2',
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis assumenda eligendi impedit facilis eveniet odit nemo quaerat natus! Aliquid, eveniet consectetur quidem animi temporibus expedita vel possimus assumenda ad fuga.',
     color: '#11e783',
     colorTitle: '#07693B',
     colorText: '#0CA85F',
     imgPath: './captures/sidouxie-capture.jpg',
+    domain: '.ml',
+    link: 'https://sidouxie-v2.netlify.app',
+    github: 'https://github.com/sidouxie/sidouxie-v2',
   },
 ]
 
@@ -86,18 +104,26 @@ function App() {
               <Work data={data} />
             </Route>
 
-            <Route path="/work/:slug" render={({ match }) => (
-              <WorkPage data={data.find(p => p.slug === match.params.slug)} />
-            ) } />
-              
-            <Route path="/about" exact>
+            <Route
+              path="/work/:slug"
+              render={({ match }) => (
+                <WorkPage
+                  data={data.find((p) => p.slug === match.params.slug)}
+                />
+              )}
+            />
+
+            <Route path="/about">
               <About />
             </Route>
             <Route path="/" exact>
               <Home />
             </Route>
-            <Route path="/contact" exact>
+            <Route path="/contact">
               <Contact />
+            </Route>
+            <Route path="/*">
+              <Notfound />
             </Route>
           </Switch>
         </Router>

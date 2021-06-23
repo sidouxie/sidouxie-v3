@@ -1,5 +1,6 @@
 @import 'options';
 @import 'work';
+@import 'workpage';
 
 body {
   visibility: hidden;
@@ -34,7 +35,6 @@ h6 {
 
 header {
   width: 100%;
-  height: 8vh;
   position: relative;
   display: block;
 }
@@ -157,7 +157,7 @@ nav {
 
   .hero-banner {
     width: 100%;
-    height: 90vh - 10vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -314,4 +314,25 @@ footer {
   align-items: center;
   background-color: $color-300;
   color: $color-600;
+}
+
+.not-found {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .flexy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    a {
+      margin: 2rem 0;
+    }
+  }
 }
