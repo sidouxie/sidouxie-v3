@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { ReactComponent as SidouxieLogo } from '../assets/SidouxieLogo.svg'
 import { ReactComponent as IconUp } from '../assets/iconUp.svg'
@@ -12,6 +12,7 @@ function Menu({ isopen, handleClick }) {
   const [isHover, setIsHover] = useState(false)
   const [isInsta, setIsInsta] = useState(false)
   const [isGit, setIsGit] = useState(false)
+  const sidouxieRef = useRef(null)
 
   const handlebehance = () => {
     setIsHover(!isHover)
@@ -54,7 +55,8 @@ function Menu({ isopen, handleClick }) {
       <nav>
         <Link to="/">
           <SidouxieLogo
-            fill={'fefefe'}
+            className="SidouxieLogo"
+            ref={sidouxieRef}
             width={'100px'}
             style={{ cursor: 'pointer' }}
           />
@@ -91,9 +93,8 @@ function Menu({ isopen, handleClick }) {
               href="https://behance.net/sidouxie"
             >
               <Behance
-                fill={'fefefe'}
                 width={'32px'}
-                style={{ cursor: 'pointer' }}
+                style={{ fill: '#0742f2', cursor: 'pointer' }}
                 opacity={isHover ? 1 : 0.5}
                 onMouseEnter={() => handlebehance(isHover)}
                 onMouseLeave={() => handlebehance(!isHover)}
@@ -105,9 +106,8 @@ function Menu({ isopen, handleClick }) {
               href="https://instagram.com/sid_ouxi"
             >
               <Instagram
-                fill={'fefefe'}
                 width={'32px'}
-                style={{ cursor: 'pointer' }}
+                style={{ fill: '#0742f2', cursor: 'pointer' }}
                 opacity={isInsta ? 1 : 0.5}
                 onMouseEnter={() => handleInsta(isInsta)}
                 onMouseLeave={() => handleInsta(!isInsta)}
@@ -120,9 +120,8 @@ function Menu({ isopen, handleClick }) {
               href="https://github.com/sidouxie"
             >
               <Github
-                fill={'fefefe'}
                 width={'32px'}
-                style={{ cursor: 'pointer' }}
+                style={{ fill: '#0742f2', cursor: 'pointer' }}
                 opacity={isGit ? 1 : 0.5}
                 onMouseEnter={() => handleGit(isGit)}
                 onMouseLeave={() => handleGit(!isGit)}

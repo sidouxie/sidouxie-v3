@@ -17,7 +17,7 @@ const data = [
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis assumenda eligendi impedit facilis eveniet odit nemo quaerat natus! Aliquid, eveniet consectetur quidem animi temporibus expedita vel possimus assumenda ad fuga.',
     color: '#015d82',
     colorTitle: '#002729',
-    colorText: '#62f9ff',
+    colorText: '#3ac7e0',
     imgPath: './captures/darky-capture.jpg',
     domain: '.ml',
     link: 'https://darky-plumbing.netlify.app',
@@ -56,7 +56,7 @@ const data = [
     desc: ' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum inventore aliquam placeat aliquid voluptates dolore in repellat exercitationem ipsa possimus facere fugiat itaque error, laudantium rerum ut, fuga vero sequi.',
     color: '#009898',
     colorTitle: '#002729',
-    colorText: '#62f9ff',
+    colorText: '#45e1e4',
     imgPath: './captures/nseddi-capture.jpg',
     domain: '.ml',
     link: 'https://n-seddi.netlify.app',
@@ -97,37 +97,33 @@ function App() {
 
   return (
     <>
-      <div className="scroll-app">
-        <Router>
-          <Switch>
-            <Route path="/work" exact>
-              <Work data={data} />
-            </Route>
+      <Router>
+        <Switch>
+          <Route path="/work" exact>
+            <Work data={data} />
+          </Route>
 
-            <Route
-              path="/work/:slug"
-              render={({ match }) => (
-                <WorkPage
-                  data={data.find((p) => p.slug === match.params.slug)}
-                />
-              )}
-            />
+          <Route
+            path="/work/:slug"
+            render={({ match }) => (
+              <WorkPage data={data.find((p) => p.slug === match.params.slug)} />
+            )}
+          />
 
-            <Route path="/about">
-              <About />
-            </Route>
-            <Route path="/" exact>
-              <Home />
-            </Route>
-            <Route path="/contact">
-              <Contact />
-            </Route>
-            <Route path="/*">
-              <Notfound />
-            </Route>
-          </Switch>
-        </Router>
-      </div>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/" exact>
+            <Home />
+          </Route>
+          <Route path="/contact">
+            <Contact />
+          </Route>
+          <Route path="*">
+            <Notfound />
+          </Route>
+        </Switch>
+      </Router>
     </>
   )
 }

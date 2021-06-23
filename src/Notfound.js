@@ -11,7 +11,15 @@ function Notfound() {
               <h1>404</h1>
             </div>
             <div className="subtitle">
-              <h5>Page not Found, please return home page</h5>
+              <h5
+                style={{
+                  textAlign: 'center',
+                  textTransform: 'capitalize',
+                  lineHeight: '1.6',
+                }}
+              >
+                Page not Found, please return home page
+              </h5>
             </div>
             <Link to="/">Retournez à la page d'accueil.</Link>
           </div>

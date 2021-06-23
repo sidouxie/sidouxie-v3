@@ -1,27 +1,54 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import Layout from './Layout'
+import { gsap } from 'gsap'
+
+//Import Icones
 import { ReactComponent as Github } from '../assets/github.svg'
+import { ReactComponent as IconLink } from '../assets/iconLink.svg'
+import { ReactComponent as IconReturn } from '../assets/iconReturn.svg'
 
 function WorkPage({ data }) {
   const history = useHistory()
 
+  useEffect(() => {
+    gsap.fromTo(
+      '.SidouxieLogo',
+      { css: { fill: '#1c1c1c' } },
+      {
+        ease: 'power3.out',
+        css: { fill: '#fff' },
+        scrollTrigger: {
+          id: 'Logo',
+          trigger: '.SidouxieLogo',
+          start: 'top top',
+          end: '+600',
+          markers: false,
+        },
+      }
+    )
+  }, [])
+
   return (
     <Layout>
       <main className="main-work-page">
-        <div className="head-bg" style={{ backgroundColor: data.color }}>
+        <div
+          className="section-details"
+          style={{ backgroundColor: data.color }}
+        >
           <div className="container">
             <div className="wrapper">
               <div className="section-head">
-                <button
-                  style={{ margin: '3rem 0' }}
-                  onClick={() => history.push('./')}
-                >
-                  Retour à la page présedante
-                </button>
+                <div className="icon-return" onClick={() => history.go(-1)}>
+                  <IconReturn
+                    width={'38px'}
+                    height={'38px'}
+                    style={{ fill: data.colorTitle, cursor: 'pointer' }}
+                  />
+                </div>
 
                 <div
-                  style={{ color: data.colorText, opacity: 0.2 }}
+                  style={{ color: data.colorText, opacity: 0.5 }}
                   className="category"
                 >
                   <h3>site web</h3>
@@ -29,7 +56,7 @@ function WorkPage({ data }) {
                 <div className="title">
                   <h2 style={{ color: data.colorTitle }}>{data.title}</h2>
                   <span
-                    style={{ color: data.colorText, opacity: 0.2 }}
+                    style={{ color: data.colorText, opacity: 0.5 }}
                     className="domain"
                   >
                     {data.domain}{' '}
@@ -66,8 +93,8 @@ function WorkPage({ data }) {
                       href={data.link}
                       rel="noopener noreferrer"
                     >
-                      <Github
-                        width={'38px'}
+                      <IconLink
+                        width={'32px'}
                         style={{
                           fill: `${data.colorTitle}`,
                           cursor: 'pointer',
@@ -82,7 +109,7 @@ function WorkPage({ data }) {
                       rel="noopener noreferrer"
                     >
                       <Github
-                        width={'38px'}
+                        width={'32px'}
                         style={{
                           fill: `${data.colorTitle}`,
                           cursor: 'pointer',
@@ -94,6 +121,13 @@ function WorkPage({ data }) {
               </div>
             </div>
           </div>
+        </div>
+
+        <div className="section-image">
+          <img
+            src={`.${data.imgPath}`}
+            alt={`capture background de site ${data.title}`}
+          />
         </div>
       </main>
     </Layout>
