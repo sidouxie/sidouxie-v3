@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 
@@ -19,29 +19,54 @@ function CardWrapper({ data }) {
   cardRef.current = []
 
   useEffect(() => {
+    gsap.fromTo(
+      '.title',
+      { y: 50, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1.6, delay: 0.4, ease: 'power3.out' }
+    )
+
+    gsap.fromTo(
+      '.text',
+      { x: -20, opacity: 0 },
+      { x: 0, opacity: 1, duration: 2, delay: 0.9, ease: 'power3.out' }
+    )
+
+    gsap.fromTo(
+      '.ligne',
+      { css: { width: 0 }, opacity: 0 },
+      {
+        css: { width: '100%' },
+        opacity: 1,
+        duration: 2,
+        delay: 1.6,
+        ease: 'power3.out',
+      }
+    )
 
     cardRef.current.forEach((el, index) => {
-      gsap.fromTo(el, { visibility: 'hidden',autoAlpha: 0, scale: 1.5, x:60 }, {
-        duration: 0.6,
-        delay: 0.2,
-        visibility: 'visible',
-        x:0,
-        scale: 1,
-        autoAlpha: 1,
-        ease: 'power3.out',
-        stagger: {
-          amount: 0.8
-        },
-        scrollTrigger: {
-          id: `visiblity card ${index + 1}`,
+      gsap.fromTo(
+        el,
+        { visibility: 'hidden', autoAlpha: 0, scale: 1.5, x: 60 },
+        {
+          duration: 0.6,
+          delay: 0.2,
+          visibility: 'visible',
+          x: 0,
+          scale: 1,
+          autoAlpha: 1,
+          ease: 'power3.out',
+          stagger: {
+            amount: 0.8,
+          },
+          scrollTrigger: {
+            id: `visiblity card ${index + 1}`,
             trigger: el,
             start: 'top top+=400',
             markers: false,
-            
+          },
         }
-      })
+      )
     })
-
 
     bgRef.current.forEach((el, index) => {
       gsap.fromTo(
@@ -134,22 +159,23 @@ function CardWrapper({ data }) {
   }
 
   return (
-    <div
-      ref={addCardRef}
-      className="card-index"
-      style={{ backgroundImage: `url(${data.imgPath})` }}
-    >
+    <div ref={addCardRef} className="card-index">
       <Link to={`/work/${data.slug}`}>
-      <div className="sec-head">
-        <h3 style={{color: data.colorTitle}} ref={addToRefsTitle}>{data.title}</h3>
-        <p style={{color: data.colorText}} ref={addTextRef}>{data.desc}</p>
-      </div>
-      <div
-        id={data.title}
-        ref={addToRefs}
-        className="sec-bg"
-        style={{ backgroundColor: data.color }}
-      ></div>
+        <img src={`.${data.imgPath}`} alt={`capture du site ${data.title}`} />
+        <div className="sec-head">
+          <h3 style={{ color: data.colorTitle }} ref={addToRefsTitle}>
+            {data.title}
+          </h3>
+          <p style={{ color: data.colorText }} ref={addTextRef}>
+            {data.desc}
+          </p>
+        </div>
+        <div
+          id={data.title}
+          ref={addToRefs}
+          className="sec-bg"
+          style={{ backgroundColor: data.color }}
+        ></div>
       </Link>
     </div>
   )

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { ReactComponent as SidouxieLogo } from '../assets/SidouxieLogo.svg'
 import { ReactComponent as IconUp } from '../assets/iconUp.svg'
