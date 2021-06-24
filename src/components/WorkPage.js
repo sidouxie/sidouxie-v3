@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import Layout from './Layout'
 import { gsap } from 'gsap'
@@ -13,6 +13,22 @@ gsap.registerPlugin(ScrollTrigger)
 
 function WorkPage({ data }) {
   const history = useHistory()
+
+  const [isLink, setIsLink] = useState(false)
+  const [isGit, setIsGit] = useState(false)
+  const [isHover, setIsHover] = useState(false)
+
+  const handleLink = () => {
+    setIsLink(!isLink)
+  }
+
+  const handleHover = () => {
+    setIsHover(!isHover)
+  }
+
+  const handleGit = () => {
+    setIsGit(!isGit)
+  }
 
   useEffect(() => {
     const tl = gsap.globalTimeline
@@ -64,7 +80,12 @@ function WorkPage({ data }) {
                   <IconReturn
                     width={'38px'}
                     height={'38px'}
-                    style={{ fill: data.colorTitle, cursor: 'pointer' }}
+                    onMouseEnter={() => handleHover(isHover)}
+                    onMouseLeave={() => handleHover(!isHover)}
+                    style={{
+                      fill: `${isHover ? data.colorText : data.colorTitle}`,
+                      cursor: 'pointer',
+                    }}
                   />
                 </div>
 
@@ -116,8 +137,11 @@ function WorkPage({ data }) {
                     >
                       <IconLink
                         width={'32px'}
+                        title={`${data.title} site web`}
+                        onMouseEnter={() => handleLink(isLink)}
+                        onMouseLeave={() => handleLink(!isLink)}
                         style={{
-                          fill: `${data.colorTitle}`,
+                          fill: `${isLink ? data.colorTitle : data.colorText}`,
                           cursor: 'pointer',
                         }}
                       />
@@ -131,8 +155,11 @@ function WorkPage({ data }) {
                     >
                       <Github
                         width={'32px'}
+                        title={`${data.title} Github repository`}
+                        onMouseEnter={() => handleGit(isGit)}
+                        onMouseLeave={() => handleGit(!isGit)}
                         style={{
-                          fill: `${data.colorTitle}`,
+                          fill: `${isGit ? data.colorTitle : data.colorText}`,
                           cursor: 'pointer',
                         }}
                       />
