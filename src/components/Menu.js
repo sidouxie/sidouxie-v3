@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { ReactComponent as SidouxieLogo } from '../assets/SidouxieLogo.svg'
 import { ReactComponent as IconUp } from '../assets/iconUp.svg'
@@ -12,7 +12,6 @@ function Menu({ isopen, handleClick }) {
   const [isHover, setIsHover] = useState(false)
   const [isInsta, setIsInsta] = useState(false)
   const [isGit, setIsGit] = useState(false)
-  const sidouxieRef = useRef(null)
 
   const handlebehance = () => {
     setIsHover(!isHover)
@@ -56,24 +55,26 @@ function Menu({ isopen, handleClick }) {
         <Link to="/">
           <SidouxieLogo
             className="SidouxieLogo"
-            ref={sidouxieRef}
             width={'100px'}
-            style={{ cursor: 'pointer' }}
+            style={{
+              fill: '#1c1c1c',
+              cursor: 'pointer',
+            }}
           />
         </Link>
         {isopen ? (
           <IconDown
+            className="IconDown"
             onClick={() => handleClick(!isopen)}
-            fill={'fefefe'}
             width={'20px'}
             style={{ cursor: 'pointer' }}
           />
         ) : (
           <IconUp
+            className="IconUp"
             onClick={() => handleClick(!isopen)}
-            fill={'fefefe'}
             width={'25px'}
-            style={{ cursor: 'pointer' }}
+            style={{ fill: '#1c1c1c', cursor: 'pointer' }}
           />
         )}
       </nav>
