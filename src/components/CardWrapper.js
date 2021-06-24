@@ -71,7 +71,14 @@ function CardWrapper({ data }) {
     bgRef.current.forEach((el, index) => {
       gsap.fromTo(
         el,
-        { x: -50, css: { height: '100%', width: '0', zIndex: -1 } },
+        {
+          css: {
+            x: 0,
+            height: '100%',
+            width: '0%',
+            zIndex: -1,
+          },
+        },
         {
           duration: 1.6,
           delay: 0.4,

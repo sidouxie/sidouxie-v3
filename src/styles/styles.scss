@@ -53,6 +53,7 @@ nav {
 .menu-mobile {
   display: flex;
   position: absolute;
+  transform: translateY(-105%);
   opacity: 1;
   width: 100%;
   height: 100vh;
@@ -157,7 +158,7 @@ nav {
 
   .hero-banner {
     width: 100%;
-    height: 100vh;
+    height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -220,7 +221,7 @@ nav {
 
         @media (max-width: 865px) {
           font-size: 1.4rem;
-          width: 100%;
+          width: 87%;
         }
 
         strong {

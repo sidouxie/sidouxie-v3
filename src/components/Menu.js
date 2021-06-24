@@ -8,7 +8,7 @@ import { ReactComponent as Instagram } from '../assets/instagram.svg'
 import { ReactComponent as Github } from '../assets/github.svg'
 import { gsap } from 'gsap'
 
-function Menu({ isopen, handleClick }) {
+function Menu({ isopen, handleClick, forwardRef }) {
   const [isHover, setIsHover] = useState(false)
   const [isInsta, setIsInsta] = useState(false)
   const [isGit, setIsGit] = useState(false)
@@ -71,6 +71,7 @@ function Menu({ isopen, handleClick }) {
           />
         ) : (
           <IconUp
+            ref={forwardRef}
             className="IconUp"
             onClick={() => handleClick(!isopen)}
             width={'25px'}

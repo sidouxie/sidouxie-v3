@@ -15,7 +15,9 @@ function WorkPage({ data }) {
   const history = useHistory()
 
   useEffect(() => {
-    gsap.fromTo(
+    const tl = gsap.globalTimeline
+
+    tl.fromTo(
       '.SidouxieLogo',
       { css: { fill: '#1c1c1c' } },
       {
@@ -25,14 +27,12 @@ function WorkPage({ data }) {
           id: 'Logo',
           trigger: '.SidouxieLogo',
           start: 'top top',
-          end: '+=1100',
+          end: '+=1250',
           markers: false,
           toggleActions: 'play reverse play',
         },
       }
-    )
-
-    gsap.fromTo(
+    ).fromTo(
       '.IconUp',
       { css: { fill: '#1c1c1c' } },
       {
@@ -42,14 +42,12 @@ function WorkPage({ data }) {
           id: 'Logo',
           trigger: '.IconUp',
           start: 'top top',
-          end: '+=1100',
+          end: '+=1250',
           markers: false,
           toggleActions: 'play reverse play',
         },
       }
     )
-
-    return ScrollTrigger.refresh()
   }, [])
 
   return (

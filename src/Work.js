@@ -1,9 +1,12 @@
 import React from 'react'
 import Layout from './components/Layout'
 import CardWrapper from './components/CardWrapper'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+import gsap from 'gsap/gsap-core'
 
-function Work({data}) {
+gsap.registerPlugin(ScrollTrigger)
 
+function Work({ data }) {
   return (
     <>
       <Layout>
