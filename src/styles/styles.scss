@@ -314,7 +314,133 @@ footer {
   justify-content: center;
   align-items: center;
   background-color: $color-300;
-  color: $color-600;
+  color: $color-200;
+
+  a {
+    text-decoration: none;
+    color: $color-500;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    font-size: 0.8rem;
+
+    &:hover {
+      color: #e2e2e2;
+      text-decoration: underline;
+    }
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+
+  .sec-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin: 1rem 0;
+
+    .subtitle {
+      line-height: 1.5;
+      color: #e2e2e2;
+      letter-spacing: 0px;
+    }
+  }
+
+  .sec-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    margin: 1rem 0;
+
+    .links {
+      .sub {
+        font-weight: 600;
+        font-size: 1.25rem;
+        font-family: 'Poppins', sans-serif;
+        letter-spacing: -0.8px;
+        margin: 1rem 0;
+      }
+    }
+
+    .get-contact {
+      .sub {
+        font-weight: 600;
+        font-size: 1.25rem;
+        font-family: 'Poppins', sans-serif;
+        letter-spacing: -0.8px;
+        margin: 1rem 0;
+      }
+
+      .info {
+        display: flex;
+        flex-direction: column;
+
+        a {
+          text-transform: lowercase;
+          margin-bottom: 0.5rem;
+          letter-spacing: 0.2px;
+        }
+      }
+    }
+
+    .icones {
+      .icon {
+        display: inline-flex;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+        margin: 1rem 0;
+      }
+
+      li {
+        margin-bottom: 0.5rem;
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  .sec-copyright {
+    text-align: center;
+
+    .ligne {
+      width: 80%;
+      height: 1px;
+      background-color: $color-200;
+      margin: 0.5rem 0;
+      display: inline-block;
+    }
+
+    .wrp {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: $color-200;
+      text-align: center;
+
+      p {
+        margin: 1rem 0;
+
+        a {
+          text-transform: unset;
+          letter-spacing: 0px;
+          margin: 0 0.5rem;
+          font-weight: 400;
+          font-size: 0.9rem;
+          color: $color-500;
+          transition: all ease-in 250ms;
+
+          &:hover {
+            color: #e2e2e2;
+          }
+        }
+      }
+    }
+  }
 }
 
 .not-found {

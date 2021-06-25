@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { ReactComponent as Logo } from '../assets/SidouxieIcon.svg'
@@ -7,13 +7,27 @@ import { ReactComponent as Instagram } from '../assets/instagram.svg'
 import { ReactComponent as Github } from '../assets/github.svg'
 
 function Footer() {
+  const [isHover, setIsHover] = useState(false)
+  const [isBehance, setisBehance] = useState(false)
+  const [isInsta, setisInsta] = useState(false)
+
+  const handleHover = (e) => {
+    setIsHover(!isHover)
+  }
+  const handleBe = (e) => {
+    setisBehance(!isBehance)
+  }
+  const handleInsta = (e) => {
+    setisInsta(!isInsta)
+  }
+
   return (
     <footer>
       <div className="container">
         <div className="wrapper">
           <div className="sec-top">
             <div className="logo">
-              <Logo width={40} style={{ fill: '#c6c6c6' }} />
+              <Logo width={105} style={{ fill: '#333333' }} />
             </div>
             <div className="subtitle">
               <h4>
@@ -78,7 +92,12 @@ function Footer() {
                   target="_blank"
                   rel="nopenner noreferrer"
                 >
-                  <Github width={30} style={{ fill: '#fefefe' }} />
+                  <Github
+                    width={30}
+                    onMouseEnter={() => handleHover(isHover)}
+                    onMouseLeave={() => handleHover(!isHover)}
+                    style={{ fill: `${isHover ? '#e6e6e6' : '#333333'}` }}
+                  />
                 </a>
 
                 <a
@@ -86,7 +105,12 @@ function Footer() {
                   target="_blank"
                   rel="nopenner noreferrer"
                 >
-                  <Instagram width={30} style={{ fill: '#fefefe' }} />
+                  <Instagram
+                    width={30}
+                    onMouseEnter={() => handleInsta(isInsta)}
+                    onMouseLeave={() => handleInsta(!isInsta)}
+                    style={{ fill: `${isInsta ? '#e6e6e6' : '#333333'}` }}
+                  />
                 </a>
 
                 <a
@@ -94,7 +118,12 @@ function Footer() {
                   target="_blank"
                   rel="nopenner noreferrer"
                 >
-                  <Behance width={30} style={{ fill: '#fefefe' }} />
+                  <Behance
+                    width={30}
+                    onMouseEnter={() => handleBe(isBehance)}
+                    onMouseLeave={() => handleBe(!isBehance)}
+                    style={{ fill: `${isBehance ? '#e6e6e6' : '#333333'}` }}
+                  />
                 </a>
               </div>
               <ul>
@@ -110,8 +139,22 @@ function Footer() {
           </div>
 
           <div className="sec-copyright">
-            <p>Copyright c 2021 sidouxie.com</p>
-            <p>Designed & Coded By Sidouxie. All rights reserved.</p>
+            <div className="ligne"></div>
+            <div className="wrp">
+              <p>Copyright © 2021 Sidouxie.com</p>
+              <p>
+                Designed {'&'} coded by
+                <a
+                  href="https://twitter.com/sidouxie"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  title="twitter profile"
+                >
+                  Sidouxie.
+                </a>{' '}
+                All rights reserved.
+              </p>
+            </div>
           </div>
         </div>
       </div>
