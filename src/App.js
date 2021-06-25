@@ -7,6 +7,8 @@ import Work from './Work'
 import About from './About'
 import Contact from './Contact'
 import Notfound from './Notfound'
+import Politiques from './Politiques'
+import Conditions from './Conditions'
 import WorkPage from './components/WorkPage'
 
 const data = [
@@ -118,6 +120,12 @@ function App() {
           </Route>
           <Route path="/contact">
             <Contact />
+          </Route>
+          <Route path="/politiques-de-confidentialité">
+            <Politiques />
+          </Route>
+          <Route path="/conditions-générales">
+            <Conditions />
           </Route>
           <Route path="*">
             <Notfound />

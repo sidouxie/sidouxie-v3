@@ -39,52 +39,56 @@ function Footer() {
           </div>
 
           <div className="sec-center">
-            <div className="links">
-              <div className="sub">Site links :</div>
-              <ul>
-                <Link to="/">
-                  <li>- Accueil</li>
-                </Link>
+            <div className="linked">
+              <div className="links">
+                <div className="sub">Site links :</div>
+                <ul>
+                  <Link to="/">
+                    <li>- Accueil</li>
+                  </Link>
 
-                <Link to="/work">
-                  <li>- work</li>
-                </Link>
+                  <Link to="/work">
+                    <li>- work</li>
+                  </Link>
 
-                <Link to="/about">
-                  <li>- about</li>
-                </Link>
+                  <Link to="/about">
+                    <li>- about</li>
+                  </Link>
 
-                <Link to="/contact">
-                  <li>- contact</li>
-                </Link>
-              </ul>
-            </div>
-            <div className="get-contact">
-              <div className="sub">Get contact :</div>
-              <div className="info">
-                <a
-                  href="mailto:sid_ouxie@hotmail.com"
-                  target="_blank"
-                  rel="nopenner noreferrer"
-                >
-                  sid_ouxie@hotmail.com
-                </a>
-                <a
-                  href="mailto:sid_ouxie@hotmail.com"
-                  target="_blank"
-                  rel="nopenner noreferrer"
-                >
-                  +213 557 73 31 15
-                </a>
-                <a
-                  href="mailto:sid_ouxie@hotmail.com"
-                  target="_blank"
-                  rel="nopenner noreferrer"
-                >
-                  cité aadl belle vue, Ain Benian Alger 16018.
-                </a>
+                  <Link to="/contact">
+                    <li>- contact</li>
+                  </Link>
+                </ul>
+              </div>
+              <div className="get-contact">
+                <div className="sub">Get contact :</div>
+                <div className="info">
+                  <a
+                    href="mailto:sid_ouxie@hotmail.com"
+                    target="_blank"
+                    rel="nopenner noreferrer"
+                  >
+                    sid_ouxie@hotmail.com
+                  </a>
+                  <a
+                    href="mailto:sid_ouxie@hotmail.com"
+                    target="_blank"
+                    rel="nopenner noreferrer"
+                  >
+                    +213 557 73 31 15
+                  </a>
+                  <a
+                    href="mailto:sid_ouxie@hotmail.com"
+                    target="_blank"
+                    rel="nopenner noreferrer"
+                  >
+                    cité aadl belle vue,
+                    <br /> Ain Benian Alger 16018.
+                  </a>
+                </div>
               </div>
             </div>
+
             <div className="icones">
               <div className="icon">
                 <a
@@ -127,11 +131,11 @@ function Footer() {
                 </a>
               </div>
               <ul>
-                <Link to="/">
+                <Link to="/politiques-de-confidentialité">
                   <li>Politique de confidentialité</li>
                 </Link>
 
-                <Link to="/">
+                <Link to="/conditions-générales">
                   <li>conditions générales</li>
                 </Link>
               </ul>
