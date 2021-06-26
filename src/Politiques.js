@@ -1,12 +1,51 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Layout from './components/Layout'
+import { gsap } from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 function Politiques() {
+  useEffect(() => {
+    const tl = gsap.globalTimeline
+
+    tl.fromTo(
+      '.SidouxieLogo',
+      { css: { fill: '#1c1c1c' } },
+      {
+        ease: 'power3.out',
+        css: { fill: '#fff' },
+        scrollTrigger: {
+          id: 'Logo',
+          trigger: '.SidouxieLogo',
+          start: 'top top',
+          end: '+=350',
+          markers: false,
+          toggleActions: 'play reverse play none',
+        },
+      }
+    ).fromTo(
+      '.IconUp',
+      { css: { fill: '#1c1c1c' } },
+      {
+        ease: 'power3.out',
+        css: { fill: '#fff' },
+        scrollTrigger: {
+          id: 'Logo',
+          trigger: '.IconUp',
+          start: 'top top',
+          end: '+=350',
+          markers: false,
+          toggleActions: 'play reverse play none',
+        },
+      }
+    )
+  }, [])
   return (
     <Layout>
       <main class="politiques-main">
-        <div className="section-head">
+        <div className="section-heading">
           <div className="title">
             <h2>Politiques de confidentialité</h2>
           </div>

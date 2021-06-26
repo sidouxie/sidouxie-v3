@@ -26,26 +26,42 @@ function Menu({ isopen, handleClick }) {
   }
 
   useEffect(() => {
+    const tl = gsap.globalTimeline
     if (isopen) {
-      gsap.from('header .menu-mobile.active', 0.8, {
-        opacity: 0,
-        y: '-100%',
-      })
+      tl.fromTo(
+        '.IconUp',
+        { autoAlpha: 1, css: { display: 'block' } },
+        { duration: 0.01, autoAlpha: 0, css: { display: 'none' } }
+      )
 
-      gsap.to('header .menu-mobile.active', 0.8, {
-        ease: 'power3.out',
-        opacity: 1,
-        y: 0,
-      })
+        .to('.IconDown', { autoAlpha: 1, css: { display: 'block' } })
+
+        .from('header .menu-mobile.active', 0.8, {
+          opacity: 0,
+          y: '-100%',
+        })
+
+        .to('header .menu-mobile.active', 0.8, {
+          ease: 'power3.out',
+          opacity: 1,
+          y: 0,
+        })
     } else {
-      gsap.to('header .menu-mobile', 1.4, {
-        stagger: {
-          amount: 0.6,
-        },
-        ease: 'power3.out',
-        opacity: 0,
-        y: '-100%',
-      })
+      tl.to('.IconUp', { autoAlpha: 1, css: { display: 'block' }, scale: 1 })
+        .to('.IconDown', {
+          duration: 0.1,
+          autoAlpha: 0,
+          css: { display: 'none' },
+        })
+
+        .to('header .menu-mobile', 1.4, {
+          stagger: {
+            amount: 0.6,
+          },
+          ease: 'power3.out',
+          opacity: 0,
+          y: '-100%',
+        })
     }
   }, [isopen])
 
@@ -62,21 +78,26 @@ function Menu({ isopen, handleClick }) {
             }}
           />
         </Link>
-        {isopen ? (
-          <IconDown
-            className="IconDown"
-            onClick={() => handleClick(!isopen)}
-            width={'20px'}
-            style={{ cursor: 'pointer' }}
-          />
-        ) : (
-          <IconUp
-            className="IconUp"
-            onClick={() => handleClick(!isopen)}
-            width={'25px'}
-            style={{ fill: '#1c1c1c', cursor: 'pointer' }}
-          />
-        )}
+
+        <IconDown
+          className="IconDown"
+          onClick={() => handleClick(!isopen)}
+          width={'20px'}
+          style={{
+            display: 'none',
+            cursor: 'pointer',
+            position: 'absolute',
+            top: '20px',
+            right: '35px',
+          }}
+        />
+
+        <IconUp
+          className="IconUp"
+          onClick={() => handleClick(!isopen)}
+          width={'25px'}
+          style={{ fill: '#1c1c1c', cursor: 'pointer' }}
+        />
       </nav>
       <div className={`menu-mobile ${isopen && 'active'}`}>
         <div className="wrapper-mobile">

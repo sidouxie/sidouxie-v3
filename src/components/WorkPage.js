@@ -43,9 +43,9 @@ function WorkPage({ data }) {
           id: 'Logo',
           trigger: '.SidouxieLogo',
           start: 'top top',
-          end: '+=1250',
+          end: '+=1400',
           markers: false,
-          toggleActions: 'play reverse play',
+          toggleActions: 'play reset play none',
         },
       }
     ).fromTo(
@@ -58,9 +58,9 @@ function WorkPage({ data }) {
           id: 'Logo',
           trigger: '.IconUp',
           start: 'top top',
-          end: '+=1250',
+          end: '+=1400',
           markers: false,
-          toggleActions: 'play reverse play',
+          toggleActions: 'play reset play none',
         },
       }
     )
