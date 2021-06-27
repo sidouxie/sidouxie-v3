@@ -1,12 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Layout from './components/Layout'
 import CardWrapper from './components/CardWrapper'
-import ScrollTrigger from 'gsap/ScrollTrigger'
 import gsap from 'gsap/gsap-core'
+import ScrollTrigger from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
 function Work({ data }) {
+  useEffect(() => {
+    ScrollTrigger.defaults({
+      markers: false,
+      toggleActions: 'play complete',
+    })
+  }, [])
   return (
     <>
       <Layout>

@@ -8,6 +8,8 @@ import { ReactComponent as Instagram } from '../assets/instagram.svg'
 import { ReactComponent as Github } from '../assets/github.svg'
 import { gsap } from 'gsap'
 
+gsap.registerPlugin()
+
 function Menu({ isopen, handleClick }) {
   const [isHover, setIsHover] = useState(false)
   const [isInsta, setIsInsta] = useState(false)

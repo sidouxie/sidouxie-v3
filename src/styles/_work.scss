@@ -87,6 +87,25 @@
             color: $color-400;
             opacity: 0;
           }
+
+          .sec-span {
+            display: inline-flex;
+            width: 100%;
+            height: 1.5rem;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin-top: 0.5rem;
+
+            span {
+              font-size: 0.7rem;
+              font-weight: 600;
+              padding: 0.5rem;
+              margin: 0.3rem;
+              border-radius: 6px;
+              opacity: 0;
+            }
+          }
         }
         .sec-bg {
           position: absolute;

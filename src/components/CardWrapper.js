@@ -12,6 +12,9 @@ function CardWrapper({ data }) {
   let titleRef = useRef([])
   titleRef.current = []
 
+  let techRef = useRef([])
+  techRef.current = []
+
   let textRef = useRef([])
   textRef.current = []
 
@@ -80,8 +83,8 @@ function CardWrapper({ data }) {
           },
         },
         {
-          duration: 1.6,
-          delay: 0.4,
+          duration: 1.2,
+          delay: 0.2,
           x: 0,
           ease: 'power3.out',
           css: { zIndex: 1, width: '100%', opacity: 1 },
@@ -119,16 +122,51 @@ function CardWrapper({ data }) {
       )
     })
 
+    techRef.current.forEach((el, index) => {
+      gsap.fromTo(
+        el,
+        {
+          scale: 1.5,
+          stagger: {
+            amount: 0.4,
+          },
+          autoAlpha: 0,
+        },
+        {
+          duration: 1.6,
+          delay: 0.8,
+          ease: 'power3.inOut',
+          scale: 1,
+          autoAlpha: 0.5,
+          stagger: {
+            amount: 0.4,
+          },
+          scrollTrigger: {
+            id: `techno card ${index + 1}`,
+            trigger: el,
+            start: 'top top+=300',
+            toggleActions: 'play none none reverse',
+          },
+        }
+      )
+    })
+
     textRef.current.forEach((el, index) => {
       gsap.fromTo(
         el,
-        { y: 50, autoAlpha: 0 },
+        {
+          y: 50,
+          autoAlpha: 0,
+        },
         {
           duration: 0.4,
           delay: 0.2,
           ease: 'power3.out',
           y: 0,
           autoAlpha: 1,
+          stagger: {
+            amount: 0.4,
+          },
           scrollTrigger: {
             id: `text card ${index + 1}`,
             trigger: el,
@@ -139,6 +177,8 @@ function CardWrapper({ data }) {
         }
       )
     })
+
+    ScrollTrigger.refresh()
   }, [])
 
   const addToRefs = (el) => {
@@ -159,6 +199,12 @@ function CardWrapper({ data }) {
     }
   }
 
+  const addTechRef = (el) => {
+    if (el && !techRef.current.includes(el)) {
+      techRef.current.push(el)
+    }
+  }
+
   const addCardRef = (el) => {
     if (el && !cardRef.current.includes(el)) {
       cardRef.current.push(el)
@@ -173,6 +219,20 @@ function CardWrapper({ data }) {
           <h3 style={{ color: data.colorTitle }} ref={addToRefsTitle}>
             {data.title}
           </h3>
+          <div className="sec-span">
+            {data.techno.map((tech) => (
+              <span
+                ref={addTechRef}
+                style={{
+                  color: data.colorTitle,
+                  border: `0.5px ${data.colorText} solid`,
+                }}
+                key={tech}
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
           <p style={{ color: data.colorText }} ref={addTextRef}>
             {data.desc}
           </p>

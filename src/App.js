@@ -24,6 +24,7 @@ const data = [
     domain: '.ml',
     link: 'https://darky-plumbing.netlify.app',
     github: 'https://github.com/sidouxie/Zayn-Plombier',
+    techno: ['Html', 'Scss', 'Javascript', 'Next Js'],
   },
   {
     id: '2',
@@ -35,8 +36,9 @@ const data = [
     colorText: '#628bfd',
     imgPath: './captures/droppy-capture.jpg',
     domain: '.ml',
-    link: 'https://droppy.netlify.app',
+    link: 'https://droppy.vercel.app',
     github: 'https://github.com/sidouxie/droppy',
+    techno: ['Html', 'Scss', 'Javascript', 'Next Js'],
   },
   {
     id: '3',
@@ -50,6 +52,7 @@ const data = [
     domain: '.ml',
     link: 'https://willab.netlify.app',
     github: 'https://github.com/sidouxie/willab',
+    techno: ['Html', 'Scss', 'Javascript', 'React Js'],
   },
   {
     id: '4',
@@ -63,6 +66,7 @@ const data = [
     domain: '.ml',
     link: 'https://n-seddi.netlify.app',
     github: 'https://github.com/sidouxie/n-seddi',
+    techno: ['Html', 'Scss', 'Javascript', 'Next Js'],
   },
   {
     id: '5',
@@ -76,6 +80,7 @@ const data = [
     domain: '.ml',
     link: 'https://walidkhaladi.netlify.app',
     github: 'https://github.com/sidouxie/walidkhaladi',
+    techno: ['Html', 'Scss', 'Javascript', 'Gatsby Js'],
   },
   {
     id: '6',
@@ -89,6 +94,7 @@ const data = [
     domain: '.ml',
     link: 'https://sidouxie-v2.netlify.app',
     github: 'https://github.com/sidouxie/sidouxie-v2',
+    techno: ['Html', 'Scss', 'Javascript'],
   },
 ]
 
@@ -101,6 +107,10 @@ function App() {
     <>
       <Router>
         <Switch>
+          <Route path="/" exact>
+            <Home />
+          </Route>
+
           <Route path="/work" exact>
             <Work data={data} />
           </Route>
@@ -115,19 +125,20 @@ function App() {
           <Route path="/about">
             <About />
           </Route>
-          <Route path="/" exact>
-            <Home />
-          </Route>
+
           <Route path="/contact">
             <Contact />
           </Route>
+
           <Route path="/politiques-de-confidentialité">
             <Politiques />
           </Route>
+
           <Route path="/conditions-générales">
             <Conditions />
           </Route>
-          <Route path="*">
+
+          <Route path="/*">
             <Notfound />
           </Route>
         </Switch>
