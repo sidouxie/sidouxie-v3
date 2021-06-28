@@ -1,6 +1,7 @@
 @import 'options';
 @import 'work';
 @import 'workpage';
+@import 'about';
 @import 'politique';
 
 body {
@@ -519,23 +520,4 @@ footer {
       margin: 2rem 0;
     }
   }
-}
-
-.page-enter {
-  opacity: 0;
-}
-
-.page-enter-active {
-  opacity: 1;
-  transition: opacity 400ms;
-  transition-delay: 600ms;
-}
-
-.page-exit {
-  opacity: 1;
-}
-
-.page-exit-active {
-  opacity: 0;
-  transition: opacity 400ms;
 }

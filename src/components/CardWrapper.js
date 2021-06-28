@@ -22,30 +22,6 @@ function CardWrapper({ data }) {
   cardRef.current = []
 
   useEffect(() => {
-    gsap.fromTo(
-      '.title',
-      { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1.6, delay: 0.4, ease: 'power3.out' }
-    )
-
-    gsap.fromTo(
-      '.text',
-      { x: -20, opacity: 0 },
-      { x: 0, opacity: 1, duration: 2, delay: 0.9, ease: 'power3.out' }
-    )
-
-    gsap.fromTo(
-      '.ligne',
-      { css: { width: 0 }, opacity: 0 },
-      {
-        css: { width: '100%' },
-        opacity: 1,
-        duration: 2,
-        delay: 1.6,
-        ease: 'power3.out',
-      }
-    )
-
     cardRef.current.forEach((el, index) => {
       gsap.fromTo(
         el,
@@ -224,10 +200,10 @@ function CardWrapper({ data }) {
               <span
                 ref={addTechRef}
                 style={{
-                  color: data.colorTitle,
+                  color: data.colorText,
                   border: `0.5px ${data.colorText} solid`,
                 }}
-                key={tech}
+                key={tech + 1}
               >
                 {tech}
               </span>
