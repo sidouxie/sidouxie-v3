@@ -40,8 +40,11 @@ function Home() {
               <div className="hero-banner">
                 <div className="sec-title">
                   <h2>Hello !</h2>
-                  <div className="hand-slap">
-                    <img src="./images/wave.png" alt="hand say hello" />
+                  <div className="memoji">
+                    <img
+                      src="./images/memoji.png"
+                      alt="sidouxie memoji code on her macbook"
+                    />
                   </div>
                 </div>
 
