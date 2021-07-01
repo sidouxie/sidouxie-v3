@@ -3,7 +3,7 @@
     transform: translateX(0px);
   }
   100% {
-    transform: translateX(calc(-300px * 8));
+    transform: translateX(calc(-300px * 8.5));
   }
 }
 
@@ -64,6 +64,13 @@
 
     .subtitle {
       text-align: center;
+
+      p {
+        margin: 0;
+        margin-bottom: 1.5rem;
+        font-weight: 300;
+        font-size: 1.1rem;
+      }
     }
   }
 
@@ -145,7 +152,7 @@
   &::after {
     right: 0;
     top: 0;
-    transform: rotateZ(180deg);
+    transform: rotateZ(-180deg);
   }
 
   &::before {

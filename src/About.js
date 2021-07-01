@@ -58,6 +58,17 @@ function About() {
         ease: 'power3.out',
       }
     )
+
+    gsap.fromTo(
+      '.subtitle',
+      { css: { x: 50 }, autoAlpha: 0, duration: 2, delay: 1.6 },
+      {
+        css: { x: 0 },
+        autoAlpha: 1,
+        duration: 2,
+        ease: 'power3.out',
+      }
+    )
   }, [])
   return (
     <>
@@ -70,11 +81,8 @@ function About() {
               </div>
               <div className="text">
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Atque, magni asperiores. Odio impedit dicta consequuntur
-                  mollitia reiciendis consectetur! Accusamus temporibus error
-                  repellendus quas vitae exercitationem dolor odit tenetur,
-                  impedit ex.
+                  Voici le résumer de mon parcours dans la digitale en
+                  commencent par le design et en arriver au code.
                 </p>
               </div>
               <div className="ligne"></div>
@@ -88,7 +96,7 @@ function About() {
                   <h3>Sid Ahmed Baroutchi</h3>
                 </div>
                 <div className="subtitle">
-                  <p>Fullstack developer javascript, web designer ux</p>
+                  <p>Fullstack developer javascript, web designer.</p>
                 </div>
               </div>
 

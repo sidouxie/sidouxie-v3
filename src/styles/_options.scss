@@ -46,3 +46,34 @@ $color-600: #f8f8f8;
   max-width: 1100px;
   margin: 0 auto;
 }
+
+/* button style */
+
+@mixin btn-style {
+  background: $color-primary;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #fff;
+  border: 2px #fff solid;
+  border-radius: 4px;
+  padding: 0.5rem 2rem;
+  cursor: pointer;
+  transition: all 150ms ease-out;
+
+  &:hover {
+    background: transparent;
+    border: 2px $color-primary solid;
+    color: $color-primary;
+    box-shadow: 0px 0px 10px -4px $color-primary;
+    transition: all 150ms ease-out;
+  }
+
+  &:active {
+    color: $color-secondary;
+    border: 2px $color-secondary solid;
+    box-shadow: 0px 0px 10px 0px $color-secondary;
+    transition: all 150ms ease-out;
+  }
+}

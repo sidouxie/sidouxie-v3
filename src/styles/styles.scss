@@ -2,6 +2,7 @@
 @import 'work';
 @import 'workpage';
 @import 'about';
+@import 'contact';
 @import 'politique';
 
 body {
@@ -234,7 +235,7 @@ nav {
 
       @media (max-width: 865px) {
         flex-direction: column;
-        height: 30%;
+        height: 25%;
         align-items: flex-start;
         justify-content: space-between;
       }
@@ -259,7 +260,7 @@ nav {
         text-align: center;
 
         @media (max-width: 865px) {
-          margin-top: -2rem;
+          margin-top: 1rem;
         }
 
         a {
@@ -472,7 +473,8 @@ footer {
       text-align: center;
 
       p {
-        margin: 1rem 0;
+        margin: 0.5rem 0;
+        line-height: 1.5;
 
         a {
           text-transform: unset;

@@ -38,7 +38,7 @@ function CardWrapper({ data }) {
             amount: 0.8,
           },
           scrollTrigger: {
-            id: `visiblity card ${index + 1}`,
+            id: `visiblity card ${index++}`,
             trigger: el,
             start: 'top top+=400',
             markers: false,
@@ -87,7 +87,7 @@ function CardWrapper({ data }) {
           x: 0,
           opacity: 1,
           scrollTrigger: {
-            id: `title card ${index + 1}`,
+            id: `title card ${index++}`,
             trigger: el,
             start: 'top top+=200',
             end: '+=200',
@@ -113,12 +113,12 @@ function CardWrapper({ data }) {
           delay: 0.8,
           ease: 'power3.inOut',
           scale: 1,
-          autoAlpha: 0.5,
+          autoAlpha: 0.8,
           stagger: {
             amount: 0.4,
           },
           scrollTrigger: {
-            id: `techno card ${index + 1}`,
+            id: `techno card ${index++}`,
             trigger: el,
             start: 'top top+=300',
             toggleActions: 'play none none reverse',
@@ -144,7 +144,7 @@ function CardWrapper({ data }) {
             amount: 0.4,
           },
           scrollTrigger: {
-            id: `text card ${index + 1}`,
+            id: `text card ${index++}`,
             trigger: el,
             start: 'top top+=350',
             scrub: 1,
@@ -196,16 +196,20 @@ function CardWrapper({ data }) {
             {data.title}
           </h3>
           <div className="sec-span">
-            {data.techno.map((tech) => (
-              <span
-                ref={addTechRef}
-                style={{
-                  color: data.colorText,
-                  border: `0.5px ${data.colorText} solid`,
-                }}
-                key={tech + 1}
-              >
-                {tech}
+            {data.techno.map(({ id, stacks }) => (
+              <span style={{ opacity: 0.8 }} key={id}>
+                {stacks.map((stack) => (
+                  <span
+                    ref={addTechRef}
+                    style={{
+                      color: data.colorText,
+                      border: `0.5px ${data.colorText} solid`,
+                    }}
+                    key={id++}
+                  >
+                    {stack}
+                  </span>
+                ))}
               </span>
             ))}
           </div>

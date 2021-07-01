@@ -24,7 +24,12 @@ const data = [
     domain: '.ml',
     link: 'https://darky-plumbing.netlify.app',
     github: 'https://github.com/sidouxie/Zayn-Plombier',
-    techno: ['Html', 'Scss', 'Javascript', 'Next Js'],
+    techno: [
+      {
+        id: 1,
+        stacks: ['Html', 'Scss', 'Javascript', 'Next Js'],
+      },
+    ],
   },
   {
     id: '2',
@@ -38,7 +43,12 @@ const data = [
     domain: '.ml',
     link: 'https://droppy.vercel.app',
     github: 'https://github.com/sidouxie/droppy',
-    techno: ['Html', 'Scss', 'Javascript', 'Next Js'],
+    techno: [
+      {
+        id: 2,
+        stacks: ['Html', 'Scss', 'Javascript', 'Next Js'],
+      },
+    ],
   },
   {
     id: '3',
@@ -52,7 +62,12 @@ const data = [
     domain: '.ml',
     link: 'https://willab.netlify.app',
     github: 'https://github.com/sidouxie/willab',
-    techno: ['Html', 'Scss', 'Javascript', 'React Js'],
+    techno: [
+      {
+        id: 3,
+        stacks: ['Html', 'Scss', 'Javascript', 'React Js'],
+      },
+    ],
   },
   {
     id: '4',
@@ -66,7 +81,12 @@ const data = [
     domain: '.ml',
     link: 'https://n-seddi.netlify.app',
     github: 'https://github.com/sidouxie/n-seddi',
-    techno: ['Html', 'Scss', 'Javascript', 'Next Js'],
+    techno: [
+      {
+        id: 4,
+        stacks: ['Html', 'Scss', 'Javascript', 'Next Js'],
+      },
+    ],
   },
   {
     id: '5',
@@ -80,7 +100,12 @@ const data = [
     domain: '.ml',
     link: 'https://walidkhaladi.netlify.app',
     github: 'https://github.com/sidouxie/walidkhaladi',
-    techno: ['Html', 'Scss', 'Javascript', 'Gatsby Js'],
+    techno: [
+      {
+        id: 5,
+        stacks: ['Html', 'Scss', 'Javascript', 'Gatsby Js'],
+      },
+    ],
   },
   {
     id: '6',
@@ -94,7 +119,12 @@ const data = [
     domain: '.ml',
     link: 'https://sidouxie-v2.netlify.app',
     github: 'https://github.com/sidouxie/sidouxie-v2',
-    techno: ['Html', 'Scss', 'Javascript'],
+    techno: [
+      {
+        id: 6,
+        stacks: ['Html', 'Scss', 'Javascript'],
+      },
+    ],
   },
 ]
 
