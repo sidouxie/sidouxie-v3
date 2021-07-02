@@ -3,6 +3,7 @@ import Layout from './components/Layout'
 import CardWrapper from './components/CardWrapper'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
+import { motion } from 'framer-motion'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -40,7 +41,12 @@ function Work({ data }) {
   return (
     <>
       <Layout>
-        <div className="container">
+        <motion.div
+          className="container"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 1 }}
+        >
           <div className="wrapper">
             <main className="main-work">
               <div className="title">
@@ -49,8 +55,7 @@ function Work({ data }) {
               <div className="text">
                 <p>
                   Voici quelques projets que j'ai réalisés dans mon parcours de
-                  developpement web, plus qu'une patient un amour pour le code
-                  et la nation, Born To Code.
+                  developpement web.
                 </p>
               </div>
               <div className="ligne"></div>
@@ -61,7 +66,7 @@ function Work({ data }) {
               </div>
             </main>
           </div>
-        </div>
+        </motion.div>
       </Layout>
     </>
   )

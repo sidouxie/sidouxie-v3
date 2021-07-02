@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import Layout from './components/Layout'
 import gsap from 'gsap'
+import { motion } from 'framer-motion'
 
 const data = [
   {
@@ -73,7 +74,12 @@ function About() {
   return (
     <>
       <Layout>
-        <div className="container">
+        <motion.div
+          className="container"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 1 }}
+        >
           <div className="wrapper">
             <main className="main-about">
               <div className="title">
@@ -203,7 +209,7 @@ function About() {
               </div>
             </main>
           </div>
-        </div>
+        </motion.div>
 
         <div className="section-logos">
           <div className="wrap-card">

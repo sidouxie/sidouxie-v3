@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import gsap from 'gsap'
+import { AnimatePresence } from 'framer-motion'
 
 import Home from './Home'
 import Work from './Work'
@@ -135,44 +136,48 @@ function App() {
 
   return (
     <>
-      <Router>
-        <Switch>
-          <Route path="/" exact>
-            <Home />
-          </Route>
+      <AnimatePresence>
+        <Router>
+          <Switch>
+            <Route path="/" exact>
+              <Home />
+            </Route>
 
-          <Route path="/work" exact>
-            <Work data={data} />
-          </Route>
+            <Route path="/work" exact>
+              <Work data={data} />
+            </Route>
 
-          <Route
-            path="/work/:slug"
-            render={({ match }) => (
-              <WorkPage data={data.find((p) => p.slug === match.params.slug)} />
-            )}
-          />
+            <Route
+              path="/work/:slug"
+              render={({ match }) => (
+                <WorkPage
+                  data={data.find((p) => p.slug === match.params.slug)}
+                />
+              )}
+            />
 
-          <Route path="/about">
-            <About />
-          </Route>
+            <Route path="/about">
+              <About />
+            </Route>
 
-          <Route path="/contact">
-            <Contact />
-          </Route>
+            <Route path="/contact">
+              <Contact />
+            </Route>
 
-          <Route path="/politiques-de-confidentialité">
-            <Politiques />
-          </Route>
+            <Route path="/politiques-de-confidentialité">
+              <Politiques />
+            </Route>
 
-          <Route path="/conditions-générales">
-            <Conditions />
-          </Route>
+            <Route path="/conditions-générales">
+              <Conditions />
+            </Route>
 
-          <Route path="/*">
-            <Notfound />
-          </Route>
-        </Switch>
-      </Router>
+            <Route path="/*">
+              <Notfound />
+            </Route>
+          </Switch>
+        </Router>
+      </AnimatePresence>
     </>
   )
 }

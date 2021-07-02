@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import Layout from './Layout'
+import { motion } from 'framer-motion'
 import { gsap } from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 
@@ -68,10 +69,17 @@ function WorkPage({ data }) {
 
   return (
     <Layout>
-      <main className="main-work-page">
-        <div
+      <motion.main
+        className="main-work-page"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.5 }}
+      >
+        <motion.div
           className="section-details"
-          style={{ backgroundColor: data.color }}
+          initial={{ backgroundColor: '#fff' }}
+          animate={{ backgroundColor: data.color }}
+          transition={{ ease: 'easeIn', duration: 1, delay: 0.6 }}
         >
           <div className="container">
             <div className="wrapper">
@@ -169,7 +177,7 @@ function WorkPage({ data }) {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         <div className="section-image">
           <img
@@ -194,7 +202,7 @@ function WorkPage({ data }) {
             </div>
           </div>
         </div>
-      </main>
+      </motion.main>
     </Layout>
   )
 }

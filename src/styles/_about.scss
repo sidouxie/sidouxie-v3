@@ -172,6 +172,18 @@
     animation: animationLogo linear 25s infinite;
     animation-play-state: running;
 
+    -webkit-animation: animationLogo linear 25s infinite;
+    -webkit-animation-play-state: running;
+
+    -moz-animation: animationLogo linear 25s infinite;
+    -moz-animation-play-state: running;
+
+    -o-animation: animationLogo linear 25s infinite;
+    -o-animation-play-state: running;
+
+    -ms-animation: animationLogo linear 25s infinite;
+    -ms-animation-play-state: running;
+
     img {
       max-width: 300px;
       max-height: 80px;

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Layout from './components/Layout'
 import { gsap } from 'gsap'
+import { motion } from 'framer-motion'
 
 function Home() {
   const [isHover, setIsHover] = useState(false)
@@ -34,7 +35,12 @@ function Home() {
   return (
     <>
       <Layout>
-        <div className="App">
+        <motion.div
+          className="App"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 1 }}
+        >
           <div className="container">
             <div className="wrapper">
               <div className="hero-banner">
@@ -78,7 +84,7 @@ function Home() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </Layout>
     </>
   )

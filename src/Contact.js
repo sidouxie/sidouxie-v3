@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
 import { gsap } from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 import Layout from './components/Layout'
@@ -17,7 +18,7 @@ gsap.registerPlugin(ScrollTrigger)
 function Contact() {
   const [prenom, setPrenom] = useState('')
   const [email, setEmail] = useState('')
-  const [numero, setNumero] = useState('')
+  const [sujet, setSujet] = useState('')
   const [message, setMessage] = useState('')
 
   useEffect(() => {
@@ -60,13 +61,13 @@ function Contact() {
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ 'form-name': 'contact', prenom, numero, email, message }),
+      body: encode({ 'form-name': 'contact', prenom, sujet, email, message }),
     })
       .then(() => {
         alert('Votre message a bien été envoyé !')
         setPrenom('')
         setEmail('')
-        setNumero('')
+        setSujet('')
         setMessage('')
       })
       .catch((error) => alert(error))
@@ -76,149 +77,172 @@ function Contact() {
   return (
     <>
       <Layout>
-        <div className="bg-main">
-          <div className="bg-head"></div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 1 }}
+        >
+          <div className="bg-main">
+            <div className="bg-head"></div>
 
-          <div className="title-head">
-            <h3>
-              Think <span className="bold">Different.</span>
-            </h3>
+            <div className="title-head">
+              <h3>
+                Think{' '}
+                <motion.span
+                  className="bold"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{
+                    ease: [0.6, 0.01, -0.05, 0.95],
+                    duration: 1.6,
+                    delay: 0.6,
+                  }}
+                >
+                  Different.
+                </motion.span>
+              </h3>
+            </div>
           </div>
-        </div>
 
-        <main className="contact-main">
-          <div className="container">
-            <div className="wrapper">
-              <div className="section">
-                <div className="sec-contact">
-                  <div className="title">
-                    <h2>CONTACT US</h2>
-                  </div>
-                  <div className="card-contact">
-                    <div className="ligne"></div>
+          <main className="contact-main">
+            <div className="container">
+              <div className="wrapper">
+                <div className="section">
+                  <div className="sec-contact">
+                    <div className="title">
+                      <h2>CONTACT US</h2>
+                    </div>
+                    <div className="card-contact">
+                      <div className="ligne"></div>
 
-                    <div className="card-desc">
-                      <div className="text">
-                        <p>
-                          <strong>POUR LES ENQUÊTES GÉNÉRALES</strong> -
-                          Veuillez utiliser le formulaire de contact ci-dessous.
-                        </p>
-                      </div>
-                      <div className="subtitle">
-                        <p>sid_ouxie@hotmail.com</p>
-                        <p>+213 557 73 31 15</p>
-                      </div>
+                      <div className="card-desc">
+                        <div className="text">
+                          <p>
+                            <strong>POUR LES ENQUÊTES GÉNÉRALES</strong> -
+                            Veuillez utiliser le formulaire de contact
+                            ci-dessous.
+                          </p>
+                        </div>
+                        <div className="subtitle">
+                          <p>sid_ouxie@hotmail.com</p>
+                          <p>+213 557 73 31 15</p>
+                        </div>
 
-                      <div className="follow">
-                        <p>Follow us :</p>
+                        <div className="follow">
+                          <p>Follow us :</p>
 
-                        <div className="icones">
-                          <a
-                            rel="noreferrer"
-                            target="_blank"
-                            href="https://github.com/sidouxie"
-                          >
-                            <Github
-                              width={'32px'}
-                              style={{ fill: '#8c8c8c', cursor: 'pointer' }}
-                            />
-                          </a>
+                          <div className="icones">
+                            <a
+                              rel="noreferrer"
+                              target="_blank"
+                              href="https://github.com/sidouxie"
+                            >
+                              <Github
+                                width={'32px'}
+                                style={{ fill: '#8c8c8c', cursor: 'pointer' }}
+                              />
+                            </a>
 
-                          <a
-                            rel="noreferrer"
-                            target="_blank"
-                            href="https://instagram.com/sid_ouxi"
-                          >
-                            <Instagram
-                              width={'32px'}
-                              style={{ fill: '#8c8c8c', cursor: 'pointer' }}
-                            />
-                          </a>
+                            <a
+                              rel="noreferrer"
+                              target="_blank"
+                              href="https://instagram.com/sid_ouxi"
+                            >
+                              <Instagram
+                                width={'32px'}
+                                style={{ fill: '#8c8c8c', cursor: 'pointer' }}
+                              />
+                            </a>
 
-                          <a
-                            rel="noreferrer"
-                            target="_blank"
-                            href="https://behance.net/sidouxie"
-                          >
-                            <Behance
-                              width={'32px'}
-                              style={{ fill: '#8c8c8c', cursor: 'pointer' }}
-                            />
-                          </a>
+                            <a
+                              rel="noreferrer"
+                              target="_blank"
+                              href="https://behance.net/sidouxie"
+                            >
+                              <Behance
+                                width={'32px'}
+                                style={{ fill: '#8c8c8c', cursor: 'pointer' }}
+                              />
+                            </a>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
 
-                <div className="sec-submit">
-                  <form
-                    action="submit"
-                    name="contact-sidouxie"
-                    data-netlify="true"
-                    method="post"
-                    netlify-honeypot="bot-field"
-                    hidden
-                    onSubmit={handleSubmit}
-                  >
-                    <label>
-                      Nom* :
-                      <input
-                        type="text"
-                        name="prenom"
-                        placeholder="Nom"
-                        value={prenom}
-                        onChange={(e) => setPrenom(e.target.value)}
-                        required
-                      />
-                    </label>
+                  <div className="sec-submit">
+                    <form
+                      action="submit"
+                      name="contact"
+                      data-netlify="true"
+                      method="post"
+                      netlify-honeypot="bot-field"
+                      hidden
+                      onSubmit={handleSubmit}
+                    >
+                      <label>
+                        Nom* :
+                        <input
+                          type="text"
+                          name="prenom"
+                          placeholder="Nom"
+                          value={prenom}
+                          onChange={(e) => setPrenom(e.target.value)}
+                          required
+                        />
+                      </label>
 
-                    <label>
-                      Email* :
-                      <input
-                        type="email"
-                        name="email"
-                        placeholder="example@email.com"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                      />
-                    </label>
+                      <label>
+                        Email* :
+                        <input
+                          type="email"
+                          name="email"
+                          placeholder="example@email.com"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          required
+                        />
+                      </label>
 
-                    <label>
-                      Sujet :
-                      <input
-                        type="text"
-                        name="numero"
-                        placeholder="votre sujet"
-                        value={numero}
-                        onChange={(e) => setNumero(e.target.value)}
-                      />
-                    </label>
+                      <label>
+                        Sujet :
+                        <input
+                          type="text"
+                          name="sujet"
+                          placeholder="votre sujet"
+                          value={sujet}
+                          onChange={(e) => setSujet(e.target.value)}
+                        />
+                      </label>
 
-                    <label>
-                      Message* :
-                      <textarea
-                        type="text"
-                        name="message"
-                        placeholder="envoie-nous un message"
-                        value={message}
-                        onChange={(e) => setMessage(e.target.value)}
-                        required
-                      />
-                    </label>
+                      <label>
+                        Message* :
+                        <textarea
+                          type="text"
+                          name="message"
+                          placeholder="envoie-nous un message"
+                          value={message}
+                          onChange={(e) => setMessage(e.target.value)}
+                          required
+                        />
+                      </label>
 
-                    <input type="hidden" name="form-name" value="contact" />
+                      <input type="hidden" name="form-name" value="contact" />
 
-                    <button className="btn-form" type="submit" value="Envoyer">
-                      Envoyer
-                    </button>
-                  </form>
+                      <button
+                        className="btn-form"
+                        type="submit"
+                        value="Envoyer"
+                      >
+                        Envoyer
+                      </button>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </main>
+          </main>
+        </motion.div>
       </Layout>
     </>
   )
