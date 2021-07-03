@@ -174,6 +174,7 @@ function Contact() {
                     <form
                       action="submit"
                       name="contact"
+                      netlify
                       data-netlify="true"
                       method="post"
                       netlify-honeypot="bot-field"

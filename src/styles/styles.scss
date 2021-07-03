@@ -514,3 +514,21 @@ footer {
     }
   }
 }
+
+.transition-page {
+  display: block;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: blueviolet;
+    top: 0;
+    left: -200;
+    z-index: 100;
+  }
+}

@@ -136,7 +136,7 @@ function App() {
 
   return (
     <>
-      <AnimatePresence>
+      <AnimatePresence exitBeforeEnter initial={false}>
         <Router>
           <Switch>
             <Route path="/" exact>
