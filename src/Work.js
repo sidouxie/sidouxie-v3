@@ -17,18 +17,18 @@ function Work({ data }) {
     gsap.fromTo(
       '.title',
       { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1.6, delay: 0.4, ease: 'power3.out' }
+      { y: 0, opacity: 1, duration: 1.6, delay: 3.2, ease: 'power3.out' }
     )
 
     gsap.fromTo(
       '.text',
       { x: -20, opacity: 0 },
-      { x: 0, opacity: 1, duration: 2, delay: 0.9, ease: 'power3.out' }
+      { x: 0, opacity: 1, duration: 2, delay: 3.4, ease: 'power3.out' }
     )
 
     gsap.fromTo(
       '.ligne',
-      { css: { width: 0 }, opacity: 0 },
+      { css: { width: 0 }, opacity: 0, delay: 3.6 },
       {
         css: { width: '100%' },
         opacity: 1,
@@ -45,6 +45,7 @@ function Work({ data }) {
           className="container"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
           transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 1 }}
         >
           <div className="wrapper">

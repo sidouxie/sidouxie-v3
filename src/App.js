@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import gsap from 'gsap'
+import React, { useState, useEffect } from 'react'
+import { Switch, Route, useLocation, useHistory } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 
 import Home from './Home'
@@ -11,6 +10,7 @@ import Notfound from './Notfound'
 import Politiques from './Politiques'
 import Conditions from './Conditions'
 import WorkPage from './components/WorkPage'
+import InitialTrans from './components/InitialTrans'
 
 const data = [
   {
@@ -130,53 +130,65 @@ const data = [
 ]
 
 function App() {
+  const [isFirst, setIsFirst] = useState(true)
+
+  const location = useLocation()
+  const history = useHistory()
+
   useEffect(() => {
-    gsap.to('body', 0, { css: { visibility: 'visible' } })
-  }, [])
+    const unlisten = history.listen(() => {
+      isFirst && setIsFirst(false)
+    })
+
+    return unlisten
+  }, [history, isFirst])
 
   return (
     <>
-      <AnimatePresence exitBeforeEnter initial={false}>
-        <Router>
-          <Switch>
-            <Route path="/" exact>
-              <Home />
-            </Route>
+      <AnimatePresence exitBeforeEnter>
+        <Switch location={location} key={location.pathname}>
+          <Route
+            path="/"
+            exact
+            component={(props) => <Home isFirst={isFirst} {...props} />}
+          />
 
-            <Route path="/work" exact>
-              <Work data={data} />
-            </Route>
+          <Route path="/work" exact>
+            <InitialTrans />
+            <Work data={data} />
+          </Route>
 
-            <Route
-              path="/work/:slug"
-              render={({ match }) => (
-                <WorkPage
-                  data={data.find((p) => p.slug === match.params.slug)}
-                />
-              )}
-            />
+          <Route
+            path="/work/:slug"
+            render={({ match }) => (
+              <WorkPage data={data.find((p) => p.slug === match.params.slug)} />
+            )}
+          />
 
-            <Route path="/about">
-              <About />
-            </Route>
+          <Route path="/about">
+            <InitialTrans />
+            <About />
+          </Route>
 
-            <Route path="/contact">
-              <Contact />
-            </Route>
+          <Route path="/contact">
+            <InitialTrans />
+            <Contact />
+          </Route>
 
-            <Route path="/politiques-de-confidentialité">
-              <Politiques />
-            </Route>
+          <Route path="/politiques-de-confidentialité">
+            <InitialTrans />
+            <Politiques />
+          </Route>
 
-            <Route path="/conditions-générales">
-              <Conditions />
-            </Route>
+          <Route path="/conditions-générales">
+            <InitialTrans />
+            <Conditions />
+          </Route>
 
-            <Route path="/*">
-              <Notfound />
-            </Route>
-          </Switch>
-        </Router>
+          <Route path="/*">
+            <Notfound />
+          </Route>
+        </Switch>
       </AnimatePresence>
     </>
   )

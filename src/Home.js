@@ -1,9 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import Layout from './components/Layout'
+import InitialTrans from './components/InitialTrans'
 import { gsap } from 'gsap'
 import { motion } from 'framer-motion'
 
-function Home() {
+const content = (isFirst) => ({
+  animate: {
+    transition: { staggerChildren: 0.1, delayChildren: isFirst ? 2.8 : 0 },
+  },
+})
+
+function Home({ isFirst }) {
   const [isHover, setIsHover] = useState(false)
 
   const handleIsHover = () => {
@@ -39,8 +46,15 @@ function Home() {
           className="App"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
           transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 1 }}
         >
+          {isFirst && <InitialTrans />}
+          <motion.div
+            initial="initial"
+            animate="animate"
+            variants={content(isFirst)}
+          ></motion.div>
           <div className="container">
             <div className="wrapper">
               <div className="hero-banner">

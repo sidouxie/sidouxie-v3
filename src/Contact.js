@@ -80,6 +80,7 @@ function Contact() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
           transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 1 }}
         >
           <div className="bg-main">
@@ -94,8 +95,8 @@ function Contact() {
                   animate={{ opacity: 1 }}
                   transition={{
                     ease: [0.6, 0.01, -0.05, 0.95],
-                    duration: 1.6,
-                    delay: 0.6,
+                    duration: 1.4,
+                    delay: 3.2,
                   }}
                 >
                   Different.

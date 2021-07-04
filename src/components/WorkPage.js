@@ -73,13 +73,14 @@ function WorkPage({ data }) {
         className="main-work-page"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.5 }}
+        exit={{ opacity: 0 }}
+        transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.25 }}
       >
         <motion.div
           className="section-details"
           initial={{ backgroundColor: '#fff' }}
           animate={{ backgroundColor: data.color }}
-          transition={{ ease: 'easeIn', duration: 1, delay: 0.6 }}
+          transition={{ ease: 'easeIn', duration: 0.25 }}
         >
           <div className="container">
             <div className="wrapper">
