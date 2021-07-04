@@ -1,0 +1,83 @@
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://sidouxie.com</loc>
+        <lastmod>2021-07-04</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <url>
+        <loc>https://sidouxie.com/work</loc>
+        <lastmod>2021-07-04</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://sidouxie.com/work/darky-plumbing</loc>
+        <lastmod>2021-07-04</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://sidouxie.com/work/droppy</loc>
+        <lastmod>2021-07-04</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://sidouxie.com/work/walid-khaladi-v2</loc>
+        <lastmod>2021-07-04</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://sidouxie.com/work/walid-khaladi-v1</loc>
+        <lastmod>2021-07-04</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://sidouxie.com/work/n-seddi</loc>
+        <lastmod>2021-07-04</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://sidouxie.com/work/sidouxie-v2</loc>
+        <lastmod>2021-07-04</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://sidouxie.com/about</loc>
+        <lastmod>2021-07-04</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://sidouxie.com/contact</loc>
+        <lastmod>2021-07-04</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://sidouxie.com/politiques-de-confidentialité</loc>
+        <lastmod>2021-07-04</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.3</priority>
+    </url>
+    <url>
+        <loc>https://sidouxie.com/conditions-générales</loc>
+        <lastmod>2021-07-04</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.3</priority>
+    </url>
+</urlset>
