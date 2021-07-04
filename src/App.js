@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Switch, Route, useLocation, useHistory } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
+import { gsap } from 'gsap'
 
 import Home from './Home'
 import Work from './Work'
@@ -136,6 +137,7 @@ function App() {
   const history = useHistory()
 
   useEffect(() => {
+    gsap.to('body', { visibility: 'visible' })
     const unlisten = history.listen(() => {
       isFirst && setIsFirst(false)
     })

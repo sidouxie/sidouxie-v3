@@ -88,7 +88,7 @@ function About() {
               </div>
               <div className="text">
                 <p>
-                  Voici le résumer de mon parcours dans la digitale en
+                  Voici le résumer de mon parcours dans le digitale en
                   commencent par le design et en arriver au code.
                 </p>
               </div>

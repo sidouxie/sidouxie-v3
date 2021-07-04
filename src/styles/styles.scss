@@ -6,6 +6,7 @@
 @import 'politique';
 
 body {
+  visibility: hidden;
   width: 100%;
   min-height: 100vh;
   font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
@@ -333,7 +334,7 @@ footer {
     align-items: center;
     width: 100%;
     height: 100%;
-    margin: 1rem 0;
+    margin: 3rem 0;
 
     @media (max-width: 864px) {
       flex-direction: column;
@@ -429,7 +430,7 @@ footer {
         width: 100%;
         flex-direction: row;
         justify-content: space-around;
-        margin: 1rem 0;
+        margin: 2rem 0;
       }
 
       ul {
@@ -528,13 +529,20 @@ footer {
     background: $color-300;
     z-index: 100;
 
-    .icone-sidouxie {
-      width: 100px;
-      height: 100px;
-      fill: #fff;
+    .logo-wrapper {
+      width: inherit;
+      height: inherit;
       position: absolute;
-      left: 40%;
-      top: 40%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .icone-sidouxie {
+        width: 100px;
+        height: 100px;
+        fill: #fff;
+        position: relative;
+      }
     }
   }
 }
