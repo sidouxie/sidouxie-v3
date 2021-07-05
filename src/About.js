@@ -105,6 +105,16 @@ function About() {
                 <div className="subtitle">
                   <p>Fullstack developer javascript, web designer.</p>
                 </div>
+
+                <div className="btn-form">
+                  <a
+                    rel="noreferrer"
+                    target="_blank"
+                    href="https://drive.google.com/file/d/1TS_YkBbNFdVrod2AJBEbyMSzL6rjcALg/view?usp=sharing"
+                  >
+                    Resumé cv
+                  </a>
+                </div>
               </div>
 
               <div className="sec-detail">

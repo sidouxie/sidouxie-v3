@@ -72,13 +72,26 @@
         font-size: 1.1rem;
       }
     }
+
+    .btn-form {
+      @include btn-style;
+
+      a {
+        color: #fff;
+        font-weight: 300;
+
+        &:hover {
+          color: $color-primary;
+        }
+      }
+    }
   }
 
   .sec-detail {
     margin: 2rem 0;
 
     .section-design {
-      margin: 3rem 0;
+      margin: 5rem 0;
     }
 
     .section-dev {
