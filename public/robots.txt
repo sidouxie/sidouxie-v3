@@ -5,4 +5,5 @@ Sitemap: https://sidouxie.com/sitemap.xml
 User-agent: *
 Allow: /*
 
-Disallow:
+Disallow: /politiques-de-confidentialité
+Disallow: /conditions-générales

@@ -61,7 +61,13 @@ function Contact() {
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ 'form-name': 'contact', prenom, sujet, email, message }),
+      body: encode({
+        'form-name': 'contact-v2',
+        prenom,
+        sujet,
+        email,
+        message,
+      }),
     })
       .then(() => {
         alert('Votre message a bien été envoyé !')
@@ -174,7 +180,7 @@ function Contact() {
                   <div className="sec-submit">
                     <form
                       action="submit"
-                      name="contact"
+                      name="contact-v2"
                       netlify
                       data-netlify="true"
                       method="post"

@@ -178,12 +178,10 @@ function App() {
           </Route>
 
           <Route path="/politiques-de-confidentialité">
-            <InitialTrans />
             <Politiques />
           </Route>
 
           <Route path="/conditions-générales">
-            <InitialTrans />
             <Conditions />
           </Route>
 
