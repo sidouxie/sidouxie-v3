@@ -102,7 +102,7 @@ function Contact() {
                   transition={{
                     ease: [0.6, 0.01, -0.05, 0.95],
                     duration: 1.4,
-                    delay: 3.2,
+                    delay: 1.2,
                   }}
                 >
                   Different.
@@ -235,7 +235,7 @@ function Contact() {
                         />
                       </label>
 
-                      <input type="hidden" name="form-name" value="contact" />
+                      <input type="hidden" name="bot-field" value="contact" />
 
                       <button
                         className="btn-form"

@@ -1,13 +1,16 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import Layout from './components/Layout'
 import CardWrapper from './components/CardWrapper'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 import { motion } from 'framer-motion'
+import { dataContext } from './App'
 
 gsap.registerPlugin(ScrollTrigger)
 
-function Work({ data }) {
+function Work() {
+  const data = useContext(dataContext)
+
   useEffect(() => {
     ScrollTrigger.defaults({
       markers: false,
@@ -17,18 +20,18 @@ function Work({ data }) {
     gsap.fromTo(
       '.title',
       { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1.6, delay: 3.2, ease: 'power3.out' }
+      { y: 0, opacity: 1, duration: 1.6, delay: 1.2, ease: 'power3.out' }
     )
 
     gsap.fromTo(
       '.text',
       { x: -20, opacity: 0 },
-      { x: 0, opacity: 1, duration: 2, delay: 3.4, ease: 'power3.out' }
+      { x: 0, opacity: 1, duration: 2, delay: 1.4, ease: 'power3.out' }
     )
 
     gsap.fromTo(
       '.ligne',
-      { css: { width: 0 }, opacity: 0, delay: 3.6 },
+      { css: { width: 0 }, opacity: 0, delay: 1.6 },
       {
         css: { width: '100%' },
         opacity: 1,
@@ -61,9 +64,8 @@ function Work({ data }) {
               </div>
               <div className="ligne"></div>
               <div className="card-wrap">
-                {data.map((card) => (
-                  <CardWrapper data={card} key={card.id} />
-                ))}
+                {data &&
+                  data.map((card) => <CardWrapper data={card} key={card.id} />)}
               </div>
             </main>
           </div>

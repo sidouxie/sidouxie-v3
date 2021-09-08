@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { Switch, Route, useLocation, useHistory } from 'react-router-dom'
+import { Switch, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import { gsap } from 'gsap'
+import axios from 'axios'
 
 import Home from './Home'
 import Work from './Work'
@@ -11,9 +12,9 @@ import Notfound from './Notfound'
 import Politiques from './Politiques'
 import Conditions from './Conditions'
 import WorkPage from './components/WorkPage'
-import InitialTrans from './components/InitialTrans'
+/* import InitialTrans from './components/InitialTrans' */
 
-const data = [
+/* const data = [
   {
     id: '1',
     slug: 'darky-plumbing',
@@ -128,68 +129,91 @@ const data = [
       },
     ],
   },
-]
+] */
+
+export const dataContext = React.createContext()
 
 function App() {
-  const [isFirst, setIsFirst] = useState(true)
+  /*   const [isFirst, setIsFirst] = useState(true) */
+  const [data, setData] = useState(null)
+  const [isLoading, setIsLoading] = useState(true)
 
   const location = useLocation()
-  const history = useHistory()
+  /*   const history = useHistory() */
 
   useEffect(() => {
     gsap.to('body', { visibility: 'visible' })
-    const unlisten = history.listen(() => {
+    /* const unlisten = history.listen(() => {
       isFirst && setIsFirst(false)
     })
+    return unlisten */
 
-    return unlisten
-  }, [history, isFirst])
+    const fetch = async () => {
+      await axios
+        .get('https://api-sidouxie.herokuapp.com/postes?_sort=createdAt:DESC')
+        .then((res) => {
+          setData(res.data)
+          setIsLoading(false)
+        })
+        .catch((err) => console.log(err))
+    }
+    if (data === null) {
+      return fetch()
+    } else setIsLoading(false)
+  }, [isLoading, data])
 
   return (
     <>
-      <AnimatePresence exitBeforeEnter>
-        <Switch location={location} key={location.pathname}>
-          <Route
-            path="/"
-            exact
-            component={(props) => <Home isFirst={isFirst} {...props} />}
-          />
+      {data && (
+        <dataContext.Provider value={data}>
+          <AnimatePresence exitBeforeEnter>
+            <Switch location={location} key={location.pathname}>
+              <Route
+                path="/"
+                exact
+                component={(props) => <Home isFirst={isLoading} {...props} />}
+              />
 
-          <Route path="/work" exact>
-            <InitialTrans />
-            <Work data={data} />
-          </Route>
+              <Route path="/work" exact>
+                {/* <InitialTrans /> */}
+                <Work data={data} />
+              </Route>
 
-          <Route
-            path="/work/:slug"
-            render={({ match }) => (
-              <WorkPage data={data.find((p) => p.slug === match.params.slug)} />
-            )}
-          />
+              <Route
+                exact
+                path="/work/:slug"
+                render={({ match }) => (
+                  <WorkPage
+                    data={data.find((p) => p.slug === match.params.slug)}
+                  />
+                )}
+              />
 
-          <Route path="/about">
-            <InitialTrans />
-            <About />
-          </Route>
+              <Route path="/about">
+                {/* <InitialTrans /> */}
+                <About />
+              </Route>
 
-          <Route path="/contact">
-            <InitialTrans />
-            <Contact />
-          </Route>
+              <Route path="/contact">
+                {/* <InitialTrans /> */}
+                <Contact />
+              </Route>
 
-          <Route path="/politiques-de-confidentialité">
-            <Politiques />
-          </Route>
+              <Route path="/politiques-de-confidentialité">
+                <Politiques />
+              </Route>
 
-          <Route path="/conditions-générales">
-            <Conditions />
-          </Route>
+              <Route path="/conditions-générales">
+                <Conditions />
+              </Route>
 
-          <Route path="/*">
-            <Notfound />
-          </Route>
-        </Switch>
-      </AnimatePresence>
+              <Route path="/*">
+                <Notfound />
+              </Route>
+            </Switch>
+          </AnimatePresence>
+        </dataContext.Provider>
+      )}
     </>
   )
 }

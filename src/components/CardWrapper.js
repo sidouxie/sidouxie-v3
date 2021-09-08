@@ -190,31 +190,37 @@ function CardWrapper({ data }) {
   return (
     <div ref={addCardRef} className="card-index">
       <Link to={`/work/${data.slug}`}>
-        <img src={`.${data.imgPath}`} alt={`capture du site ${data.title}`} />
+        <img src={`${data.photo.url}`} alt={`capture du site ${data.title}`} />
         <div className="sec-head">
           <h3 style={{ color: data.colorTitle }} ref={addToRefsTitle}>
             {data.title}
           </h3>
           <div className="sec-span">
-            {data.techno.map(({ id, stacks }) => (
-              <span style={{ opacity: 0.8 }} key={id}>
-                {stacks.map((stack) => (
-                  <span
-                    ref={addTechRef}
-                    style={{
-                      color: data.colorText,
-                      border: `0.5px ${data.colorText} solid`,
-                    }}
-                    key={id++}
-                  >
-                    {stack}
-                  </span>
-                ))}
-              </span>
-            ))}
+            {data &&
+              data.techno.map(({ id, stacks }) => (
+                <span
+                  className="container-span"
+                  style={{ opacity: 0.8 }}
+                  key={id}
+                >
+                  {stacks.map((stack) => (
+                    <span
+                      className="content-span"
+                      ref={addTechRef}
+                      style={{
+                        color: data.colorText,
+                        border: `0.5px ${data.colorText} solid`,
+                      }}
+                      key={id++}
+                    >
+                      {stack}
+                    </span>
+                  ))}
+                </span>
+              ))}
           </div>
           <p style={{ color: data.colorText }} ref={addTextRef}>
-            {data.desc}
+            {data.description}
           </p>
         </div>
         <div

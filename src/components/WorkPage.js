@@ -68,144 +68,154 @@ function WorkPage({ data }) {
   }, [])
 
   return (
-    <Layout>
-      <motion.main
-        className="main-work-page"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.25 }}
-      >
-        <motion.div
-          className="section-details"
-          initial={{ backgroundColor: '#fff' }}
-          animate={{ backgroundColor: data.color }}
+    <>
+      <Layout>
+        <motion.main
+          className="main-work-page"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ ease: 'easeInOut', duration: 0.25 }}
+          transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.25 }}
         >
-          <div className="container">
-            <div className="wrapper">
-              <div className="section-head">
-                <div className="icon-return" onClick={() => history.go(-1)}>
-                  <IconReturn
-                    width={'38px'}
-                    height={'38px'}
-                    onMouseEnter={() => handleHover(isHover)}
-                    onMouseLeave={() => handleHover(!isHover)}
-                    style={{
-                      fill: `${isHover ? data.colorText : data.colorTitle}`,
-                      cursor: 'pointer',
-                    }}
-                  />
-                </div>
+          <motion.div
+            className="section-details"
+            initial={{ backgroundColor: '#fff' }}
+            animate={{ backgroundColor: data.color }}
+            exit={{ opacity: 0 }}
+            transition={{ ease: 'easeInOut', duration: 0.25 }}
+          >
+            <div className="container">
+              <div className="wrapper">
+                <div className="section-head">
+                  <div className="icon-return" onClick={() => history.go(-1)}>
+                    <IconReturn
+                      width={'38px'}
+                      height={'38px'}
+                      onMouseEnter={() => handleHover(isHover)}
+                      onMouseLeave={() => handleHover(!isHover)}
+                      style={{
+                        fill: `${isHover ? data.colorText : data.colorTitle}`,
+                        cursor: 'pointer',
+                      }}
+                    />
+                  </div>
 
-                <div
-                  style={{ color: data.colorText, opacity: 0.5 }}
-                  className="category"
-                >
-                  <h3>site web</h3>
-                </div>
-                <div className="title">
-                  <h2 style={{ color: data.colorTitle }}>{data.title}</h2>
-                  <span
+                  <div
                     style={{ color: data.colorText, opacity: 0.5 }}
-                    className="domain"
+                    className="category"
                   >
-                    {data.domain}{' '}
-                  </span>
-                </div>
-
-                <div className="sec-text">
-                  <div className="sec-card">
-                    <div className="subtitle">
-                      <h2 style={{ color: data.colorTitle, opacity: 0.8 }}>
-                        Objectif du client
-                      </h2>
-                    </div>
-                    <div style={{ color: data.colorText }} className="text">
-                      <p>{data.desc}</p>
-                    </div>
+                    <h3>site web</h3>
                   </div>
-                  <div className="sec-card">
-                    <div className="subtitle">
-                      <h2 style={{ color: data.colorTitle, opacity: 0.8 }}>
-                        Proposition
-                      </h2>
-                    </div>
-                    <div style={{ color: data.colorText }} className="text">
-                      <p>{data.desc}</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="sec-link">
-                  <div className="link">
-                    <a
-                      target="_blank"
-                      href={data.link}
-                      rel="noopener noreferrer"
+                  <div className="title">
+                    <h2 style={{ color: data.colorTitle }}>{data.title}</h2>
+                    <span
+                      style={{ color: data.colorText, opacity: 0.5 }}
+                      className="domain"
                     >
-                      <IconLink
-                        width={'32px'}
-                        title={`${data.title} site web`}
-                        onMouseEnter={() => handleLink(isLink)}
-                        onMouseLeave={() => handleLink(!isLink)}
-                        style={{
-                          fill: `${isLink ? data.colorTitle : data.colorText}`,
-                          cursor: 'pointer',
-                        }}
-                      />
-                    </a>
+                      {data.domain}{' '}
+                    </span>
                   </div>
-                  <div className="link">
-                    <a
-                      target="_blank"
-                      href={data.github}
-                      rel="noopener noreferrer"
-                    >
-                      <Github
-                        width={'32px'}
-                        title={`${data.title} Github repository`}
-                        onMouseEnter={() => handleGit(isGit)}
-                        onMouseLeave={() => handleGit(!isGit)}
-                        style={{
-                          fill: `${isGit ? data.colorTitle : data.colorText}`,
-                          cursor: 'pointer',
-                        }}
-                      />
-                    </a>
+
+                  <div className="sec-text">
+                    <div className="sec-card">
+                      <div className="subtitle">
+                        <h2 style={{ color: data.colorTitle, opacity: 0.8 }}>
+                          Objectif du client
+                        </h2>
+                      </div>
+                      <div style={{ color: data.colorText }} className="text">
+                        <p>{data.description}</p>
+                      </div>
+                    </div>
+                    <div className="sec-card">
+                      <div className="subtitle">
+                        <h2 style={{ color: data.colorTitle, opacity: 0.8 }}>
+                          Proposition
+                        </h2>
+                      </div>
+                      <div style={{ color: data.colorText }} className="text">
+                        <p>{data.description}</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="sec-link">
+                    <div className="link">
+                      <span style={{ color: data.colorTitle, opacity: 0.8 }}>
+                        consulter le site
+                      </span>
+                      <a
+                        target="_blank"
+                        href={data.link}
+                        rel="noopener noreferrer"
+                      >
+                        <IconLink
+                          width={'32px'}
+                          title={`${data.title} site web`}
+                          onMouseEnter={() => handleLink(isLink)}
+                          onMouseLeave={() => handleLink(!isLink)}
+                          style={{
+                            fill: `${
+                              isLink ? data.colorTitle : data.colorText
+                            }`,
+                            cursor: 'pointer',
+                          }}
+                        />
+                      </a>
+                    </div>
+                    <div className="link">
+                      <span style={{ color: data.colorTitle, opacity: 0.8 }}>
+                        voir le code
+                      </span>
+                      <a
+                        target="_blank"
+                        href={data.github}
+                        rel="noopener noreferrer"
+                      >
+                        <Github
+                          width={'32px'}
+                          title={`${data.title} Github repository`}
+                          onMouseEnter={() => handleGit(isGit)}
+                          onMouseLeave={() => handleGit(!isGit)}
+                          style={{
+                            fill: `${isGit ? data.colorTitle : data.colorText}`,
+                            cursor: 'pointer',
+                          }}
+                        />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+          </motion.div>
+
+          <div className="section-image">
+            <img
+              src={`${data.photo.url}`}
+              alt={`capture background de site ${data.title}`}
+            />
           </div>
-        </motion.div>
 
-        <div className="section-image">
-          <img
-            src={`.${data.imgPath}`}
-            alt={`capture background de site ${data.title}`}
-          />
-        </div>
+          <div className="section-desc">
+            <div className="container">
+              <div className="wrapper">
+                <div className="title">
+                  <h3>Le concepte design du projet</h3>
+                </div>
+                <div className="subtitle">
+                  <h5>l'importance de l'ux dans le digital</h5>
+                </div>
 
-        <div className="section-desc">
-          <div className="container">
-            <div className="wrapper">
-              <div className="title">
-                <h3>Du Gaming au professionelisme</h3>
-              </div>
-              <div className="subtitle">
-                <h5>La force du marketing digitale</h5>
-              </div>
-
-              <div className="text">
-                <p>{data.desc}</p>
+                <div className="text">
+                  <p>{data.description}</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </motion.main>
-    </Layout>
+        </motion.main>
+      </Layout>
+    </>
   )
 }
 
