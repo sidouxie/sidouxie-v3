@@ -12,7 +12,7 @@ import Notfound from './Notfound'
 import Politiques from './Politiques'
 import Conditions from './Conditions'
 import WorkPage from './components/WorkPage'
-/* import InitialTrans from './components/InitialTrans' */
+import InitialTrans from './components/InitialTrans'
 
 /* const data = [
   {
@@ -159,7 +159,7 @@ function App() {
     }
     if (data === null) {
       return fetch()
-    } else setIsLoading(false)
+    } else setIsLoading(true)
   }, [isLoading, data])
 
   return (
@@ -171,11 +171,11 @@ function App() {
               <Route
                 path="/"
                 exact
-                component={(props) => <Home isFirst={isLoading} {...props} />}
+                component={(props) => <Home isLoading={isLoading} {...props} />}
               />
 
               <Route path="/work" exact>
-                {/* <InitialTrans /> */}
+                {isLoading && <InitialTrans />}
                 <Work data={data} />
               </Route>
 
@@ -190,12 +190,12 @@ function App() {
               />
 
               <Route path="/about">
-                {/* <InitialTrans /> */}
+                {isLoading && <InitialTrans />}
                 <About />
               </Route>
 
               <Route path="/contact">
-                {/* <InitialTrans /> */}
+                {isLoading && <InitialTrans />}
                 <Contact />
               </Route>
 

@@ -4,13 +4,13 @@ import InitialTrans from './components/InitialTrans'
 import { gsap } from 'gsap'
 import { motion } from 'framer-motion'
 
-const content = (isFirst) => ({
+const content = (isLoading) => ({
   animate: {
-    transition: { staggerChildren: 0.1, delayChildren: isFirst ? 2.8 : 0 },
+    transition: { staggerChildren: 0.1, delayChildren: isLoading ? 2.8 : 0 },
   },
 })
 
-function Home({ isFirst }) {
+function Home({ isLoading }) {
   const [isHover, setIsHover] = useState(false)
 
   const handleIsHover = () => {
@@ -49,11 +49,11 @@ function Home({ isFirst }) {
           exit={{ opacity: 0 }}
           transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 1 }}
         >
-          {isFirst && <InitialTrans />}
+          {isLoading && <InitialTrans />}
           <motion.div
             initial="initial"
             animate="animate"
-            variants={content(isFirst)}
+            variants={content(isLoading)}
           ></motion.div>
           <div className="container">
             <div className="wrapper">

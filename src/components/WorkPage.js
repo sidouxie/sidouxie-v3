@@ -120,7 +120,7 @@ function WorkPage({ data }) {
                     <div className="sec-card">
                       <div className="subtitle">
                         <h2 style={{ color: data.colorTitle, opacity: 0.8 }}>
-                          Objectif du client
+                          Résumer
                         </h2>
                       </div>
                       <div style={{ color: data.colorText }} className="text">
@@ -130,11 +130,35 @@ function WorkPage({ data }) {
                     <div className="sec-card">
                       <div className="subtitle">
                         <h2 style={{ color: data.colorTitle, opacity: 0.8 }}>
-                          Proposition
+                          Stacks
                         </h2>
                       </div>
-                      <div style={{ color: data.colorText }} className="text">
+                      {/* <div style={{ color: data.colorText }} className="text">
                         <p>{data.description}</p>
+                      </div> */}
+
+                      <div className="sec-span">
+                        {data &&
+                          data.techno.map(({ id, stacks }) => (
+                            <span
+                              className="container-span"
+                              style={{ opacity: 0.8 }}
+                              key={id}
+                            >
+                              {stacks.map((stack) => (
+                                <span
+                                  className="content-span"
+                                  style={{
+                                    color: data.colorText,
+                                    border: `0.5px ${data.colorText} solid`,
+                                  }}
+                                  key={id++}
+                                >
+                                  {stack}
+                                </span>
+                              ))}
+                            </span>
+                          ))}
                       </div>
                     </div>
                   </div>
@@ -209,6 +233,21 @@ function WorkPage({ data }) {
 
                 <div className="text">
                   <p>{data.description}</p>
+                </div>
+
+                {/* section image mockup */}
+
+                <div className="section-mockup">
+                  <img
+                    src={data.mockupPhoto.url}
+                    alt={`mockup du projet ${data.title}`}
+                  />
+                </div>
+
+                <div className="section-btn">
+                  <a target="_blank" href={data.link} rel="noopener noreferrer">
+                    visiter le site
+                  </a>
                 </div>
               </div>
             </div>

@@ -225,7 +225,7 @@ function About() {
         <div className="section-logos">
           <div className="wrap-card">
             {data.map((logo) => (
-              <img src={logo.url} alt={logo.title} />
+              <img src={logo.url} alt={logo.title} key={logo.title} />
             ))}
           </div>
         </div>

@@ -109,7 +109,7 @@ function CardWrapper({ data }) {
           autoAlpha: 0,
         },
         {
-          duration: 1.6,
+          duration: 1.2,
           delay: 0.8,
           ease: 'power3.inOut',
           scale: 1,
