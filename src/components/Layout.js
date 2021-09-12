@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, lazy, Suspense } from 'react'
 import { useLocation } from 'react-router-dom'
-import Footer from './Footer'
-import Menu from './Menu'
+/* import Footer from './Footer'
+import Menu from './Menu' */
+
+const Footer = lazy(() => import('./Footer'))
+const Menu = lazy(() => import('./Menu'))
 
 function Layout(props) {
   const locate = useLocation().pathname
@@ -22,9 +25,11 @@ function Layout(props) {
 
   return (
     <>
+    <Suspense fallback={<div />}>
       <Menu isopen={isopen} handleClick={handleClick} />
       {props.children}
       {!isHome ? <Footer /> : null}
+      </Suspense>
     </>
   )
 }

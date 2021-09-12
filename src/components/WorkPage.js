@@ -119,7 +119,7 @@ function WorkPage({ data }) {
                   <div className="sec-text">
                     <div className="sec-card">
                       <div className="subtitle">
-                        <h2 style={{ color: data.colorTitle, opacity: 0.8 }}>
+                        <h2 style={{ color: data.colorTitle}}>
                           Résumer
                         </h2>
                       </div>
@@ -129,7 +129,7 @@ function WorkPage({ data }) {
                     </div>
                     <div className="sec-card">
                       <div className="subtitle">
-                        <h2 style={{ color: data.colorTitle, opacity: 0.8 }}>
+                        <h2 style={{ color: data.colorTitle}}>
                           Stacks
                         </h2>
                       </div>
@@ -165,7 +165,7 @@ function WorkPage({ data }) {
 
                   <div className="sec-link">
                     <div className="link">
-                      <span style={{ color: data.colorTitle, opacity: 0.8 }}>
+                      <span style={{ color: data.colorTitle }}>
                         consulter le site
                       </span>
                       <a
@@ -188,7 +188,7 @@ function WorkPage({ data }) {
                       </a>
                     </div>
                     <div className="link">
-                      <span style={{ color: data.colorTitle, opacity: 0.8 }}>
+                      <span style={{ color: data.colorTitle }}>
                         voir le code
                       </span>
                       <a

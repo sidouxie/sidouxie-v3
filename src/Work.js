@@ -20,23 +20,23 @@ function Work() {
     gsap.fromTo(
       '.title',
       { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1.6, delay: 1.2, ease: 'power3.out' }
+      { y: 0, opacity: 1, duration: 1.6, delay: 0.4, ease: 'power3.out' }
     )
 
     gsap.fromTo(
       '.text',
       { x: -20, opacity: 0 },
-      { x: 0, opacity: 1, duration: 2, delay: 1.4, ease: 'power3.out' }
+      { x: 0, opacity: 1, duration: 2, delay: 0.6, ease: 'power3.out' }
     )
 
     gsap.fromTo(
       '.ligne',
-      { css: { width: 0 }, opacity: 0, delay: 1.6 },
+      { css: { width: 0 }, opacity: 0, delay: 0.8 },
       {
         css: { width: '100%' },
         opacity: 1,
         duration: 2,
-        delay: 1.6,
+        delay: 0.8,
         ease: 'power3.out',
       }
     )

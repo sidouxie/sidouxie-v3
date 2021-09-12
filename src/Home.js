@@ -1,8 +1,11 @@
-import React, { useEffect, useState, Suspense } from 'react'
-import Layout from './components/Layout'
+import React, { useEffect, useState, Suspense, lazy } from 'react'
+/* import Layout from './components/Layout' */
 import InitialTrans from './components/InitialTrans'
 import { gsap } from 'gsap'
 import { motion } from 'framer-motion'
+
+const Layout = lazy(() => import('./components/Layout'))
+
 
 const content = (isLoading) => ({
   animate: {

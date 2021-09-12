@@ -1,6 +1,5 @@
 import React, { useState, useEffect, Suspense, lazy } from 'react'
 import { Switch, Route, useLocation } from 'react-router-dom'
-import { AnimatePresence } from 'framer-motion'
 import { gsap } from 'gsap'
 import axios from 'axios'
 
@@ -14,6 +13,10 @@ const Notfound = lazy(() => import('./Notfound'))
 const Politiques = lazy(() => import('./Politiques'))
 const Conditions = lazy(() => import('./Conditions'))
 const WorkPage = lazy(() => import('./components/WorkPage'))
+const AnimatePresence = lazy(() => import('framer-motion').then(mod => ({
+  default: mod.motion.div,
+})))
+
 
 export const dataContext = React.createContext()
 
