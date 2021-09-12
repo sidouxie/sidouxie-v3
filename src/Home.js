@@ -1,11 +1,9 @@
-import React, { useEffect, useState, Suspense, lazy } from 'react'
-/* import Layout from './components/Layout' */
-import InitialTrans from './components/InitialTrans'
+import React, { useEffect, useState, lazy } from 'react'
+
 import { gsap } from 'gsap'
 import { motion } from 'framer-motion'
 
 const Layout = lazy(() => import('./components/Layout'))
-
 
 const content = (isLoading) => ({
   animate: {
@@ -44,7 +42,6 @@ function Home({ isLoading }) {
 
   return (
     <>
-    <Suspense fallback={<InitialTrans />}>
       <Layout>
         <motion.div
           className="App"
@@ -53,7 +50,6 @@ function Home({ isLoading }) {
           exit={{ opacity: 0 }}
           transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 1 }}
         >
-          {/* {isLoading && <InitialTrans />} */}
           <motion.div
             initial="initial"
             animate="animate"
@@ -101,10 +97,9 @@ function Home({ isLoading }) {
                 </div>
               </div>
             </div>
-          </div> 
+          </div>
         </motion.div>
       </Layout>
-      </Suspense>
     </>
   )
 }
