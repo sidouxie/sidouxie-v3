@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, Suspense } from 'react'
 import Layout from './components/Layout'
 import InitialTrans from './components/InitialTrans'
 import { gsap } from 'gsap'
@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 
 const content = (isLoading) => ({
   animate: {
-    transition: { staggerChildren: 0.1, delayChildren: isLoading ? 2.8 : 0 },
+    transition: { staggerChildren: 0.1, delayChildren: isLoading ? 0.2 : 0 },
   },
 })
 
@@ -41,6 +41,7 @@ function Home({ isLoading }) {
 
   return (
     <>
+    <Suspense fallback={<InitialTrans />}>
       <Layout>
         <motion.div
           className="App"
@@ -49,7 +50,7 @@ function Home({ isLoading }) {
           exit={{ opacity: 0 }}
           transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 1 }}
         >
-          {isLoading && <InitialTrans />}
+          {/* {isLoading && <InitialTrans />} */}
           <motion.div
             initial="initial"
             animate="animate"
@@ -97,9 +98,10 @@ function Home({ isLoading }) {
                 </div>
               </div>
             </div>
-          </div>
+          </div> 
         </motion.div>
       </Layout>
+      </Suspense>
     </>
   )
 }
