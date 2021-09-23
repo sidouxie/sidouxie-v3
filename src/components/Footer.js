@@ -67,13 +67,15 @@ function Footer() {
                     href="mailto:sid_ouxie@hotmail.com"
                     target="_blank"
                     rel="nopenner noreferrer"
+                    title="e-mail"
                   >
                     sid_ouxie@hotmail.com
                   </a>
                   <a
-                    href="mailto:sid_ouxie@hotmail.com"
+                    href="tel:+213557733115"
                     target="_blank"
                     rel="nopenner noreferrer"
+                    title="Numéro de téléphone"
                   >
                     +213 557 73 31 15
                   </a>
@@ -81,6 +83,7 @@ function Footer() {
                     href="mailto:sid_ouxie@hotmail.com"
                     target="_blank"
                     rel="nopenner noreferrer"
+                    title="Adresse postale"
                   >
                     cité aadl belle vue,
                     <br /> Ain Benian Alger 16018.

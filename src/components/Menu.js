@@ -118,7 +118,7 @@ function Menu({ isopen, handleClick }) {
             >
               <Behance
                 width={'32px'}
-                style={{ fill: '#0742f2', cursor: 'pointer' }}
+                style={{ fill: '#1c1c1c', cursor: 'pointer' }}
                 opacity={isHover ? 1 : 0.5}
                 onMouseEnter={() => handlebehance(isHover)}
                 onMouseLeave={() => handlebehance(!isHover)}
@@ -131,7 +131,7 @@ function Menu({ isopen, handleClick }) {
             >
               <Instagram
                 width={'32px'}
-                style={{ fill: '#0742f2', cursor: 'pointer' }}
+                style={{ fill: '#1c1c1c', cursor: 'pointer' }}
                 opacity={isInsta ? 1 : 0.5}
                 onMouseEnter={() => handleInsta(isInsta)}
                 onMouseLeave={() => handleInsta(!isInsta)}
@@ -145,7 +145,7 @@ function Menu({ isopen, handleClick }) {
             >
               <Github
                 width={'32px'}
-                style={{ fill: '#0742f2', cursor: 'pointer' }}
+                style={{ fill: '#1c1c1c', cursor: 'pointer' }}
                 opacity={isGit ? 1 : 0.5}
                 onMouseEnter={() => handleGit(isGit)}
                 onMouseLeave={() => handleGit(!isGit)}

@@ -1,11 +1,10 @@
 import React, { useState, useEffect, Suspense, lazy } from 'react'
 import { Switch, Route, useLocation } from 'react-router-dom'
-import { gsap } from 'gsap'
 import axios from 'axios'
 
+import Home from './Home'
 import InitialTrans from './components/InitialTrans'
 
-const Home = lazy(() => import('./Home'))
 const Work = lazy(() => import('./Work'))
 const About = lazy(() => import('./About'))
 const Contact = lazy(() => import('./Contact'))
@@ -28,8 +27,6 @@ function App() {
   const location = useLocation()
 
   useEffect(() => {
-    gsap.to('body', { visibility: 'visible' })
-
     const fetch = async () => {
       await axios
         .get('https://api-sidouxie.herokuapp.com/postes?_sort=createdAt:DESC')
