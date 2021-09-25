@@ -1,6 +1,4 @@
-import React, { useEffect, useState, lazy } from 'react'
-
-import { gsap } from 'gsap'
+import React, { useState, lazy } from 'react'
 
 const Layout = lazy(() => import('./components/Layout'))
 
@@ -10,28 +8,6 @@ function Home() {
   const handleIsHover = () => {
     return setIsHover(!isHover)
   }
-
-  useEffect(() => {
-    gsap.from('.title', 1, {
-      delay: 1,
-      ease: 'power3.out',
-      opacity: 0,
-      y: 64,
-      stagger: {
-        amount: 0.15,
-      },
-    })
-
-    gsap.to('.title', 0.8, {
-      delay: 0.8,
-      ease: 'power3.out',
-      opacity: 1,
-      y: 0,
-      stagger: {
-        amount: 0.15,
-      },
-    })
-  }, [])
 
   return (
     <>

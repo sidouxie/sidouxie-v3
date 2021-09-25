@@ -525,6 +525,8 @@ footer {
   .sub-page {
     position: relative;
     width: 100vw;
+    height: 100vh;
+    bottom: 0;
     background: $color-300;
     z-index: 100;
 
