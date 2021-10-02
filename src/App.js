@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Suspense } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
 import InitialTrans from './components/InitialTrans'
@@ -28,13 +28,10 @@ function App() {
 
   return (
     <>
-      <Suspense fallback={<InitialTrans />}>
-        {data && (
-          <dataContext.Provider value={data}>
-            <Routes data={data} isLoading={isLoading} />
-          </dataContext.Provider>
-        )}
-      </Suspense>
+      {!data && <InitialTrans />}
+      <dataContext.Provider value={data}>
+        <Routes data={data} isLoading={isLoading} />
+      </dataContext.Provider>
     </>
   )
 }

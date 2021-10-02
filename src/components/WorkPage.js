@@ -9,6 +9,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger'
 import { ReactComponent as Github } from '../assets/github.svg'
 import { ReactComponent as IconLink } from '../assets/iconLink.svg'
 import { ReactComponent as IconReturn } from '../assets/iconReturn.svg'
+import InitialTrans from './InitialTrans'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -69,6 +70,7 @@ function WorkPage({ data }) {
 
   return (
     <>
+      {!data && <InitialTrans />}
       <Layout>
         <motion.main
           className="main-work-page"
@@ -119,9 +121,7 @@ function WorkPage({ data }) {
                   <div className="sec-text">
                     <div className="sec-card">
                       <div className="subtitle">
-                        <h2 style={{ color: data.colorTitle}}>
-                          Résumer
-                        </h2>
+                        <h2 style={{ color: data.colorTitle }}>Résumer</h2>
                       </div>
                       <div style={{ color: data.colorText }} className="text">
                         <p>{data.description}</p>
@@ -129,13 +129,8 @@ function WorkPage({ data }) {
                     </div>
                     <div className="sec-card">
                       <div className="subtitle">
-                        <h2 style={{ color: data.colorTitle}}>
-                          Stacks
-                        </h2>
+                        <h2 style={{ color: data.colorTitle }}>Stacks</h2>
                       </div>
-                      {/* <div style={{ color: data.colorText }} className="text">
-                        <p>{data.description}</p>
-                      </div> */}
 
                       <div className="sec-span">
                         {data &&

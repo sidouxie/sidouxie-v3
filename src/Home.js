@@ -1,6 +1,6 @@
-import React, { useState, lazy } from 'react'
+import React, { useState } from 'react'
 
-const Layout = lazy(() => import('./components/Layout'))
+import Layout from './components/Layout'
 
 function Home() {
   const [isHover, setIsHover] = useState(false)

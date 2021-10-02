@@ -1,14 +1,14 @@
-import React, { lazy } from 'react'
+import React from 'react'
 import { Switch, Route, useLocation } from 'react-router-dom'
 
-const Home = lazy(() => import('./Home'))
-const Work = lazy(() => import('./Work'))
-const About = lazy(() => import('./About'))
-const Contact = lazy(() => import('./Contact'))
-const Notfound = lazy(() => import('./Notfound'))
-const Politiques = lazy(() => import('./Politiques'))
-const Conditions = lazy(() => import('./Conditions'))
-const WorkPage = lazy(() => import('./components/WorkPage'))
+import Home from './Home'
+import Work from './Work'
+import About from './About'
+import Contact from './Contact'
+import Notfound from './Notfound'
+import Politiques from './Politiques'
+import Conditions from './Conditions'
+import WorkPage from './components/WorkPage'
 
 function Routes(props) {
   const location = useLocation()
@@ -26,15 +26,17 @@ function Routes(props) {
           <Work data={props.data} />
         </Route>
 
-        <Route
-          exact
-          path="/work/:slug"
-          render={({ match }) => (
-            <WorkPage
-              data={props.data.find((p) => p.slug === match.params.slug)}
-            />
-          )}
-        />
+        {props.data && (
+          <Route
+            exact
+            path="/work/:slug"
+            render={({ match }) => (
+              <WorkPage
+                data={props.data.find((p) => p.slug === match.params.slug)}
+              />
+            )}
+          />
+        )}
 
         <Route path="/about">
           <About />
