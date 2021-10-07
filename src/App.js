@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
-/* import InitialTrans from './components/InitialTrans' */
 import Routes from './Routes'
 
 export const dataContext = React.createContext()
@@ -28,7 +27,6 @@ function App() {
 
   return (
     <>
-      {/* {!data && <InitialTrans />} */}
       <dataContext.Provider value={data}>
         <Routes data={data} isLoading={isLoading} />
       </dataContext.Provider>
