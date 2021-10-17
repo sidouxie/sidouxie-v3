@@ -210,9 +210,11 @@ function WorkPage({ data }) {
               </div>
             </motion.div>
 
+            {/* section images */}
+
             <div className="section-image">
               <img
-                src={`${data.photo.url}`}
+                src={`${data.photo.formats.large.url}`}
                 alt={`capture background de site ${data.title}`}
               />
             </div>

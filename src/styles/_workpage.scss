@@ -168,9 +168,11 @@
     .section-mockup {
       width: 100%;
       height: 100%;
-      display: block;
+      display: inline-flex;
       position: relative;
       margin: 3rem auto;
+      justify-content: center;
+      align-items: center;
 
       img {
         max-width: 100%;

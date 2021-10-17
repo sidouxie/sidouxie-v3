@@ -190,7 +190,10 @@ function CardWrapper({ data }) {
   return (
     <div ref={addCardRef} className="card-index">
       <Link to={`/work/${data.slug}`}>
-        <img src={`${data.photo.url}`} alt={`capture du site ${data.title}`} />
+        <img
+          src={`${data.photo.formats.small.url}`}
+          alt={`capture du site ${data.title}`}
+        />
         <div className="sec-head">
           <h3 style={{ color: data.colorTitle }} ref={addToRefsTitle}>
             {data.title}
