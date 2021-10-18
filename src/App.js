@@ -11,8 +11,11 @@ function App() {
 
   useEffect(() => {
     const fetch = async () => {
-      await axios
-        .get('https://api-sidouxie.herokuapp.com/postes?_sort=createdAt:DESC')
+      await axios({
+        method: 'get',
+        url: 'https://api-sidouxie.herokuapp.com/postes?_sort=createdAt:DESC',
+        headers: { 'Content-Type': 'application/json' },
+      })
         .then((res) => {
           setData(res.data)
           setIsLoading(false)
