@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import {gsap} from 'gsap'
+import {ScrollTrigger} from 'gsap/ScrollTrigger'
+import { CSSPlugin } from 'gsap/CSSPlugin'
 
 import Routes from './Routes'
+
+gsap.registerPlugin(ScrollTrigger, CSSPlugin); 
+
 
 export const dataContext = React.createContext()
 
@@ -31,7 +37,7 @@ function App() {
   return (
     <>
       <dataContext.Provider value={data}>
-        <Routes data={data} isLoading={isLoading} />
+        <Routes isLoading={isLoading} />
       </dataContext.Provider>
     </>
   )

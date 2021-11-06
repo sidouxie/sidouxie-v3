@@ -2,15 +2,19 @@ import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import Layout from './Layout'
 import { motion } from 'framer-motion'
-import { gsap } from 'gsap'
-import ScrollTrigger from 'gsap/ScrollTrigger'
+import {gsap} from 'gsap'
+import {ScrollTrigger} from 'gsap/ScrollTrigger'
+import { CSSPlugin } from 'gsap/CSSPlugin'
+
 
 //Import Icones
 import { ReactComponent as Github } from '../assets/github.svg'
 import { ReactComponent as IconLink } from '../assets/iconLink.svg'
 import { ReactComponent as IconReturn } from '../assets/iconReturn.svg'
 
-gsap.registerPlugin(ScrollTrigger)
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger, CSSPlugin); 
+}
 
 function WorkPage({ data }) {
   const history = useHistory()

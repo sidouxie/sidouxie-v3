@@ -6,9 +6,13 @@ import { ReactComponent as IconDown } from '../assets/iconDown.svg'
 import { ReactComponent as Behance } from '../assets/behance.svg'
 import { ReactComponent as Instagram } from '../assets/instagram.svg'
 import { ReactComponent as Github } from '../assets/github.svg'
-import { gsap } from 'gsap'
+import {gsap} from 'gsap'
+import {ScrollTrigger} from 'gsap/ScrollTrigger'
+import { CSSRulePlugin } from 'gsap/CSSRulePlugin'
 
-gsap.registerPlugin()
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger, CSSRulePlugin); 
+}
 
 function Menu({ isopen, handleClick }) {
   const [isHover, setIsHover] = useState(false)

@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { gsap } from 'gsap'
-import ScrollTrigger from 'gsap/ScrollTrigger'
+import {ScrollTrigger} from 'gsap/ScrollTrigger'
 import Layout from './components/Layout'
 import { ReactComponent as Behance } from './assets/behance.svg'
 import { ReactComponent as Instagram } from './assets/instagram.svg'
 import { ReactComponent as Github } from './assets/github.svg'
+import { CSSRulePlugin } from 'gsap/CSSRulePlugin'
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger, CSSRulePlugin); 
+}
 
 const encode = (data) => {
   return Object.keys(data)
     .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
     .join('&')
 }
-
-gsap.registerPlugin(ScrollTrigger)
 
 function Contact() {
   const [prenom, setPrenom] = useState('')

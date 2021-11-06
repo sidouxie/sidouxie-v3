@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Switch, Route, useLocation } from 'react-router-dom'
 
 import Home from './Home'
@@ -9,9 +9,12 @@ import Notfound from './Notfound'
 import Politiques from './Politiques'
 import Conditions from './Conditions'
 import WorkPage from './components/WorkPage'
+import { dataContext } from './App'
 
 function Routes(props) {
   const location = useLocation()
+
+  const data = useContext(dataContext)
 
   return (
     <>
@@ -23,16 +26,16 @@ function Routes(props) {
         />
 
         <Route path="/work" exact>
-          <Work data={props.data} />
+          <Work data={data} />
         </Route>
 
-        {props.data && (
+        {data && (
           <Route
             exact
             path="/work/:slug"
             render={({ match }) => (
               <WorkPage
-                data={props.data.find((p) => p.slug === match.params.slug)}
+                data={data && data.find((p) => p.slug === match.params.slug)}
               />
             )}
           />

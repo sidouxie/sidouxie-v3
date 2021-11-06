@@ -3,13 +3,16 @@ import { Link } from 'react-router-dom'
 import Layout from './components/Layout'
 import { gsap } from 'gsap'
 import { motion } from 'framer-motion'
-import ScrollTrigger from 'gsap/ScrollTrigger'
+import {ScrollTrigger} from 'gsap/ScrollTrigger'
+import { CSSRulePlugin } from 'gsap/CSSRulePlugin'
 
-gsap.registerPlugin(ScrollTrigger)
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger, CSSRulePlugin); 
+}
 
 function Politiques() {
   useEffect(() => {
-    const tl = gsap.globalTimeline
+    const tl = gsap.timeline()
 
     tl.fromTo(
       '.SidouxieLogo',

@@ -2,8 +2,11 @@ import React, { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
+import CSSRulePlugin from 'gsap/CSSRulePlugin'
 
-gsap.registerPlugin(ScrollTrigger)
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger, CSSRulePlugin); 
+}
 
 function CardWrapper({ data }) {
   let bgRef = useRef([])
