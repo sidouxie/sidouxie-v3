@@ -75,10 +75,10 @@ function Contact() {
     e.preventDefault()
     fetch("/", {
       method: "POST",
-      //headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode(data)
     })
-      .then((res) => {
+      .then(() => {
         
         alert('Votre message a bien été envoyé !')
         /* setPrenom('')
@@ -190,6 +190,8 @@ function Contact() {
                       action="/thank-you/"
                       name="contact-v2"
                       netlify="true"
+                      data-netlify="true"
+                      data-netlify-honeypot="bot-field"
                       method="POST"
                       onSubmit={handleSubmit}
                     >
@@ -240,7 +242,7 @@ function Contact() {
                         />
                       </label>
 
-                      <input type="hidden" name="bot-field" value="contact" />
+                      <input type="hidden" name="contact-v2" value="contact-v2" />
 
                       <button
                         className="btn-form"
