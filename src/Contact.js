@@ -26,6 +26,7 @@ function Contact() {
 
   useEffect(() => {
     const tl = gsap.globalTimeline
+     
 
     tl.fromTo(
       '.SidouxieLogo',
@@ -60,20 +61,25 @@ function Contact() {
     )
   }, [])
 
-  const handleSubmit = (e) => {
-    fetch('/', {
+  const data = [
+    prenom,
+    email,
+    sujet,
+    message
+  ]
+
+  const handleSubmit =  (e) => {
+     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
         'form-name': 'contact-v2',
-        prenom,
-        sujet,
-        email,
-        message,
+        ...data
       }),
     })
       .then(() => {
         alert('Votre message a bien été envoyé !')
+        
         setPrenom('')
         setEmail('')
         setSujet('')
@@ -242,8 +248,6 @@ function Contact() {
 
                       <button
                         className="btn-form"
-                        type="submit"
-                        value="Envoyer"
                       >
                         Envoyer
                       </button>
