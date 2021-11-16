@@ -26,19 +26,20 @@
     }
 
     .card-index {
-      width: 500px;
-      height: 300px;
-      opacity: 0;
+      width: 100%;
+      min-height: 280px;
+      opacity: 1;
       display: inline-block;
       position: relative;
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
-      transition: all 0.6s ease-in;
+      transition: all 0.2s ease-in;
+      overflow: hidden;
 
       @media (max-width: 1050px) {
         width: 100%;
-        transition: all 0.6s ease-out;
+        transition: all 0.2s ease-out;
       }
 
       a {

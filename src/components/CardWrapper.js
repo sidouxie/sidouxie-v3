@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 import CSSRulePlugin from 'gsap/CSSRulePlugin'
+import {Image, Placeholder} from "cloudinary-react"
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, CSSRulePlugin); 
@@ -21,35 +22,8 @@ function CardWrapper({ data }) {
   let textRef = useRef([])
   textRef.current = []
 
-  let cardRef = useRef([])
-  cardRef.current = []
-
   useEffect(() => {
-    cardRef.current.forEach((el, index) => {
-      gsap.fromTo(
-        el,
-        { visibility: 'hidden', autoAlpha: 0, scale: 1.5, x: 60 },
-        {
-          duration: 0.6,
-          delay: 0.2,
-          visibility: 'visible',
-          x: 0,
-          scale: 1,
-          autoAlpha: 1,
-          ease: 'power3.out',
-          stagger: {
-            amount: 0.8,
-          },
-          scrollTrigger: {
-            id: `visiblity card ${index++}`,
-            trigger: el,
-            start: 'top top+=400',
-            markers: false,
-          },
-        }
-      )
-    })
-
+    
     bgRef.current.forEach((el, index) => {
       gsap.fromTo(
         el,
@@ -184,19 +158,16 @@ function CardWrapper({ data }) {
     }
   }
 
-  const addCardRef = (el) => {
-    if (el && !cardRef.current.includes(el)) {
-      cardRef.current.push(el)
-    }
-  }
-
   return (
-    <div ref={addCardRef} className="card-index">
+    <div className="card-index">
       <Link to={`/work/${data.slug}`}>
-        <img
-          src={`${data.photo.formats.small.url}`}
-          alt={`capture du site ${data.title}`}
-        />
+        
+        <Image
+        loading="lazy"
+        src={data.photo.formats.small.url}
+        alt={`capture du site ${data.title}`}
+        >
+        <Placeholder type='predominat'></Placeholder></Image>
         <div className="sec-head">
           <h3 style={{ color: data.colorTitle }} ref={addToRefsTitle}>
             {data.title}

@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import {gsap} from 'gsap'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
 import { CSSPlugin } from 'gsap/CSSPlugin'
+import { Image,Placeholder } from 'cloudinary-react'
 
 
 //Import Icones
@@ -217,10 +218,19 @@ function WorkPage({ data }) {
             {/* section images */}
 
             <div className="section-image">
-              <img
+              {/* <img
                 src={`${data.photo.formats.large.url}`}
                 alt={`capture background de site ${data.title}`}
-              />
+              /> */}
+
+              <Image
+                src={data.photo.formats.large.url}
+                alt={`capture background de site ${data.title}`}
+                width="1000px"
+                height="562px"
+              >
+                <Placeholder type="blur"></Placeholder>
+              </Image>
             </div>
 
             <div className="section-desc">
@@ -240,10 +250,19 @@ function WorkPage({ data }) {
                   {/* section image mockup */}
 
                   <div className="section-mockup">
-                    <img
+                    {/* <img
                       src={data.mockupPhoto.url}
                       alt={`mockup du projet ${data.title}`}
-                    />
+                    /> */}
+
+              <Image
+                src={data.mockupPhoto.url}
+                alt={`Mockup du projet ${data.title}`}
+                /* width='800px'
+                height="378px" */
+              >
+                <Placeholder type="blur"></Placeholder>
+              </Image>
                   </div>
 
                   <div className="section-btn">
