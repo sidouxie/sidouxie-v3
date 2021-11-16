@@ -13,9 +13,11 @@ if (typeof window !== "undefined") {
 }
 
 const encode = (data) => {
-  return Object.keys(data)
-    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&')
+  const formData = new FormData()
+  Object.keys(data).forEach((k) => {
+    formData.append(k, data[k])
+  })
+  return formData
 }
 
 function Contact() {
@@ -61,32 +63,30 @@ function Contact() {
     )
   }, [])
 
-  const data = [
+  const data = {
+    "form-name": "contact-v2",
     prenom,
     email,
     sujet,
-    message
-  ]
+    message }
+  
 
-  const handleSubmit =  (e) => {
-     fetch('/contact', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({
-        'form-name': 'contact-v2',
-        ...data
-      }),
+  const handleSubmit = (e) => { 
+    e.preventDefault()
+    fetch("/", {
+      method: "POST",
+      //headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode(data)
     })
-      .then(() => {
+      .then((res) => {
+        
         alert('Votre message a bien été envoyé !')
-        setPrenom('')
+        /* setPrenom('')
         setEmail('')
         setSujet('')
-        setMessage('')
+        setMessage('') */
       })
       .catch((error) => alert(error))
-
-    e.preventDefault()
   }
   return (
     <>
@@ -187,11 +187,11 @@ function Contact() {
 
                   <div className="sec-submit">
                     <form
-                      action="submit"
-                      name="contact-sidouxie-v2"
-                      netlify
-                      
-                      onSubmit={(e) => handleSubmit()}
+                      action="/thank-you/"
+                      name="contact-v2"
+                      netlify="true"
+                      method="POST"
+                      onSubmit={handleSubmit}
                     >
                       <label>
                         Nom* :
@@ -244,6 +244,7 @@ function Contact() {
 
                       <button
                         className="btn-form"
+                        type='submit'
                       >
                         Envoyer
                       </button>
