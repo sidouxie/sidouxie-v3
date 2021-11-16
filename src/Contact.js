@@ -69,7 +69,7 @@ function Contact() {
   ]
 
   const handleSubmit =  (e) => {
-     fetch('/', {
+     fetch('/contact', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
@@ -79,7 +79,6 @@ function Contact() {
     })
       .then(() => {
         alert('Votre message a bien été envoyé !')
-        
         setPrenom('')
         setEmail('')
         setSujet('')
@@ -189,13 +188,10 @@ function Contact() {
                   <div className="sec-submit">
                     <form
                       action="submit"
-                      name="contact-v2"
+                      name="contact-sidouxie-v2"
                       netlify
-                      data-netlify="true"
-                      method="post"
-                      netlify-honeypot="bot-field"
-                      hidden
-                      onSubmit={handleSubmit}
+                      
+                      onSubmit={(e) => handleSubmit()}
                     >
                       <label>
                         Nom* :
