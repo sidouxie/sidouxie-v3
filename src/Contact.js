@@ -81,10 +81,10 @@ function Contact() {
       .then(() => {
         
         alert('Votre message a bien été envoyé !')
-        /* setPrenom('')
+        setPrenom('')
         setEmail('')
         setSujet('')
-        setMessage('') */
+        setMessage('')
       })
       .catch((error) => alert(error))
   }
@@ -189,7 +189,7 @@ function Contact() {
                     <form
                       action="/thank-you/"
                       name="contact-v2"
-                      netlify="true"
+                      netlify
                       data-netlify="true"
                       data-netlify-honeypot="bot-field"
                       method="POST"
