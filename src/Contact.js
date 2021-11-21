@@ -195,6 +195,10 @@ function Contact() {
                       method="POST"
                       onSubmit={handleSubmit}
                     >
+                      <input type="hidden" name="form-name" value="contact-v2" />
+                      <div hidden>
+                        <input name="bot-field" /> 
+                      </div>
                       <label>
                         Nom* :
                         <input
@@ -241,8 +245,6 @@ function Contact() {
                           required
                         />
                       </label>
-
-                      <input type="hidden" name="contact-v2" value="contact-v2" />
 
                       <button
                         className="btn-form"
