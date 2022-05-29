@@ -2,17 +2,20 @@ import React, { useEffect, useContext } from 'react'
 import Layout from './components/Layout'
 import CardWrapper from './components/CardWrapper'
 import gsap from 'gsap'
-import {ScrollTrigger} from 'gsap/ScrollTrigger'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { CSSPlugin } from 'gsap/CSSPlugin'
 import { motion } from 'framer-motion'
-import { dataContext } from './App'
+import { useGetPostesQuery } from './services/getData'
+/* import { dataContext } from './App' */
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger, CSSPlugin); 
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger, CSSPlugin)
 }
 
 function Work() {
-  const data = useContext(dataContext)
+  /* const data = useContext(dataContext) */
+
+  const { data, error, isLoading } = useGetPostesQuery()
 
   useEffect(() => {
     ScrollTrigger.defaults({
@@ -34,9 +37,8 @@ function Work() {
 
     gsap.fromTo(
       '.ligne',
-      {  css: { width: 0 }, opacity: 0, delay: 0.8 },
+      { css: { width: 0 }, opacity: 0, delay: 0.8 },
       {
-        
         css: { width: '100%' },
         opacity: 1,
         duration: 2,

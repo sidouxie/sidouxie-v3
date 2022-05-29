@@ -10,11 +10,14 @@ import Politiques from './Politiques'
 import Conditions from './Conditions'
 import WorkPage from './components/WorkPage'
 import { dataContext } from './App'
+import { useGetPostesQuery } from './services/getData'
 
 function Routes(props) {
   const location = useLocation()
 
-  const data = useContext(dataContext)
+  /* const data = useContext(dataContext) */
+
+  const { data, error, isLoading } = useGetPostesQuery()
 
   return (
     <>
@@ -29,7 +32,9 @@ function Routes(props) {
           <Work data={data} />
         </Route>
 
-        {data && (
+        {isLoading ? (
+          <div>loading ....</div>
+        ) : (
           <Route
             exact
             path="/work/:slug"

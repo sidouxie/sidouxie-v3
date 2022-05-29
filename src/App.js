@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from 'react'
+import { BrowserRouter as Router } from 'react-router-dom'
 import axios from 'axios'
-import {gsap} from 'gsap'
-import {ScrollTrigger} from 'gsap/ScrollTrigger'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { CSSPlugin } from 'gsap/CSSPlugin'
 
 import Routes from './Routes'
 
-gsap.registerPlugin(ScrollTrigger, CSSPlugin); 
-
+gsap.registerPlugin(ScrollTrigger, CSSPlugin)
 
 export const dataContext = React.createContext()
 
 function App() {
-  const [data, setData] = useState(null)
+  /* const [data, setData] = useState(null) */
   const [isLoading, setIsLoading] = useState(true)
 
-  useEffect(() => {
+  /* useEffect(() => {
     const fetch = async () => {
       await axios({
         method: 'get',
@@ -32,13 +32,15 @@ function App() {
     if (data === null) {
       return fetch()
     }
-  }, [isLoading, data])
+  }, [isLoading, data]) */
 
   return (
     <>
-      <dataContext.Provider value={data}>
+      <Router>
+        {/* <dataContext.Provider value={data}> */}
         <Routes isLoading={isLoading} />
-      </dataContext.Provider>
+        {/* </dataContext.Provider> */}
+      </Router>
     </>
   )
 }
