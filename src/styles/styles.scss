@@ -36,13 +36,13 @@ h6 {
 }
 
 header {
-  width: 100%;
+  width: 100vw;
   position: relative;
   display: block;
 }
 
 nav {
-  width: -webkit-fill-available;
+  width: 85vw;
   position: fixed;
   display: flex;
   flex-direction: row;
