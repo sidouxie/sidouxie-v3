@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useEffect } from 'react'
 import Layout from './components/Layout'
 import CardWrapper from './components/CardWrapper'
 import gsap from 'gsap'
@@ -6,16 +6,14 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { CSSPlugin } from 'gsap/CSSPlugin'
 import { motion } from 'framer-motion'
 import { useGetPostesQuery } from './services/getData'
-/* import { dataContext } from './App' */
+import LoaderSpinner from './components/LoaderSpinner'
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger, CSSPlugin)
 }
 
 function Work() {
-  /* const data = useContext(dataContext) */
-
-  const { data, error, isLoading } = useGetPostesQuery()
+  const { data, isLoading } = useGetPostesQuery()
 
   useEffect(() => {
     ScrollTrigger.defaults({
@@ -70,8 +68,11 @@ function Work() {
               </div>
               <div className="ligne"></div>
               <div className="card-wrap">
-                {data &&
-                  data.map((card) => <CardWrapper data={card} key={card.id} />)}
+                {isLoading ? (
+                  <LoaderSpinner />
+                ) : (
+                  data.map((card) => <CardWrapper data={card} key={card.id} />)
+                )}
               </div>
             </main>
           </div>

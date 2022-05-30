@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { gsap } from 'gsap'
-import {ScrollTrigger} from 'gsap/ScrollTrigger'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Layout from './components/Layout'
 import { ReactComponent as Behance } from './assets/behance.svg'
 import { ReactComponent as Instagram } from './assets/instagram.svg'
 import { ReactComponent as Github } from './assets/github.svg'
 import { CSSRulePlugin } from 'gsap/CSSRulePlugin'
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger, CSSRulePlugin); 
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger, CSSRulePlugin)
 }
 
 const encode = (data) => {
@@ -28,7 +28,6 @@ function Contact() {
 
   useEffect(() => {
     const tl = gsap.globalTimeline
-     
 
     tl.fromTo(
       '.SidouxieLogo',
@@ -64,22 +63,21 @@ function Contact() {
   }, [])
 
   const data = {
-    "form-name": "contact-v2",
+    'form-name': 'contact-v2',
     prenom,
     email,
     sujet,
-    message }
-  
+    message,
+  }
 
-  const handleSubmit = (e) => { 
+  const handleSubmit = (e) => {
     e.preventDefault()
-    fetch("/", {
-      method: "POST",
+    fetch('/', {
+      method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode(data)
+      body: encode(data),
     })
       .then(() => {
-        
         alert('Votre message a bien été envoyé !')
         setPrenom('')
         setEmail('')
@@ -195,10 +193,11 @@ function Contact() {
                       method="POST"
                       onSubmit={handleSubmit}
                     >
-                      <input type="hidden" name="form-name" value="contact-v2" />
-                      <div hidden>
-                        <input name="bot-field" /> 
-                      </div>
+                      <input
+                        type="hidden"
+                        name="form-name"
+                        value="contact-v2"
+                      />
                       <label>
                         Nom* :
                         <input
@@ -246,10 +245,7 @@ function Contact() {
                         />
                       </label>
 
-                      <button
-                        className="btn-form"
-                        type='submit'
-                      >
+                      <button className="btn-form" type="submit">
                         Envoyer
                       </button>
                     </form>

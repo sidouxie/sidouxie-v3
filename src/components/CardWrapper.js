@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 import CSSRulePlugin from 'gsap/CSSRulePlugin'
-import {Image, Placeholder} from "cloudinary-react"
+import { Image, Placeholder } from 'cloudinary-react'
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger, CSSRulePlugin); 
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger, CSSRulePlugin)
 }
 
 function CardWrapper({ data }) {
@@ -23,7 +23,6 @@ function CardWrapper({ data }) {
   textRef.current = []
 
   useEffect(() => {
-    
     bgRef.current.forEach((el, index) => {
       gsap.fromTo(
         el,
@@ -161,13 +160,13 @@ function CardWrapper({ data }) {
   return (
     <div className="card-index">
       <Link to={`/work/${data.slug}`}>
-        
         <Image
-        loading="lazy"
-        src={data.photo.formats.small.url}
-        alt={`capture du site ${data.title}`}
+          loading="lazy"
+          src={data.photo.formats.small.url}
+          alt={`capture du site ${data.title}`}
         >
-        <Placeholder type='predominat'></Placeholder></Image>
+          <Placeholder type="predominat"></Placeholder>
+        </Image>
         <div className="sec-head">
           <h3 style={{ color: data.colorTitle }} ref={addToRefsTitle}>
             {data.title}

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Switch, Route, useLocation } from 'react-router-dom'
 
 import Home from './Home'
@@ -9,15 +9,14 @@ import Notfound from './Notfound'
 import Politiques from './Politiques'
 import Conditions from './Conditions'
 import WorkPage from './components/WorkPage'
-import { dataContext } from './App'
-import { useGetPostesQuery } from './services/getData'
 
-function Routes(props) {
+import { useGetPostesQuery } from './services/getData'
+import LoaderSpinner from './components/LoaderSpinner'
+
+function Routes() {
   const location = useLocation()
 
-  /* const data = useContext(dataContext) */
-
-  const { data, error, isLoading } = useGetPostesQuery()
+  const { data, isLoading } = useGetPostesQuery()
 
   return (
     <>
@@ -33,7 +32,9 @@ function Routes(props) {
         </Route>
 
         {isLoading ? (
-          <div>loading ....</div>
+          <div className="main-spinner">
+            <LoaderSpinner />
+          </div>
         ) : (
           <Route
             exact

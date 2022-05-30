@@ -70,10 +70,12 @@
     <title>Sidouxie | Developpeur web fullstack & web designer</title>
   </head>
   <body>
-    <input type="hidden" name="form-name" value="contact-v2" />
-    <div hidden>
-      <input name="bot-field" /> 
-    </div>
+    <form name="contact-v2" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="prenom" />
+      <input type="email" name="email" />
+      <input type="text" name="sujet" />
+      <textarea name="message"></textarea>
+    </form>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
