@@ -42,25 +42,35 @@ function Menu({ isopen, handleClick }) {
 
         .to('.IconDown', { autoAlpha: 1, css: { display: 'block' } })
 
-        .from('header .menu-mobile.active', 0.8, {
+        .from('.menu-mobile.active', 0.8, {
           opacity: 0,
           y: '-100%',
         })
 
-        .to('header .menu-mobile.active', 0.8, {
+        .to('.menu-mobile.active', 0.8, {
           ease: 'power3.out',
           opacity: 1,
           y: 0,
         })
     } else {
-      tl.to('.IconUp', { autoAlpha: 1, css: { display: 'block' }, scale: 1 })
+      tl.to('.IconUp', {
+        autoAlpha: 1,
+        css: { display: 'block' },
+        scale: 1,
+      })
         .to('.IconDown', {
           duration: 0.1,
           autoAlpha: 0,
           css: { display: 'none' },
         })
 
-        .to('header .menu-mobile', 1.4, {
+        .from('.menu-mobile.active', 0.8, {
+          ease: 'power3.out',
+          opacity: 1,
+          y: 0,
+        })
+
+        .to('.menu-mobile', 1.4, {
           stagger: {
             amount: 0.6,
           },
@@ -88,7 +98,7 @@ function Menu({ isopen, handleClick }) {
         {isopen ? (
           <IconDown
             className="IconDown"
-            onClick={() => handleClick(!isopen)}
+            onClick={handleClick}
             width={'20px'}
             style={{
               display: 'none',
@@ -101,7 +111,7 @@ function Menu({ isopen, handleClick }) {
         ) : (
           <IconUp
             className="IconUp"
-            onClick={() => handleClick(!isopen)}
+            onClick={handleClick}
             width={'25px'}
             style={{ fill: '#1c1c1c', cursor: 'pointer' }}
           />

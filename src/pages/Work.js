@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
-import Layout from './components/Layout'
-import CardWrapper from './components/CardWrapper'
+import Layout from '../components/Layout'
+import CardWrapper from '../components/CardWrapper'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { CSSPlugin } from 'gsap/CSSPlugin'
 import { motion } from 'framer-motion'
-import { useGetPostesQuery } from './services/getData'
-import LoaderSpinner from './components/LoaderSpinner'
+import { useGetPostesQuery } from '../services/getData'
+import LoaderSpinner from '../components/LoaderSpinner'
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger, CSSPlugin)

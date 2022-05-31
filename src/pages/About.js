@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
-import Layout from './components/Layout'
+import Layout from '../components/Layout'
 import gsap from 'gsap'
 import { motion } from 'framer-motion'
 import { CSSRulePlugin } from 'gsap/CSSRulePlugin'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger, CSSRulePlugin); 
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger, CSSRulePlugin)
 }
 
 const data = [

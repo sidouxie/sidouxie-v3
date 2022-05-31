@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import Layout from './components/Layout'
+import Layout from '../components/Layout'
 import { gsap } from 'gsap'
 import { motion } from 'framer-motion'
-import {ScrollTrigger} from 'gsap/ScrollTrigger'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { CSSRulePlugin } from 'gsap/CSSRulePlugin'
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger, CSSRulePlugin); 
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger, CSSRulePlugin)
 }
 
 function Politiques() {

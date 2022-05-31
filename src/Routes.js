@@ -1,13 +1,13 @@
 import React from 'react'
 import { Switch, Route, useLocation } from 'react-router-dom'
 
-import Home from './Home'
-import Work from './Work'
-import About from './About'
-import Contact from './Contact'
-import Notfound from './Notfound'
-import Politiques from './Politiques'
-import Conditions from './Conditions'
+import Home from './pages/Home'
+import Work from './pages/Work'
+import About from './pages/About'
+import Contact from './pages/Contact'
+import Notfound from './pages/Notfound'
+import Politiques from './pages/Politiques'
+import Conditions from './pages/Conditions'
 import WorkPage from './components/WorkPage'
 
 import { useGetPostesQuery } from './services/getData'
@@ -21,11 +21,9 @@ function Routes() {
   return (
     <>
       <Switch location={location} key={location.pathname}>
-        <Route
-          path="/"
-          exact
-          component={(props) => <Home isLoading={props.isLoading} {...props} />}
-        />
+        <Route path="/" exact>
+          <Home />
+        </Route>
 
         <Route path="/work" exact>
           <Work data={data} />
