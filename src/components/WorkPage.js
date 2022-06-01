@@ -2,19 +2,18 @@ import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import Layout from './Layout'
 import { motion } from 'framer-motion'
-import {gsap} from 'gsap'
-import {ScrollTrigger} from 'gsap/ScrollTrigger'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { CSSPlugin } from 'gsap/CSSPlugin'
-import { Image,Placeholder } from 'cloudinary-react'
-
+import { Image, Placeholder } from 'cloudinary-react'
 
 //Import Icones
 import { ReactComponent as Github } from '../assets/github.svg'
 import { ReactComponent as IconLink } from '../assets/iconLink.svg'
 import { ReactComponent as IconReturn } from '../assets/iconReturn.svg'
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger, CSSPlugin); 
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger, CSSPlugin)
 }
 
 function WorkPage({ data }) {
@@ -218,11 +217,6 @@ function WorkPage({ data }) {
             {/* section images */}
 
             <div className="section-image">
-              {/* <img
-                src={`${data.photo.formats.large.url}`}
-                alt={`capture background de site ${data.title}`}
-              /> */}
-
               <Image
                 src={data.photo.formats.large.url}
                 alt={`capture background de site ${data.title}`}
@@ -250,19 +244,12 @@ function WorkPage({ data }) {
                   {/* section image mockup */}
 
                   <div className="section-mockup">
-                    {/* <img
+                    <Image
                       src={data.mockupPhoto.url}
-                      alt={`mockup du projet ${data.title}`}
-                    /> */}
-
-              <Image
-                src={data.mockupPhoto.url}
-                alt={`Mockup du projet ${data.title}`}
-                /* width='800px'
-                height="378px" */
-              >
-                <Placeholder type="blur"></Placeholder>
-              </Image>
+                      alt={`Mockup du projet ${data.title}`}
+                    >
+                      <Placeholder type="blur"></Placeholder>
+                    </Image>
                   </div>
 
                   <div className="section-btn">
