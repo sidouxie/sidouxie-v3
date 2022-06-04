@@ -7,6 +7,7 @@
     position: relative;
     align-items: center;
     justify-content: center;
+    background-color: $color-600;
 }
 
 .svg-loader {
@@ -25,12 +26,12 @@
     fill: none;
     stroke-width: 5px;
     stroke-linecap: round;
-    stroke: $color-primary;
+    stroke: $color-300;
 }
 
 .loader-svg.bg {
     stroke-width: 8px;
-    stroke: rgb(198, 213, 255);
+    stroke: rgb(255, 255, 255);
 }
 
 .animate {

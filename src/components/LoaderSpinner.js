@@ -5,8 +5,8 @@ function LoaderSpinner() {
     <div className="svg-loader">
       <svg
         className="svg-container"
-        height="75"
-        width="75"
+        height="35"
+        width="35"
         viewBox="0 0 100 100"
       >
         <circle className="loader-svg bg" cx="50" cy="50" r="45"></circle>
