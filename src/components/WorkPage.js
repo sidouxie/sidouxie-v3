@@ -218,7 +218,7 @@ function WorkPage({ data }) {
 
             <div className="section-image">
               <Image
-                src={data.photo.formats.large.url}
+                src={`https://api-sidouxie-v2.herokuapp.com/upload/${data.photo}`}
                 alt={`capture background de site ${data.title}`}
                 width="1000px"
                 height="562px"
@@ -245,7 +245,7 @@ function WorkPage({ data }) {
 
                   <div className="section-mockup">
                     <Image
-                      src={data.mockupPhoto.url}
+                      src={`https://api-sidouxie-v2.herokuapp.com/upload/${data.mockupPhoto}`}
                       alt={`Mockup du projet ${data.title}`}
                     >
                       <Placeholder type="blur"></Placeholder>

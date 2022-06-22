@@ -158,11 +158,11 @@ function CardWrapper({ data }) {
   }
 
   return (
-    <div className="card-index">
+    <div className="card-index" key={data._id}>
       <Link to={`/work/${data.slug}`}>
         <Image
           loading="lazy"
-          src={data.photo.formats.small.url}
+          src={`https://api-sidouxie-v2.herokuapp.com/upload/${data.photo}`}
           alt={`capture du site ${data.title}`}
         >
           <Placeholder type="predominat"></Placeholder>
