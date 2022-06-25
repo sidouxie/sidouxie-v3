@@ -116,7 +116,7 @@ function About() {
                   <a
                     rel="noreferrer"
                     target="_blank"
-                    href="https://drive.google.com/file/d/1TS_YkBbNFdVrod2AJBEbyMSzL6rjcALg/view?usp=sharing"
+                    href="https://drive.google.com/file/d/1TpbZWbmVpvUw-LEv0_9d6HmNvGlR3BJC/view?usp=sharing"
                   >
                     Resumé cv
                   </a>
