@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [1.0.1](https://github.com/sidouxie/sidouxie-v3/compare/v0.1.0...v1.0.1) (2023-06-12)
 
+- add husky / add commitlint / setup test ([bbeecfa](https://github.com/sidouxie/sidouxie-v3/commit/bbeecfaeabe99b3554ea7c3a786eef572c9930e1))
+
 ## 0.1.0 (2021-06-25)
 
 ### Features
