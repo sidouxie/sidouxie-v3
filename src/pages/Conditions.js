@@ -1,57 +1,58 @@
-import React, { useEffect } from 'react'
-import Layout from '../components/Layout'
-import { motion } from 'framer-motion'
-import { gsap } from 'gsap'
-import ScrollTrigger from 'gsap/ScrollTrigger'
-import { CSSRulePlugin } from 'gsap/CSSRulePlugin'
+import { useEffect } from "react";
+import { motion } from "framer-motion";
+import { gsap } from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import { CSSRulePlugin } from "gsap/CSSRulePlugin";
+import Layout from "../components/Layout";
 
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger, CSSRulePlugin)
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger, CSSRulePlugin);
 }
 
 function Conditions() {
   useEffect(() => {
-    const tl = gsap.globalTimeline
+    const tl = gsap.globalTimeline;
 
     tl.fromTo(
-      '.SidouxieLogo',
-      { css: { fill: '#1c1c1c' } },
+      ".SidouxieLogo",
+      { css: { fill: "#1c1c1c" } },
       {
-        ease: 'power3.out',
-        css: { fill: '#fff' },
+        ease: "power3.out",
+        css: { fill: "#fff" },
         scrollTrigger: {
-          id: 'Logo',
-          trigger: '.SidouxieLogo',
-          start: 'top top',
-          end: 'top+=350',
+          id: "Logo",
+          trigger: ".SidouxieLogo",
+          start: "top top",
+          end: "top+=350",
           markers: false,
-          toggleActions: 'play reverse play none',
+          toggleActions: "play reverse play none",
         },
       }
     ).fromTo(
-      '.IconUp',
-      { css: { fill: '#1c1c1c' } },
+      ".IconUp",
+      { css: { fill: "#1c1c1c" } },
       {
-        ease: 'power3.out',
-        css: { fill: '#fff' },
+        ease: "power3.out",
+        css: { fill: "#fff" },
         scrollTrigger: {
-          id: 'Logo',
-          trigger: '.IconUp',
-          start: 'top top',
-          end: 'top+=350',
+          id: "Logo",
+          trigger: ".IconUp",
+          start: "top top",
+          end: "top+=350",
           markers: false,
-          toggleActions: 'play reverse play none',
+          toggleActions: "play reverse play none",
         },
       }
-    )
-  }, [])
+    );
+  }, []);
   return (
     <Layout>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 1 }}
+        // transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 1 }}
+        transition={{ ease: "easeIn", duration: 1 }}
       >
         <main className="main-condition">
           <div className="section-heading">
@@ -382,7 +383,7 @@ function Conditions() {
         </main>
       </motion.div>
     </Layout>
-  )
+  );
 }
 
-export default Conditions
+export default Conditions;

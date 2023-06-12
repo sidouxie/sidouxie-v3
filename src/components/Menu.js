@@ -1,85 +1,85 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import { ReactComponent as SidouxieLogo } from '../assets/SidouxieLogo.svg'
-import { ReactComponent as IconUp } from '../assets/iconUp.svg'
-import { ReactComponent as IconDown } from '../assets/iconDown.svg'
-import { ReactComponent as Behance } from '../assets/behance.svg'
-import { ReactComponent as Instagram } from '../assets/instagram.svg'
-import { ReactComponent as Github } from '../assets/github.svg'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { CSSRulePlugin } from 'gsap/CSSRulePlugin'
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { CSSRulePlugin } from "gsap/CSSRulePlugin";
+import { ReactComponent as SidouxieLogo } from "../assets/SidouxieLogo.svg";
+import { ReactComponent as IconUp } from "../assets/iconUp.svg";
+import { ReactComponent as IconDown } from "../assets/iconDown.svg";
+import { ReactComponent as Behance } from "../assets/behance.svg";
+import { ReactComponent as Instagram } from "../assets/instagram.svg";
+import { ReactComponent as Github } from "../assets/github.svg";
 
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger, CSSRulePlugin)
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger, CSSRulePlugin);
 }
 
 function Menu({ isopen, handleClick }) {
-  const [isHover, setIsHover] = useState(false)
-  const [isInsta, setIsInsta] = useState(false)
-  const [isGit, setIsGit] = useState(false)
+  const [isHover, setIsHover] = useState(false);
+  const [isInsta, setIsInsta] = useState(false);
+  const [isGit, setIsGit] = useState(false);
 
   const handlebehance = () => {
-    setIsHover(!isHover)
-  }
+    setIsHover(!isHover);
+  };
 
   const handleInsta = () => {
-    setIsInsta(!isInsta)
-  }
+    setIsInsta(!isInsta);
+  };
 
   const handleGit = () => {
-    setIsGit(!isGit)
-  }
+    setIsGit(!isGit);
+  };
 
   useEffect(() => {
-    const tl = gsap.globalTimeline
+    const tl = gsap.globalTimeline;
     if (isopen) {
       tl.fromTo(
-        '.IconUp',
-        { autoAlpha: 1, css: { display: 'block' } },
-        { duration: 0.01, autoAlpha: 0, css: { display: 'none' } }
+        ".IconUp",
+        { autoAlpha: 1, css: { display: "block" } },
+        { duration: 0.01, autoAlpha: 0, css: { display: "none" } }
       )
 
-        .to('.IconDown', { autoAlpha: 1, css: { display: 'block' } })
+        .to(".IconDown", { autoAlpha: 1, css: { display: "block" } })
 
-        .from('.menu-mobile.active', 0.8, {
+        .from(".menu-mobile.active", 0.8, {
           opacity: 0,
-          y: '-100%',
+          y: "-100%",
         })
 
-        .to('.menu-mobile.active', 0.8, {
-          ease: 'power3.out',
+        .to(".menu-mobile.active", 0.8, {
+          ease: "power3.out",
           opacity: 1,
           y: 0,
-        })
+        });
     } else {
-      tl.to('.IconUp', {
+      tl.to(".IconUp", {
         autoAlpha: 1,
-        css: { display: 'block' },
+        css: { display: "block" },
         scale: 1,
       })
-        .to('.IconDown', {
+        .to(".IconDown", {
           duration: 0.1,
           autoAlpha: 0,
-          css: { display: 'none' },
+          css: { display: "none" },
         })
 
-        .from('.menu-mobile.active', 0.8, {
-          ease: 'power3.out',
+        .from(".menu-mobile.active", 0.8, {
+          ease: "power3.out",
           opacity: 1,
           y: 0,
         })
 
-        .to('.menu-mobile', 1.4, {
+        .to(".menu-mobile", 1.4, {
           stagger: {
             amount: 0.6,
           },
-          ease: 'power3.out',
+          ease: "power3.out",
           opacity: 0,
-          y: '-100%',
-        })
+          y: "-100%",
+        });
     }
-  }, [isopen])
+  }, [isopen]);
 
   return (
     <header>
@@ -87,10 +87,10 @@ function Menu({ isopen, handleClick }) {
         <Link to="/">
           <SidouxieLogo
             className="SidouxieLogo"
-            width={'100px'}
+            width="100px"
             style={{
-              fill: '#1c1c1c',
-              cursor: 'pointer',
+              fill: "#1c1c1c",
+              cursor: "pointer",
             }}
           />
         </Link>
@@ -99,30 +99,30 @@ function Menu({ isopen, handleClick }) {
           <IconDown
             className="IconDown"
             onClick={handleClick}
-            width={'20px'}
+            width="20px"
             style={{
-              display: 'none',
-              cursor: 'pointer',
-              position: 'absolute',
-              top: '20px',
-              right: '35px',
+              display: "none",
+              cursor: "pointer",
+              position: "absolute",
+              top: "20px",
+              right: "35px",
             }}
           />
         ) : (
           <IconUp
             className="IconUp"
             onClick={handleClick}
-            width={'25px'}
-            style={{ fill: '#1c1c1c', cursor: 'pointer' }}
+            width="25px"
+            style={{ fill: "#1c1c1c", cursor: "pointer" }}
           />
         )}
       </nav>
 
       {isopen && (
-        <div className={`menu-mobile ${isopen && 'active'}`}>
+        <div className={`menu-mobile ${isopen && "active"}`}>
           <div className="wrapper-mobile">
-            <div className="ligne-top"></div>
-            <div className="ligne-bot"></div>
+            <div className="ligne-top" />
+            <div className="ligne-bot" />
             <div className="sec-links">
               <Link to="/work">WORK</Link>
               <Link to="/about">ABOUT</Link>
@@ -135,8 +135,8 @@ function Menu({ isopen, handleClick }) {
                 href="https://behance.net/sidouxie"
               >
                 <Behance
-                  width={'32px'}
-                  style={{ fill: '#1c1c1c', cursor: 'pointer' }}
+                  width="32px"
+                  style={{ fill: "#1c1c1c", cursor: "pointer" }}
                   opacity={isHover ? 1 : 0.5}
                   onMouseEnter={() => handlebehance(isHover)}
                   onMouseLeave={() => handlebehance(!isHover)}
@@ -148,8 +148,8 @@ function Menu({ isopen, handleClick }) {
                 href="https://instagram.com/sid_ouxi"
               >
                 <Instagram
-                  width={'32px'}
-                  style={{ fill: '#1c1c1c', cursor: 'pointer' }}
+                  width="32px"
+                  style={{ fill: "#1c1c1c", cursor: "pointer" }}
                   opacity={isInsta ? 1 : 0.5}
                   onMouseEnter={() => handleInsta(isInsta)}
                   onMouseLeave={() => handleInsta(!isInsta)}
@@ -162,8 +162,8 @@ function Menu({ isopen, handleClick }) {
                 href="https://github.com/sidouxie"
               >
                 <Github
-                  width={'32px'}
-                  style={{ fill: '#1c1c1c', cursor: 'pointer' }}
+                  width="32px"
+                  style={{ fill: "#1c1c1c", cursor: "pointer" }}
                   opacity={isGit ? 1 : 0.5}
                   onMouseEnter={() => handleGit(isGit)}
                   onMouseLeave={() => handleGit(!isGit)}
@@ -174,7 +174,7 @@ function Menu({ isopen, handleClick }) {
         </div>
       )}
     </header>
-  )
+  );
 }
 
-export default Menu
+export default Menu;

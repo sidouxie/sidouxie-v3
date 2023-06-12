@@ -1,25 +1,25 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
-import { ReactComponent as Logo } from '../assets/SidouxieIcon.svg'
-import { ReactComponent as Behance } from '../assets/behance.svg'
-import { ReactComponent as Instagram } from '../assets/instagram.svg'
-import { ReactComponent as Github } from '../assets/github.svg'
+import { ReactComponent as Logo } from "../assets/SidouxieIcon.svg";
+import { ReactComponent as Behance } from "../assets/behance.svg";
+import { ReactComponent as Instagram } from "../assets/instagram.svg";
+import { ReactComponent as Github } from "../assets/github.svg";
 
 function Footer() {
-  const [isHover, setIsHover] = useState(false)
-  const [isBehance, setisBehance] = useState(false)
-  const [isInsta, setisInsta] = useState(false)
+  const [isHover, setIsHover] = useState(false);
+  const [isBehance, setisBehance] = useState(false);
+  const [isInsta, setisInsta] = useState(false);
 
-  const handleHover = (e) => {
-    setIsHover(!isHover)
-  }
-  const handleBe = (e) => {
-    setisBehance(!isBehance)
-  }
-  const handleInsta = (e) => {
-    setisInsta(!isInsta)
-  }
+  const handleHover = () => {
+    setIsHover(!isHover);
+  };
+  const handleBe = () => {
+    setisBehance(!isBehance);
+  };
+  const handleInsta = () => {
+    setisInsta(!isInsta);
+  };
 
   return (
     <footer>
@@ -27,11 +27,11 @@ function Footer() {
         <div className="wrapper">
           <div className="sec-top">
             <div className="logo">
-              <Logo width={105} style={{ fill: '#333333' }} />
+              <Logo width={105} style={{ fill: "#333333" }} />
             </div>
             <div className="subtitle">
               <h4>
-                Nous collaborons avec des marques et des personnes ambitieuses,{' '}
+                Nous collaborons avec des marques et des personnes ambitieuses,{" "}
                 <br />
                 construisons ensemble quelque chose de grand.
               </h4>
@@ -66,7 +66,7 @@ function Footer() {
                   <a
                     href="mailto:sid_ouxie@hotmail.com"
                     target="_blank"
-                    rel="nopenner noreferrer"
+                    rel="noreferrer"
                     title="e-mail"
                   >
                     sid_ouxie@hotmail.com
@@ -74,7 +74,7 @@ function Footer() {
                   <a
                     href="tel:+213557733115"
                     target="_blank"
-                    rel="nopenner noreferrer"
+                    rel="noreferrer"
                     title="Numéro de téléphone"
                   >
                     +213 557 73 31 15
@@ -82,7 +82,7 @@ function Footer() {
                   <a
                     href="mailto:sid_ouxie@hotmail.com"
                     target="_blank"
-                    rel="nopenner noreferrer"
+                    rel="noreferrer"
                     title="Adresse postale"
                   >
                     cité aadl belle vue,
@@ -97,39 +97,39 @@ function Footer() {
                 <a
                   href="https://github.com/sidouxie"
                   target="_blank"
-                  rel="nopenner noreferrer"
+                  rel="noreferrer"
                 >
                   <Github
                     width={30}
                     onMouseEnter={() => handleHover(isHover)}
                     onMouseLeave={() => handleHover(!isHover)}
-                    style={{ fill: `${isHover ? '#e6e6e6' : '#333333'}` }}
+                    style={{ fill: `${isHover ? "#e6e6e6" : "#333333"}` }}
                   />
                 </a>
 
                 <a
                   href="https://instagram.com/sid_ouxi"
                   target="_blank"
-                  rel="nopenner noreferrer"
+                  rel="noreferrer"
                 >
                   <Instagram
                     width={30}
                     onMouseEnter={() => handleInsta(isInsta)}
                     onMouseLeave={() => handleInsta(!isInsta)}
-                    style={{ fill: `${isInsta ? '#e6e6e6' : '#333333'}` }}
+                    style={{ fill: `${isInsta ? "#e6e6e6" : "#333333"}` }}
                   />
                 </a>
 
                 <a
                   href="https://behance.net/sidouxie"
                   target="_blank"
-                  rel="nopenner noreferrer"
+                  rel="noreferrer"
                 >
                   <Behance
                     width={30}
                     onMouseEnter={() => handleBe(isBehance)}
                     onMouseLeave={() => handleBe(!isBehance)}
-                    style={{ fill: `${isBehance ? '#e6e6e6' : '#333333'}` }}
+                    style={{ fill: `${isBehance ? "#e6e6e6" : "#333333"}` }}
                   />
                 </a>
               </div>
@@ -146,11 +146,11 @@ function Footer() {
           </div>
 
           <div className="sec-copyright">
-            <div className="ligne"></div>
+            <div className="ligne" />
             <div className="wrp">
               <p>Copyright © 2021 Sidouxie.com</p>
               <p>
-                Designed {'&'} coded by
+                Designed & coded by
                 <a
                   href="https://twitter.com/sidouxie"
                   rel="noopener noreferrer"
@@ -158,7 +158,7 @@ function Footer() {
                   title="twitter profile"
                 >
                   Sidouxie.
-                </a>{' '}
+                </a>{" "}
                 All rights reserved.
               </p>
             </div>
@@ -166,7 +166,7 @@ function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
 
-export default Footer
+export default Footer;

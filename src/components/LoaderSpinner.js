@@ -1,5 +1,3 @@
-import React from 'react'
-
 function LoaderSpinner() {
   return (
     <div className="svg-loader">
@@ -9,11 +7,11 @@ function LoaderSpinner() {
         width="35"
         viewBox="0 0 100 100"
       >
-        <circle className="loader-svg bg" cx="50" cy="50" r="45"></circle>
-        <circle className="loader-svg animate" cx="50" cy="50" r="45"></circle>
+        <circle className="loader-svg bg" cx="50" cy="50" r="45" />
+        <circle className="loader-svg animate" cx="50" cy="50" r="45" />
       </svg>
     </div>
-  )
+  );
 }
 
-export default LoaderSpinner
+export default LoaderSpinner;

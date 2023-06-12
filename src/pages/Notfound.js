@@ -1,5 +1,4 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 function Notfound() {
   return (
@@ -13,9 +12,9 @@ function Notfound() {
             <div className="subtitle">
               <h5
                 style={{
-                  textAlign: 'center',
-                  textTransform: 'capitalize',
-                  lineHeight: '1.6',
+                  textAlign: "center",
+                  textTransform: "capitalize",
+                  lineHeight: "1.6",
                 }}
               >
                 Page not Found, please return home page
@@ -26,7 +25,7 @@ function Notfound() {
         </div>
       </div>
     </main>
-  )
+  );
 }
 
-export default Notfound
+export default Notfound;

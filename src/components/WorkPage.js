@@ -1,75 +1,76 @@
-import React, { useEffect, useState } from 'react'
-import { useHistory } from 'react-router-dom'
-import Layout from './Layout'
-import { motion } from 'framer-motion'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { CSSPlugin } from 'gsap/CSSPlugin'
-import { Image, Placeholder } from 'cloudinary-react'
+import { useEffect, useState } from "react";
+// import { useHistory } from 'react-router-dom'
+import { motion } from "framer-motion";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { CSSPlugin } from "gsap/CSSPlugin";
+import { Image, Placeholder } from "cloudinary-react";
 
-//Import Icones
-import { ReactComponent as Github } from '../assets/github.svg'
-import { ReactComponent as IconLink } from '../assets/iconLink.svg'
-import { ReactComponent as IconReturn } from '../assets/iconReturn.svg'
+// Import Icones
+import { useNavigate } from "react-router-dom/dist";
+import { ReactComponent as Github } from "../assets/github.svg";
+import { ReactComponent as IconLink } from "../assets/iconLink.svg";
+import { ReactComponent as IconReturn } from "../assets/iconReturn.svg";
+import Layout from "./Layout";
 
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger, CSSPlugin)
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger, CSSPlugin);
 }
 
 function WorkPage({ data }) {
-  const history = useHistory()
+  const navigate = useNavigate();
 
-  const [isLink, setIsLink] = useState(false)
-  const [isGit, setIsGit] = useState(false)
-  const [isHover, setIsHover] = useState(false)
+  const [isLink, setIsLink] = useState(false);
+  const [isGit, setIsGit] = useState(false);
+  const [isHover, setIsHover] = useState(false);
 
   const handleLink = () => {
-    setIsLink(!isLink)
-  }
+    setIsLink(!isLink);
+  };
 
   const handleHover = () => {
-    setIsHover(!isHover)
-  }
+    setIsHover(!isHover);
+  };
 
   const handleGit = () => {
-    setIsGit(!isGit)
-  }
+    setIsGit(!isGit);
+  };
 
   useEffect(() => {
-    const tl = gsap.globalTimeline
+    const tl = gsap.globalTimeline;
 
     tl.fromTo(
-      '.SidouxieLogo',
-      { css: { fill: '#1c1c1c' } },
+      ".SidouxieLogo",
+      { css: { fill: "#1c1c1c" } },
       {
-        ease: 'power3.out',
-        css: { fill: '#fff' },
+        ease: "power3.out",
+        css: { fill: "#fff" },
         scrollTrigger: {
-          id: 'Logo',
-          trigger: '.SidouxieLogo',
-          start: 'top top',
-          end: 'top+=1400',
+          id: "Logo",
+          trigger: ".SidouxieLogo",
+          start: "top top",
+          end: "top+=1400",
           markers: false,
-          toggleActions: 'play reset play none',
+          toggleActions: "play reset play none",
         },
       }
     ).fromTo(
-      '.IconUp',
-      { css: { fill: '#1c1c1c' } },
+      ".IconUp",
+      { css: { fill: "#1c1c1c" } },
       {
-        ease: 'power3.out',
-        css: { fill: '#fff' },
+        ease: "power3.out",
+        css: { fill: "#fff" },
         scrollTrigger: {
-          id: 'Logo',
-          trigger: '.IconUp',
-          start: 'top top',
-          end: 'top+=1400',
+          id: "Logo",
+          trigger: ".IconUp",
+          start: "top top",
+          end: "top+=1400",
           markers: false,
-          toggleActions: 'play reset play none',
+          toggleActions: "play reset play none",
         },
       }
-    )
-  }, [])
+    );
+  }, []);
 
   return (
     <>
@@ -80,27 +81,28 @@ function WorkPage({ data }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.25 }}
+            // transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.25 }}
+            transition={{ ease: "easeIn", duration: 0.25 }}
           >
             <motion.div
               className="section-details"
-              initial={{ backgroundColor: '#fff' }}
+              initial={{ backgroundColor: "#fff" }}
               animate={{ backgroundColor: data.color }}
               exit={{ opacity: 0 }}
-              transition={{ ease: 'easeInOut', duration: 0.25 }}
+              transition={{ ease: "easeInOut", duration: 0.25 }}
             >
               <div className="container">
                 <div className="wrapper">
                   <div className="section-head">
-                    <div className="icon-return" onClick={() => history.go(-1)}>
+                    <div className="icon-return" onClick={() => navigate(-1)}>
                       <IconReturn
-                        width={'38px'}
-                        height={'38px'}
+                        width="38px"
+                        height="38px"
                         onMouseEnter={() => handleHover(isHover)}
                         onMouseLeave={() => handleHover(!isHover)}
                         style={{
                           fill: `${isHover ? data.colorText : data.colorTitle}`,
-                          cursor: 'pointer',
+                          cursor: "pointer",
                         }}
                       />
                     </div>
@@ -117,7 +119,7 @@ function WorkPage({ data }) {
                         style={{ color: data.colorText, opacity: 0.5 }}
                         className="domain"
                       >
-                        {data.domain}{' '}
+                        {data.domain}{" "}
                       </span>
                     </div>
 
@@ -150,7 +152,7 @@ function WorkPage({ data }) {
                                       color: data.colorText,
                                       border: `0.5px ${data.colorText} solid`,
                                     }}
-                                    key={id++}
+                                    key={id + 1}
                                   >
                                     {stack}
                                   </span>
@@ -172,7 +174,7 @@ function WorkPage({ data }) {
                           rel="noopener noreferrer"
                         >
                           <IconLink
-                            width={'32px'}
+                            width="32px"
                             title={`${data.title} site web`}
                             onMouseEnter={() => handleLink(isLink)}
                             onMouseLeave={() => handleLink(!isLink)}
@@ -180,7 +182,7 @@ function WorkPage({ data }) {
                               fill: `${
                                 isLink ? data.colorTitle : data.colorText
                               }`,
-                              cursor: 'pointer',
+                              cursor: "pointer",
                             }}
                           />
                         </a>
@@ -195,7 +197,7 @@ function WorkPage({ data }) {
                           rel="noopener noreferrer"
                         >
                           <Github
-                            width={'32px'}
+                            width="32px"
                             title={`${data.title} Github repository`}
                             onMouseEnter={() => handleGit(isGit)}
                             onMouseLeave={() => handleGit(!isGit)}
@@ -203,7 +205,7 @@ function WorkPage({ data }) {
                               fill: `${
                                 isGit ? data.colorTitle : data.colorText
                               }`,
-                              cursor: 'pointer',
+                              cursor: "pointer",
                             }}
                           />
                         </a>
@@ -218,12 +220,12 @@ function WorkPage({ data }) {
 
             <div className="section-image">
               <Image
-                src={`https://api-sidouxie-v2.herokuapp.com/upload/${data.photo}`}
+                src={`${process.env.REACT_APP_API_URL}/upload/${data.photo}`}
                 alt={`capture background de site ${data.title}`}
                 width="1000px"
                 height="562px"
               >
-                <Placeholder type="blur"></Placeholder>
+                <Placeholder type="blur" />
               </Image>
             </div>
 
@@ -245,10 +247,10 @@ function WorkPage({ data }) {
 
                   <div className="section-mockup">
                     <Image
-                      src={`https://api-sidouxie-v2.herokuapp.com/upload/${data.mockupPhoto}`}
+                      src={`${process.env.REACT_APP_API_URL}/upload/${data.mockupPhoto}`}
                       alt={`Mockup du projet ${data.title}`}
                     >
-                      <Placeholder type="blur"></Placeholder>
+                      <Placeholder type="blur" />
                     </Image>
                   </div>
 
@@ -268,7 +270,7 @@ function WorkPage({ data }) {
         </Layout>
       )}
     </>
-  )
+  );
 }
 
-export default WorkPage
+export default WorkPage;

@@ -1,26 +1,26 @@
-import React, { useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom'
-import { gsap } from 'gsap'
-import ScrollTrigger from 'gsap/ScrollTrigger'
-import CSSRulePlugin from 'gsap/CSSRulePlugin'
-import { Image, Placeholder } from 'cloudinary-react'
+import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import { gsap } from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import CSSRulePlugin from "gsap/CSSRulePlugin";
+import { Image, Placeholder } from "cloudinary-react";
 
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger, CSSRulePlugin)
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger, CSSRulePlugin);
 }
 
 function CardWrapper({ data }) {
-  let bgRef = useRef([])
-  bgRef.current = []
+  const bgRef = useRef([]);
+  bgRef.current = [];
 
-  let titleRef = useRef([])
-  titleRef.current = []
+  const titleRef = useRef([]);
+  titleRef.current = [];
 
-  let techRef = useRef([])
-  techRef.current = []
+  const techRef = useRef([]);
+  techRef.current = [];
 
-  let textRef = useRef([])
-  textRef.current = []
+  const textRef = useRef([]);
+  textRef.current = [];
 
   useEffect(() => {
     bgRef.current.forEach((el, index) => {
@@ -29,8 +29,8 @@ function CardWrapper({ data }) {
         {
           css: {
             x: 0,
-            height: '100%',
-            width: '0%',
+            height: "100%",
+            width: "0%",
             zIndex: -1,
           },
         },
@@ -38,19 +38,19 @@ function CardWrapper({ data }) {
           duration: 1.2,
           delay: 0.2,
           x: 0,
-          ease: 'power3.out',
-          css: { zIndex: 1, width: '100%', opacity: 1 },
+          ease: "power3.out",
+          css: { zIndex: 1, width: "100%", opacity: 1 },
           scrollTrigger: {
             id: `card ${index + 1}`,
             trigger: el,
-            start: 'top top+=250',
-            end: '+=250',
+            start: "top top+=250",
+            end: "+=250",
             markers: false,
-            toggleActions: 'play none none reverse',
+            toggleActions: "play none none reverse",
           },
         }
-      )
-    })
+      );
+    });
 
     titleRef.current.forEach((el, index) => {
       gsap.fromTo(
@@ -59,20 +59,20 @@ function CardWrapper({ data }) {
         {
           duration: 1.4,
           delay: 0.6,
-          ease: 'power3.out',
+          ease: "power3.out",
           x: 0,
           opacity: 1,
           scrollTrigger: {
-            id: `title card ${index++}`,
+            id: `title card ${index + 1}`,
             trigger: el,
-            start: 'top top+=200',
-            end: '+=200',
+            start: "top top+=200",
+            end: "+=200",
             markers: false,
-            toggleActions: 'play none none reverse',
+            toggleActions: "play none none reverse",
           },
         }
-      )
-    })
+      );
+    });
 
     techRef.current.forEach((el, index) => {
       gsap.fromTo(
@@ -87,21 +87,21 @@ function CardWrapper({ data }) {
         {
           duration: 1.2,
           delay: 0.8,
-          ease: 'power3.inOut',
+          ease: "power3.inOut",
           scale: 1,
           autoAlpha: 0.8,
           stagger: {
             amount: 0.4,
           },
           scrollTrigger: {
-            id: `techno card ${index++}`,
+            id: `techno card ${index + 1}`,
             trigger: el,
-            start: 'top top+=300',
-            toggleActions: 'play none none reverse',
+            start: "top top+=300",
+            toggleActions: "play none none reverse",
           },
         }
-      )
-    })
+      );
+    });
 
     textRef.current.forEach((el, index) => {
       gsap.fromTo(
@@ -113,59 +113,59 @@ function CardWrapper({ data }) {
         {
           duration: 0.4,
           delay: 0.2,
-          ease: 'power3.out',
+          ease: "power3.out",
           y: 0,
           autoAlpha: 1,
           stagger: {
             amount: 0.4,
           },
           scrollTrigger: {
-            id: `text card ${index++}`,
+            id: `text card ${index + 1}`,
             trigger: el,
-            start: 'top top+=350',
+            start: "top top+=350",
             scrub: 1,
-            toggleActions: 'play none none reverse',
+            toggleActions: "play none none reverse",
           },
         }
-      )
-    })
+      );
+    });
 
-    ScrollTrigger.refresh()
-  }, [])
+    ScrollTrigger.refresh();
+  }, []);
 
   const addToRefs = (el) => {
     if (el && !bgRef.current.includes(el)) {
-      bgRef.current.push(el)
+      bgRef.current.push(el);
     }
-  }
+  };
 
   const addToRefsTitle = (el) => {
     if (el && !titleRef.current.includes(el)) {
-      titleRef.current.push(el)
+      titleRef.current.push(el);
     }
-  }
+  };
 
   const addTextRef = (el) => {
     if (el && !textRef.current.includes(el)) {
-      textRef.current.push(el)
+      textRef.current.push(el);
     }
-  }
+  };
 
   const addTechRef = (el) => {
     if (el && !techRef.current.includes(el)) {
-      techRef.current.push(el)
+      techRef.current.push(el);
     }
-  }
+  };
 
   return (
     <div className="card-index" key={data._id}>
       <Link to={`/work/${data.slug}`}>
         <Image
           loading="lazy"
-          src={`https://api-sidouxie-v2.herokuapp.com/upload/${data.photo}`}
+          src={`${process.env.REACT_APP_API_URL}/upload/${data.photo}`}
           alt={`capture du site ${data.title}`}
         >
-          <Placeholder type="predominat"></Placeholder>
+          <Placeholder type="predominat" />
         </Image>
         <div className="sec-head">
           <h3 style={{ color: data.colorTitle }} ref={addToRefsTitle}>
@@ -187,7 +187,7 @@ function CardWrapper({ data }) {
                         color: data.colorText,
                         border: `0.5px ${data.colorText} solid`,
                       }}
-                      key={id++}
+                      key={id + 1}
                     >
                       {stack}
                     </span>
@@ -204,10 +204,10 @@ function CardWrapper({ data }) {
           ref={addToRefs}
           className="sec-bg"
           style={{ backgroundColor: data.color }}
-        ></div>
+        />
       </Link>
     </div>
-  )
+  );
 }
 
-export default CardWrapper
+export default CardWrapper;
