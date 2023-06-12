@@ -27,7 +27,11 @@
     "eject": "react-scripts eject",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "release": "standard-version",
+    "release:minor": "standard-version --release-as minor",
+    "release:patch": "standard-version --release-as patch",
+    "release:major": "standard-version --release-as major"
   },
   "eslintConfig": {
     "extends": [
@@ -64,6 +68,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-testing-library": "^5.11.0",
     "husky": "^8.0.0",
-    "prettier": "^2.8.8"
+    "prettier": "^2.8.8",
+    "standard-version": "^9.5.0"
   }
 }
