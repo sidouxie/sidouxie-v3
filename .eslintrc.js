@@ -7,13 +7,21 @@ module.exports = {
     "plugin:react/recommended",
     "airbnb",
     "plugin:prettier/recommended",
+    "plugin:jest-dom/recommended",
+    "plugin:testing-library/react",
   ],
-  overrides: [],
+  overrides: [
+    {
+      // 3) Now we enable eslint-plugin-testing-library rules or preset only for matching testing files!
+      files: ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
+      extends: ["plugin:testing-library/react"],
+    },
+  ],
   parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["react"],
+  plugins: ["react", "jest-dom", "testing-library"],
   rules: {
     "react/jsx-filename-extension": [1, { extensions: [".js", ".jsx"] }],
     "prettier/prettier": "error",

@@ -8,6 +8,7 @@ const getPostsData = async () => {
       },
     })
     .then((response) => response.data);
+  // .catch((err) => err.response.data);
   return result;
 };
 

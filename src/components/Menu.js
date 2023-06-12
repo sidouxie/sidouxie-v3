@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { CSSRulePlugin } from "gsap/CSSRulePlugin";
+import { CSSPlugin, gsap } from "gsap";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import { CSSRulePlugin } from "gsap/CSSRulePlugin";
 import { ReactComponent as SidouxieLogo } from "../assets/SidouxieLogo.svg";
 import { ReactComponent as IconUp } from "../assets/iconUp.svg";
 import { ReactComponent as IconDown } from "../assets/iconDown.svg";
@@ -11,7 +11,7 @@ import { ReactComponent as Instagram } from "../assets/instagram.svg";
 import { ReactComponent as Github } from "../assets/github.svg";
 
 if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger, CSSRulePlugin);
+  gsap.registerPlugin(CSSPlugin);
 }
 
 function Menu({ isopen, handleClick }) {

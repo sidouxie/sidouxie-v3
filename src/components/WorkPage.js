@@ -7,7 +7,7 @@ import { CSSPlugin } from "gsap/CSSPlugin";
 import { Image, Placeholder } from "cloudinary-react";
 
 // Import Icones
-import { useNavigate } from "react-router-dom/dist";
+import { useNavigate, useParams } from "react-router-dom/dist";
 import { ReactComponent as Github } from "../assets/github.svg";
 import { ReactComponent as IconLink } from "../assets/iconLink.svg";
 import { ReactComponent as IconReturn } from "../assets/iconReturn.svg";
@@ -19,6 +19,8 @@ if (typeof window !== "undefined") {
 
 function WorkPage({ data }) {
   const navigate = useNavigate();
+
+  const { slug } = useParams();
 
   const [isLink, setIsLink] = useState(false);
   const [isGit, setIsGit] = useState(false);
@@ -72,24 +74,24 @@ function WorkPage({ data }) {
     );
   }, []);
 
+  /**
+   * Find the right post from data with :slug params
+   */
+
+  const post = data.find((p) => p.slug === slug);
+  console.log("result : ", post);
+
+  // console.log(data.find((p) => p.slug === slug));
+  console.log(post);
+
   return (
     <>
-      {data && (
+      {Array.isArray(data) && data.length !== 0 ? (
         <Layout>
-          <motion.main
-            className="main-work-page"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            // transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.25 }}
-            transition={{ ease: "easeIn", duration: 0.25 }}
-          >
+          <main className="main-work-page">
             <motion.div
               className="section-details"
-              initial={{ backgroundColor: "#fff" }}
-              animate={{ backgroundColor: data.color }}
-              exit={{ opacity: 0 }}
-              transition={{ ease: "easeInOut", duration: 0.25 }}
+              animate={{ backgroundColor: post.color }}
             >
               <div className="container">
                 <div className="wrapper">
@@ -101,56 +103,56 @@ function WorkPage({ data }) {
                         onMouseEnter={() => handleHover(isHover)}
                         onMouseLeave={() => handleHover(!isHover)}
                         style={{
-                          fill: `${isHover ? data.colorText : data.colorTitle}`,
+                          fill: `${isHover ? post.colorText : post.colorTitle}`,
                           cursor: "pointer",
                         }}
                       />
                     </div>
 
                     <div
-                      style={{ color: data.colorText, opacity: 0.5 }}
+                      style={{ color: post.colorText, opacity: 0.5 }}
                       className="category"
                     >
                       <h3>site web</h3>
                     </div>
                     <div className="title">
-                      <h2 style={{ color: data.colorTitle }}>{data.title}</h2>
+                      <h2 style={{ color: post.colorTitle }}>{post.title}</h2>
                       <span
-                        style={{ color: data.colorText, opacity: 0.5 }}
+                        style={{ color: post.colorText, opacity: 0.5 }}
                         className="domain"
                       >
-                        {data.domain}{" "}
+                        {post.domain}{" "}
                       </span>
                     </div>
 
                     <div className="sec-text">
                       <div className="sec-card">
                         <div className="subtitle">
-                          <h2 style={{ color: data.colorTitle }}>Résumer</h2>
+                          <h2 style={{ color: post.colorTitle }}>Résumer</h2>
                         </div>
-                        <div style={{ color: data.colorText }} className="text">
-                          <p>{data.description}</p>
+                        <div style={{ color: post.colorText }} className="text">
+                          <p>{post.description}</p>
                         </div>
                       </div>
                       <div className="sec-card">
                         <div className="subtitle">
-                          <h2 style={{ color: data.colorTitle }}>Stacks</h2>
+                          <h2 style={{ color: post.colorTitle }}>Stacks</h2>
                         </div>
 
                         <div className="sec-span">
-                          {data &&
-                            data.techno.map(({ id, stacks }) => (
+                          {post &&
+                            post?.techno.map(({ id, stacks }) => (
                               <span
                                 className="container-span"
                                 style={{ opacity: 0.8 }}
                                 key={id}
                               >
-                                {stacks.map((stack) => (
+                                {stacks?.map((stack) => (
                                   <span
                                     className="content-span"
                                     style={{
-                                      color: data.colorText,
-                                      border: `0.5px ${data.colorText} solid`,
+                                      color: post.colorText,
+                                      border: `0.5px ${post.colorText} solid`,
                                     }}
                                     key={id + 1}
                                   >
@@ -165,22 +167,22 @@ function WorkPage({ data }) {
 
                     <div className="sec-link">
                       <div className="link">
-                        <span style={{ color: data.colorTitle }}>
+                        <span style={{ color: post.colorTitle }}>
                           consulter le site
                         </span>
                         <a
                           target="_blank"
-                          href={data.link}
+                          href={post.link}
                           rel="noopener noreferrer"
                         >
                           <IconLink
                             width="32px"
-                            title={`${data.title} site web`}
+                            title={`${post.title} site web`}
                             onMouseEnter={() => handleLink(isLink)}
                             onMouseLeave={() => handleLink(!isLink)}
                             style={{
                               fill: `${
-                                isLink ? data.colorTitle : data.colorText
+                                isLink ? post.colorTitle : post.colorText
                               }`,
                               cursor: "pointer",
                             }}
@@ -188,22 +190,22 @@ function WorkPage({ data }) {
                         </a>
                       </div>
                       <div className="link">
-                        <span style={{ color: data.colorTitle }}>
+                        <span style={{ color: post.colorTitle }}>
                           voir le code
                         </span>
                         <a
                           target="_blank"
-                          href={data.github}
+                          href={post.github}
                           rel="noopener noreferrer"
                         >
                           <Github
                             width="32px"
-                            title={`${data.title} Github repository`}
+                            title={`${post.title} Github repository`}
                             onMouseEnter={() => handleGit(isGit)}
                             onMouseLeave={() => handleGit(!isGit)}
                             style={{
                               fill: `${
-                                isGit ? data.colorTitle : data.colorText
+                                isGit ? post.colorTitle : post.colorText
                               }`,
                               cursor: "pointer",
                             }}
@@ -220,8 +222,8 @@ function WorkPage({ data }) {
 
             <div className="section-image">
               <Image
-                src={`${process.env.REACT_APP_API_URL}/upload/${data.photo}`}
-                alt={`capture background de site ${data.title}`}
+                src={`${process.env.REACT_APP_API_URL}/upload/${post.photo}`}
+                alt={`capture background de site ${post.title}`}
                 width="1000px"
                 height="562px"
               >
@@ -240,15 +242,15 @@ function WorkPage({ data }) {
                   </div>
 
                   <div className="text">
-                    <p>{data.description}</p>
+                    <p>{post.description}</p>
                   </div>
 
                   {/* section image mockup */}
 
                   <div className="section-mockup">
                     <Image
-                      src={`${process.env.REACT_APP_API_URL}/upload/${data.mockupPhoto}`}
-                      alt={`Mockup du projet ${data.title}`}
+                      src={`${process.env.REACT_APP_API_URL}/upload/${post.mockupPhoto}`}
+                      alt={`Mockup du projet ${post.title}`}
                     >
                       <Placeholder type="blur" />
                     </Image>
@@ -257,7 +259,7 @@ function WorkPage({ data }) {
                   <div className="section-btn">
                     <a
                       target="_blank"
-                      href={data.link}
+                      href={post.link}
                       rel="noopener noreferrer"
                     >
                       visiter le site
@@ -266,8 +268,10 @@ function WorkPage({ data }) {
                 </div>
               </div>
             </div>
-          </motion.main>
+          </main>
         </Layout>
+      ) : (
+        <div>No Post For You</div>
       )}
     </>
   );

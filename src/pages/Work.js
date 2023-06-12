@@ -21,8 +21,6 @@ function Work() {
     refetchOnWindowFocus: false,
   });
 
-  console.log(data);
-
   useEffect(() => {
     ScrollTrigger.defaults({
       markers: false,
