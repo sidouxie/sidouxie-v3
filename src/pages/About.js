@@ -11,30 +11,37 @@ if (typeof window !== "undefined") {
 
 const data = [
   {
+    id: 1,
     title: "Express Js Logo",
     url: "./images/1.png",
   },
   {
+    id: 2,
     title: "Next Js Logo",
     url: "./images/2.png",
   },
   {
+    id: 3,
     title: "Sass Logo",
     url: "./images/3.png",
   },
   {
+    id: 4,
     title: "React Js Logo",
     url: "./images/4.png",
   },
   {
+    id: 5,
     title: "Node Js Logo",
     url: "./images/5.png",
   },
   {
+    id: 6,
     title: "Mongodb Logo",
     url: "./images/6.png",
   },
   {
+    id: 7,
     title: "Gatsby Js Logo",
     url: "./images/7.png",
   },
@@ -116,7 +123,7 @@ function About() {
                 <a
                   rel="noreferrer"
                   target="_blank"
-                  href="https://drive.google.com/file/d/1TpbZWbmVpvUw-LEv0_9d6HmNvGlR3BJC/view?usp=sharing"
+                  href={process.env.REACT_APP_RESUME_CV_URL}
                 >
                   Resumé cv
                 </a>
@@ -230,7 +237,7 @@ function About() {
       <div className="section-logos">
         <div className="wrap-card">
           {data.map((logo) => (
-            <img src={logo.url} alt={logo.title} key={logo.title} />
+            <img src={logo.url} alt={logo.title} key={logo.id} />
           ))}
         </div>
       </div>

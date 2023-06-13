@@ -77,7 +77,7 @@ function Work() {
               {isLoading ? (
                 <LoaderSpinner />
               ) : (
-                data.map((card) => <CardWrapper data={card} key={card._id} />)
+                data.map((card) => <CardWrapper data={card} key={card.slug} />)
               )}
             </div>
           </main>
